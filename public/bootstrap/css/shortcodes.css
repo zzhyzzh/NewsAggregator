@@ -1,0 +1,443 @@
+/*------------------------------------------------------------------
+
+@Author: CodeoStudio
+@URL:    http://codeostudio.hr/
+
+[Table of contents]
+
+1. Clearfix
+2. Columns
+3. Blockquotes
+4. Pullquotes
+5. Dropcaps
+6. Buttons
+7. Tabs
+8. Accordion
+9. Spacers
+9.1 Alerts
+9.2 Service boxes
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    1. Clearfix
+-------------------------------------------------------------------*/
+.cs-row:before,
+.cs-row:after {
+    content: " ";
+    display: table
+}
+.cs-row:after {
+    clear: both
+}
+
+/*------------------------------------------------------------------
+    2. Columns
+-------------------------------------------------------------------*/
+.cs-row {
+    position: relative;
+    margin-left: -10px;
+    margin-right: -10px
+}
+.cs-col {
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+.cs-col-1-of-12 {
+    width: 8.33333333%
+}
+.cs-col-2-of-12 {
+    width: 16.66666667%
+}
+.cs-col-3-of-12 {
+    width: 25%
+}
+.cs-col-4-of-12 {
+    width: 33.33333333%
+}
+.cs-col-5-of-12 {
+    width: 41.66666667%
+}
+.cs-col-6-of-12 {
+    width: 50%
+}
+.cs-col-7-of-12 {
+    width: 58.33333333%
+}
+.cs-col-8-of-12 {
+    width: 66.66666667%
+}
+.cs-col-9-of-12 {
+    width: 75%
+}
+.cs-col-10-of-12 {
+    width: 83.33333333%
+}
+.cs-col-11-of-12 {
+    width: 91.66666667%
+}
+.cs-col-12-of-12 {
+    width: 100%
+}
+
+/*------------------------------------------------------------------
+    3. Blockquotes
+-------------------------------------------------------------------*/
+blockquote.alt {
+    text-align: center;
+    border: 1px solid #eee;
+    padding: 30px
+}
+blockquote.alt i {
+    font-size: 28px;
+    margin-bottom: 10px
+}
+
+/*------------------------------------------------------------------
+    4. Pullquotes
+-------------------------------------------------------------------*/
+.pullquotes {
+    position: relative;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    z-index: 1;
+    color: #000
+}
+.pullquotes:after {
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 140px;
+    position: absolute;
+    z-index: -1;
+    top: 15px;
+    color: #eee
+}
+.pullquotes.left {
+    float: left;
+    width: 30%;
+    margin: 20px 40px 20px 0;
+    padding-left: 30px
+}
+.pullquotes.left:after {
+    content: "\201C";
+    left: 0
+}
+.pullquotes.center {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    clear: both
+}
+.pullquotes.right {
+    float: right;
+    text-align: right;
+    width: 30%;
+    margin: 20px 0 20px 40px;
+    padding-right: 30px
+}
+.pullquotes.right:after {
+    content: "\201C";
+    right: 0
+}
+
+/*------------------------------------------------------------------
+    5. Dropcaps
+-------------------------------------------------------------------*/
+.dropcap:first-letter {
+    float: left;
+    display: block;
+    font-size: 40px;
+    line-height: 42px;
+    margin: 0 10px 0 0;
+    font-weight: 400;
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    6. Buttons
+-------------------------------------------------------------------*/
+.cs-btn {
+    display: inline-block;
+    padding: 4px 14px;
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    outline: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    border: 0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s
+}
+.cs-btn:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
+.cs-btn.cs-btn-small {
+    padding: 2px 8px;
+    font-size: 12px
+}
+.cs-btn.cs-btn-large {
+    padding: 8px 20px;
+    font-size: 18px
+}
+.cs-btn.cs-btn-extralarge {
+    padding: 16px 32px;
+    font-size: 24px
+}
+.cs-btn.cs-btn-expand {
+    width: 100%;
+    display: block
+}
+.cs-btn.cs-btn-expand + .cs-btn.cs-btn-expand {
+    margin-top: 5px
+}
+.cs-btn.cs-btn-white {
+    background-color: #f1f1f1;
+    color: #333
+}
+.cs-btn.cs-btn-white:hover {
+    color: #fff
+}
+.cs-btn.cs-btn-black {
+    background-color: #222
+}
+.cs-btn.cs-btn-red {
+    background-color: #683c17
+}
+.cs-btn.cs-btn-green {
+    background-color: #71a866
+}
+.cs-btn.cs-btn-tirquese {
+    background-color: #7fccbc
+}
+.cs-btn.cs-btn-blue {
+    background-color: #508fd1
+}
+.cs-btn.cs-btn-pink {
+    background-color: #9d5fac
+}
+.cs-btn.cs-btn-orange {
+    background-color: #c47839
+} 
+.cs-btn.cs-btn-grey {
+    background-color: #b1b0a7
+}
+.cs-btn.cs-btn-with-icon {
+    padding-left: 44px
+}
+.cs-btn.cs-btn-small.cs-btn-with-icon {
+    padding-left: 34px
+}
+.cs-btn.cs-btn-large.cs-btn-with-icon {
+    padding-left: 58px
+}
+.cs-btn.cs-btn-extralarge.cs-btn-with-icon {
+    padding-left: 86px
+}
+.cs-btn.cs-btn-with-icon i {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    text-align: center
+}
+.cs-btn.cs-btn-with-icon i {
+    width: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+.cs-btn.cs-btn-small.cs-btn-with-icon i {
+    width: 26px;
+    line-height: 26px;
+    font-size: 10px;
+}
+.cs-btn.cs-btn-large.cs-btn-with-icon i {
+    width: 38px;
+    line-height: 38px;
+    font-size: 14px;
+}
+.cs-btn.cs-btn-extralarge.cs-btn-with-icon i {
+    width: 54px;
+    line-height: 54px;
+    font-size: 20px;
+}
+
+/*------------------------------------------------------------------
+    7. Tabs
+-------------------------------------------------------------------*/
+.cs-tab-group {
+    margin-bottom: 20px
+}
+.cs-tab-group .ui-tabs-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.cs-tab-group .ui-tabs-nav li {
+    float: left;
+    margin-right: 15px
+}
+.cs-tab-group .ui-tabs-nav li a {
+    outline: none;
+    display: block;
+    padding-bottom: 4px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    color: #999
+}
+.cs-tab-group .ui-tabs-panel {
+    padding-top: 15px
+}
+.cs-tab-group .ui-tabs-panel p:last-child {
+    margin: 0
+}
+.cs-tab-group .ui-tabs-nav li.ui-tabs-active a,
+.cs-tab-group .ui-tabs-nav li:hover a {
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    8. Accordion
+-------------------------------------------------------------------*/
+.cs-accordion-group {
+    margin-bottom: 20px
+}
+.cs-accordion-group .cs-accordion-title {
+    color: #999;
+    outline: none;
+    cursor: pointer;
+    padding: 4px 0;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: transparent;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.cs-accordion-group .cs-accordion-title:after {
+    content: "\f067";
+    font-family: "FontAwesome";
+    position: absolute;
+    right: 0;
+    top: 0
+}
+.cs-accordion-group .cs-accordion-title.ui-state-active {
+    color: #000
+}
+.cs-accordion-group .cs-accordion-title:hover {
+    color: #000
+}
+.cs-accordion-group .cs-accordion-title.ui-state-active:after {
+    color: #000;
+    content: "\f068"
+}
+.cs-accordion-group .cs-accordion-panel {
+    padding: 15px 0
+}
+.cs-accordion-group .cs-accordion-panel p:last-child {
+    margin: 0
+}
+
+/*------------------------------------------------------------------
+    9. Spacers
+-------------------------------------------------------------------*/
+.cs-spacer {
+    display: block;
+    position: relative;
+    width: 100%;
+    clear: both;
+    border: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 1px;
+    background-color: #f5f5f5;
+    color: #ccc;
+    text-align: center
+}
+.cs-spacer i {
+    width: 40px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -20px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #fff !important
+}
+
+/*------------------------------------------------------------------
+    9.1 Alerts
+-------------------------------------------------------------------*/
+.cs-alert {
+    position: relative;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #fff
+}
+.cs-alert p {
+    overflow: hidden;
+    margin: 2px 0 0 30px
+}
+.cs-alert i {
+    position: absolute;
+    left: 20px;
+    top: 20px
+}
+.cs-alert.cs-alert-green {
+    background-color: #EBF6E0;
+    color: #5f9025
+}
+.cs-alert.cs-alert-blue {
+    background-color: #E9F7FE;
+    color: #5091b2
+}
+.cs-alert.cs-alert-red {
+    background-color: #ffe9e9;
+    color: #de5959
+}
+.cs-alert.cs-alert-yellow {
+    background-color: #FBFADD;
+    color: #8f872e
+}
+
+/*------------------------------------------------------------------
+    9.2 Service box
+-------------------------------------------------------------------*/
+.cs-service-box {
+    margin-bottom: 20px
+}
+.cs-service-box i {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #ddd
+}
+.cs-service-box h4 {
+    margin: 0 0 10px 0 !important
+}

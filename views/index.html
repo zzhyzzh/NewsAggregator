@@ -1,0 +1,1181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>新闻聚合网站</title>
+		 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+		<link rel="shortcut icon" href="/bootstrap/favicon.ico">
+		<link rel="icon" type="image/png" href="/bootstrap/favicon.png">
+		 
+		<link rel="stylesheet" href="/bootstrap/css/normalize.css">
+		<link rel="stylesheet" href="/bootstrap/css/fontawesome.css">
+		<link rel="stylesheet" href="/bootstrap/css/typography.css">
+		<link rel="stylesheet" href="/bootstrap/css/colors.css">
+		<link rel="stylesheet" href="/bootstrap/css/swiper.css">
+		<link rel="stylesheet" href="/bootstrap/css/lightbox.css">
+		<link rel="stylesheet" href="/bootstrap/css/style.css">
+		 
+		<link rel="stylesheet" media="(max-width:799px)" href="/bootstrap/css/0-responsive.css">
+		<link rel="stylesheet" media="(min-width:800px) and (max-width:1039px)" href="/bootstrap/css/768-responsive.css">
+		<link rel="stylesheet" media="(min-width:1040px) and (max-width:1199px)" href="/bootstrap/css/1025-responsive.css">
+		<link rel="stylesheet" media="(min-width:1200px)" href="/bootstrap/css/1200-responsive.css">
+		 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		 
+		<div id="cs-wrapper" class="wide">
+		 
+			<header id="cs-header" class="cs-header-center">
+			 
+				<div class="cs-header-top">
+				<div class="cs-container">
+				 
+				<nav id="cs-top-navigation">
+					<ul>
+						<li><a href="/">主页</a></li>				
+						<li><a href="page-contact.html">联系我们</a></li>
+					</ul>
+				</nav> 
+				<%if(username == ""){%>
+					<a href="#cs-login-popup" class="cs-top-login">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+						登录/注册
+					</a> 
+				<%}else{%>
+					<a href="#cs-login-popup" class="cs-top-login">
+						<%=username%>
+					</a> 
+				<%}%>
+				<div id="cs-login-popup" class="mfp-hide">
+					<div class="cs-tab-group">
+						<ul>
+							<li><a href="#theme-login">登录</a></li>
+							<li><a href="#theme-register">注册</a></li>
+						</ul>
+						<div id="theme-login">
+							<form action="/" id="login_form" method="post">
+								<p>
+									<label for="login_bond_id">用户名</label>
+									<input type="text" name="username"> 
+								</p>
+								<p>
+									<label for="login_password">密码</label>
+									<input type="password" name="password">
+									<label class="warn" id="login_error" style="color: red"><%=errMsg%></label>							
+								</p>
+									<input type="submit" class="cs-btn cs-btn-black" value="Login">
+							</form>
+						</div>
+						<div id="theme-register">
+							<form>
+							<p>
+								<label>用户名</label>
+								<input type="text">
+							</p>
+							<p>
+								<label>邮箱</label>
+								<input type="email">
+							</p>
+							<p>
+								<label>密码</label>
+								<input type="password">
+							</p>
+								<input type="submit" class="cs-btn cs-btn-black" value="Register">
+							<label class="warn" id="login_error" style="color: red"><%=errMsg%></label>	
+							</form>
+						</div>
+					</div>
+				</div> 
+				</div>
+				</div> 
+				 
+				<div class="cs-header-middle">
+				<div class="cs-container">
+				
+				<div class="cs-toggle-main-navigation">
+				<i class="fa fa-bars"></i>
+				</div> 
+				 
+				<div id="cs-logo-brand">
+				 
+				<a href="/"><img src="/bootstrap/demo/Infinity.jpg" alt="Infinity"></a>
+				</div> 				
+				</div>
+				</div> 
+				 
+				<div class="cs-header-bottom">
+				<div class="cs-container">
+				</div>
+				</div> 
+			</header> 
+			<!-------主体------------------------------------------------------------> 	 
+			<div class="cs-page-wrapper cs-container">
+				<div class="cs-main-content cs-sidebar-on-the-right">
+			<!-------热点------------------------------------------------------------> 	 
+					<div class="cs-slider-3 swiper-container">
+					 
+					<div class="swiper-wrapper">
+					 
+					<div class="swiper-slide">
+					<div class="swiper-caption">
+					<h2><a href="post-standard.html"><%=newsAgg.hot[0].title%></a></h2>
+					<div>
+					<span><%=newsAgg.hot[0].datetime%></span>
+					<a href="#"><%=newsAgg.hot[0].source%></a>
+					</div>
+					</div>
+					<a href="post-standard.html"><img src="<%=newsAgg.hot[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="swiper-slide">
+					<div class="swiper-caption">
+					<h2><a href="post-standard.html"><%=newsAgg.hot[1].title%></a></h2>
+					<div>
+					<span><%=newsAgg.hot[1].datetime%></span>
+					<a href="#"><%=newsAgg.hot[1].source%></a>
+					</div>
+					</div>
+					<a href="post-standard.html"><img src="<%=newsAgg.hot[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="swiper-slide">
+					<div class="swiper-caption">
+					<h2><a href="post-standard.html"><%=newsAgg.hot[2].title%></a></h2>
+					<div>
+					<span><%=newsAgg.hot[2].datetime%></span>
+					<a href="#"><%=newsAgg.hot[2].source%></a>
+					</div>
+					</div>
+					<a href="post-standard.html"><img src="<%=newsAgg.hot[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					</div> 
+					<div class="swiper-pagination"></div>
+					</div> 
+			<!-------社会------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">社会</h3>
+					
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.society[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.society[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.society[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.society[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">社会</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.society[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.society[0].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.society[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.society[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.society[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.society[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">社会</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.society[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.society[1].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.society[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.society[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.society[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.society[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">社会</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.society[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.society[2].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					</div> 
+			<!-------科技---------------------------------------------------------------> 
+					<div class="cs-module-1">
+					 
+					<h3 class="cs-block-title">科技</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">科技</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.technology[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-thumbnail">
+					 
+					<div class="cs-post-slider swiper-container">
+					 
+					<div class="swiper-wrapper">
+					<div class="swiper-slide">
+					<a href="post-standard.html"><img src="<%=newsAgg.technology[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					</div> 
+					 
+					<div class="swiper-button-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+					<div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.technology[0].abstract%></p>
+					</div> 
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.technology[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.technology[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments">
+					<span>Comments</span>
+					<b><%=newsAgg.technology[0].comment_count%></b>
+					</div>
+					</div> 
+					</article> 
+					</div> 
+			<!-------国际---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">国际</h3>
+					
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.world[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.world[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.world[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.world[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">社会</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.world[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.world[0].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.world[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.world[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.world[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.world[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">社会</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.world[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.world[1].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.world[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.world[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.world[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.world[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">社会</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.world[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.world[2].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					</div> 
+			<!-------体育---------------------------------------------------------------> 
+					<div class="cs-module-1">
+					 
+					<h3 class="cs-block-title">体育</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">体育</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.sport[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-thumbnail">
+					 
+					<div class="cs-post-slider swiper-container">
+					 
+					<div class="swiper-wrapper">
+					<div class="swiper-slide">
+					<a href="post-standard.html"><img src="<%=newsAgg.sport[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					</div> 
+					 
+					<div class="swiper-button-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+					<div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.sport[0].abstract%></p>
+					</div> 
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.sport[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.sport[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments">
+					<span>Comments</span>
+					<b><%=newsAgg.sport[0].comment_count%></b>
+					</div>
+					</div> 
+					</article> 
+					</div> 
+			<!-------娱乐---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">娱乐</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.entertainment[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[0].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.entertainment[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[1].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.entertainment[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[2].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.entertainment[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[3].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					</div> 
+			<!-------汽车---------------------------------------------------------------> 
+					<div class="cs-module-1">
+					 
+					<h3 class="cs-block-title">汽车</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">汽车</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.car[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-thumbnail">
+					 
+					<div class="cs-post-slider swiper-container">
+					 
+					<div class="swiper-wrapper">
+					<div class="swiper-slide">
+					<a href="post-standard.html"><img src="<%=newsAgg.car[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					</div> 
+					 
+					<div class="swiper-button-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+					<div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.car[0].abstract%></p>
+					</div> 
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.car[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.car[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments">
+					<span>Comments</span>
+					<b><%=newsAgg.car[0].comment_count%></b>
+					</div>
+					</div> 
+					</article> 
+					</div> 
+			<!-------财经---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">财经</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.finance[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.finance[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.finance[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.finance[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">财经</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.finance[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.finance[0].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.finance[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.finance[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.finance[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.finance[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">财经</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.finance[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.finance[1].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.finance[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.finance[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.finance[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.finance[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">财经</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.finance[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.finance[2].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.finance[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.finance[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.finance[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="post-standard.html"><img src="<%=newsAgg.finance[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">财经</a>
+					</div>
+					<h3><a href="post-standard.html"><%=newsAgg.finance[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.finance[3].abstract%></p>
+					<a href="post-standard.html" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 				
+				</div> 
+	<!-------侧边栏新闻类别---------------------------------------------------------------> 
+				<div class="cs-main-sidebar cs-sticky-sidebar">				 
+					<aside class="widget widget_cover_posts">
+					<h3 class="widget-title"><span>类别</span></h3>
+					<ul>
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>社会</span>
+							<h3><%=newsAgg.society[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.society[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>	
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>国际</span>
+							<h3><%=newsAgg.world[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.world[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>	
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>娱乐</span>
+							<h3><%=newsAgg.entertainment[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.entertainment[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>科技</span>
+							<h3><%=newsAgg.technology[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.technology[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>体育</span>
+							<h3><%=newsAgg.sport[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.sport[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>汽车</span>
+							<h3><%=newsAgg.car[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.car[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>财经</span>
+							<h3><%=newsAgg.finance[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.finance[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>搞笑</span>
+							<h3><%=newsAgg.funny[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.funny[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>军事</span>
+							<h3><%=newsAgg.military[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.military[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>时尚</span>
+							<h3><%=newsAgg.fashion[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.fashion[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>探索</span>
+							<h3><%=newsAgg.discovery[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.discovery[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>养生</span>
+							<h3><%=newsAgg.regimen[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.regimen[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>历史</span>
+							<h3><%=newsAgg.history[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.history[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>旅行</span>
+							<h3><%=newsAgg.travel[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.travel[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>游戏</span>
+							<h3><%=newsAgg.game[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.game[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+						<li>
+							<a href="post-standard.html">
+							<div>
+							<span>美食</span>
+							<h3><%=newsAgg.food[3].title%></h3>
+							</div>
+							<img src="<%=newsAgg.food[3].middle_image%>" alt="Infinity">
+							</a>
+						</li>			
+					</ul>
+					</aside>
+				</div> 
+			</div> 
+	<!-------底部---------------------------------------------------------------> 		 
+			<footer id="cs-footer">
+			<div class="cs-container">
+			<div class="cs-row">
+			<div class="cs-col cs-col-4-of-12">
+			 
+			<aside class="widget">
+			<h3 class="widget-title"><span>Social network</span></h3>
+			<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.</p>
+			<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+			<div class="cs-widget-social">
+			<ul>
+			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+			<li><a href="#"><i class="fa fa-weibo"></i></a></li>
+			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			</ul>
+			</div>
+			</aside> 
+			</div>
+			<div class="cs-col cs-col-4-of-12">
+			 
+			<aside class="widget widget_custom_categories">
+			<h3 class="widget-title"><span>Categories</span></h3>
+			<ul>
+			<li><a href="blog-category.html">Fashion</a><span>78</span></li>
+			<li><a href="blog-category.html">Entertainment</a><span>340</span></li>
+			<li><a href="blog-category.html">Music</a><span>14</span></li>
+			<li><a href="blog-category.html">Design</a><span>65</span></li>
+			<li><a href="blog-category.html">Videogames</a><span>998</span></li>
+			<li><a href="blog-category.html">Nature</a><span>12</span></li>
+			</ul>
+			</aside> 
+			</div>
+			<div class="cs-col cs-col-4-of-12">
+			 
+			<aside class="widget widget_custom_recent_posts">
+			<h3 class="widget-title"><span>Recent posts</span></h3>
+			 
+			<article class="cs-post">
+			 
+			<div class="cs-post-thumbnail">
+			<a href="post-standard.html"><img src="photos/19.jpg" alt="Infinity"></a>
+			</div> 
+			 
+			<div class="cs-post-header">
+			<div class="cs-category-links">
+			<a href="blog-category.html">Entertainment</a>
+			</div>
+			<h3><a href="post-standard.html">France Wants to Continue State of Emergency to Cover Euro 2016</a></h3>
+			</div> 
+			</article> 
+			 
+			<article class="cs-post">
+			 
+			<div class="cs-post-thumbnail">
+			<a href="post-standard.html"><img src="photos/18.jpg" alt="Infinity"></a>
+			</div> 
+			 
+			<div class="cs-post-header">
+			<div class="cs-category-links">
+			<a href="blog-category.html">Music</a>
+			</div>
+			<h3><a href="post-standard.html">Sergio Aguero: City Striker Joins Premier League Centurions</a></h3>
+			</div> 
+			</article> 
+			</aside> 
+			</div>
+			</div>
+			 
+			<div class="cs-copyright">
+			Copyright &copy; 2016. Made by <a href="http://jqueryfuns.com" target="_blank">Codeo Studio</a> :)
+			</div> 
+			</div>
+			</footer> 
+		</div> 
+ 
+		
+		<script src="/bootstrap/js/jquery.js"></script>
+		<script src="/bootstrap/js/jquery-ui.js"></script>
+		<script src="/bootstrap/js/jquery-scrollindicator.js"></script>
+		<script src="/bootstrap/js/jquery-fitvids.js"></script>
+		<script src="/bootstrap/js/jquery-parallax.js"></script>
+		<script src="/bootstrap/js/jquery-sticky.js"></script>
+		<script src="/bootstrap/js/jquery-lightbox.js"></script>
+		<script src="/bootstrap/js/jquery-swiper.js"></script>
+		<script src="/bootstrap/js/jquery-init.js"></script>
+		<script src="/bootstrap/js/jquery-demo.js"></script>
+		<!--<script src="/javascripts/register.js" charset="utf-8"></script>
+		<script src="/javascripts/login.js" charset="utf-8"></script>-->
+	</body>
+</html>

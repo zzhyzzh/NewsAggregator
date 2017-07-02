@@ -1,0 +1,44 @@
+/*------------------------------------------------------------------
+
+@Author: CodeoStudio
+@URL:    http://codeostudio.hr/
+
+[Table of contents]
+
+1. Arial
+2. PT Serif
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    1. Arial
+-------------------------------------------------------------------*/
+body,
+.cs-block-title,
+h3.widget-title span,
+.cs-author-description h5 {
+	font-family: Arial, Helvetica, sans-serif
+}
+
+/*------------------------------------------------------------------
+    2. PT Serif
+-------------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.cs-footer-date,
+.cs-footer-comments b,
+.cs-post-thumbnail .cs-post-rating,
+.cs-post-content a.read-more,
+.cs-summary-area .cs-summary-score span.cs-score,
+.cs-comment-author b,
+.pullquotes,
+blockquote,
+.dropcap:first-letter,
+.cs-btn,
+#commentform input[type="submit"] {
+	font-family: "PT Serif", Georgia, Times, serif
+}

@@ -1,0 +1,853 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Infinity | Stylish Magazine Template</title>
+ 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
+ 
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/fontawesome.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/colors.css">
+<link rel="stylesheet" href="css/swiper.css">
+<link rel="stylesheet" href="css/lightbox.css">
+<link rel="stylesheet" href="css/style.css">
+ 
+<link rel="stylesheet" media="(max-width:799px)" href="css/0-responsive.css">
+<link rel="stylesheet" media="(min-width:800px) and (max-width:1039px)" href="css/768-responsive.css">
+<link rel="stylesheet" media="(min-width:1040px) and (max-width:1199px)" href="css/1025-responsive.css">
+<link rel="stylesheet" media="(min-width:1200px)" href="css/1200-responsive.css">
+ 
+<link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body style="background-image: url(photos/34.jpg); background-repeat: repeat;">
+ 
+<div id="cs-wrapper" class="boxed">
+ 
+<header id="cs-header" class="cs-header-center">
+ 
+<div class="cs-header-top">
+<div class="cs-container">
+ 
+<nav id="cs-top-navigation">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="page-shortcodes.html">Shortcodes</a></li>
+<li><a href="#"><span>Posts</span></a>
+<ul class="sub-menu">
+<li><a href="post-standard.html">Standard</a></li>
+<li><a href="post-audio.html">Audio</a></li>
+<li><a href="post-gallery.html">Gallery</a></li>
+<li><a href="post-video.html">Video</a></li>
+<li><a href="post-parallax.html">Parallax</a></li>
+<li><a href="post-cover.html">Cover</a></li>
+</ul>
+</li>
+<li><a href="page-contact.html">Contact us</a></li>
+</ul>
+</nav> 
+ 
+<a href="#cs-login-popup" class="cs-top-login">
+<i class="fa fa-lock" aria-hidden="true"></i>Login/Register
+</a> 
+ 
+<div id="cs-login-popup" class="mfp-hide">
+<div class="cs-tab-group">
+<ul>
+<li><a href="#theme-login">Log in</a></li>
+<li><a href="#theme-register">Register</a></li>
+</ul>
+<div id="theme-login">
+<form>
+<p>
+<label>Username</label>
+<input type="text">
+</p>
+<p>
+<label>Password</label>
+<input type="password">
+</p>
+<input type="submit" class="cs-btn cs-btn-black" value="Login">
+<p><a href="#">You forgot your password?</a></p>
+</form>
+</div>
+<div id="theme-register">
+<form>
+<p>
+<label>Username</label>
+<input type="text">
+</p>
+<p>
+<label>E-mail</label>
+<input type="email">
+</p>
+<input type="submit" class="cs-btn cs-btn-black" value="Register">
+<p>You will get e-mail with instructions.</p>
+</form>
+</div>
+</div>
+</div> 
+</div>
+</div> 
+ 
+<div class="cs-header-middle">
+<div class="cs-container">
+ 
+<div class="cs-header-search">
+<form role="search">
+<div class="close"><i class="fa fa-close"></i></div>
+<input type="text" placeholder="Type and press enter...">
+</form>
+</div> 
+ 
+<div class="cs-toggle-main-navigation">
+<i class="fa fa-bars"></i>
+</div> 
+ 
+<div id="cs-logo-brand">
+ 
+<a href="index.html"><img src="demo/Infinity.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-desktop-search">
+<form>
+<input type="search" placeholder="Type and press enter...">
+</form>
+</div> 
+ 
+<div class="cs-toggle-main-search">
+<i class="fa fa-search"></i>
+</div> 
+</div>
+</div> 
+ 
+<div class="cs-header-bottom">
+<div class="cs-container">
+ 
+<nav id="cs-main-navigation">
+<ul>
+<li><a href="#"><span>Homepages</span></a>
+<ul class="sub-menu">
+<li><a href="index.html">Homepage</a></li>
+<li><a href="index-1.html">Homepage 1</a></li>
+<li><a href="index-2.html">Homepage 2</a></li>
+<li><a href="index-3.html">Homepage 3</a></li>
+<li><a href="index-4.html">Homepage 4</a></li>
+<li><a href="index-5.html">All blocks and widgets</a></li>
+</ul>
+</li>
+<li><a href="#"><span>Blog</span></a>
+<ul class="sub-menu">
+<li><a href="blog-category.html">Blog</a></li>
+<li><a href="blog-category-1.html">Blog 1</a></li>
+<li><a href="blog-category-2.html">Blog 2</a></li>
+<li><a href="blog-category-3.html">Blog 3</a></li>
+<li><a href="blog-category-4.html">Blog 4</a></li>
+</ul>
+</li>
+<li><a href="#"><span>Posts</span></a>
+<ul class="sub-menu">
+<li><a href="post-standard.html">Standard</a></li>
+<li><a href="post-audio.html">Audio</a></li>
+<li><a href="post-gallery.html">Gallery</a></li>
+<li><a href="post-video.html">Video</a></li>
+<li><a href="post-parallax.html">Parallax</a></li>
+<li><a href="post-cover.html">Cover</a></li>
+</ul>
+</li>
+<li><a href="#"><span>Page templates</span></a>
+<ul class="sub-menu">
+<li><a href="page-shortcodes.html">Shortcodes</a></li>
+<li><a href="page-404.html">Page 404</a></li>
+<li><a href="page-contact.html">Contact us</a></li>
+<li><a href="page-fullwidth.html">Page fullwidth</a></li>
+</ul>
+</li>
+<li><a href="#"><span>Header styles</span></a>
+<ul class="sub-menu">
+<li><a href="header-1.html">Header 1</a></li>
+<li><a href="header-2.html">Header 2</a></li>
+</ul>
+</li>
+<li class="current-menu-item"><a href="#"><span>Layout</span></a>
+<ul class="sub-menu">
+<li><a href="boxed-image.html">Boxed/image</a></li>
+<li><a href="boxed-pattern.html">Boxed/pattern</a></li>
+</ul>
+</li>
+</ul>
+</nav> 
+</div>
+</div> 
+</header> 
+ 
+<div class="cs-page-wrapper cs-container">
+ 
+<div class="cs-main-content cs-sidebar-on-the-right">
+ 
+<div class="cs-slider-3 swiper-container">
+ 
+<div class="swiper-wrapper">
+ 
+<div class="swiper-slide">
+<div class="swiper-caption">
+<h2><a href="post-standard.html">Canada PM Trudeau Condemns Hostage By Abu Sayyaf Group</a></h2>
+<div>
+<span>23 september</span>
+<a href="#">Don morgan</a>
+</div>
+</div>
+<a href="post-standard.html"><img src="photos/13.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="swiper-slide">
+<div class="swiper-caption">
+<h2><a href="post-standard.html">Canada PM Trudeau Condemns Hostage By Abu Sayyaf Group</a></h2>
+<div>
+<span>23 september</span>
+<a href="#">Don morgan</a>
+</div>
+</div>
+<a href="post-standard.html"><img src="photos/12.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="swiper-slide">
+<div class="swiper-caption">
+<h2><a href="post-standard.html">Canada PM Trudeau Condemns Hostage By Abu Sayyaf Group</a></h2>
+<div>
+<span>23 september</span>
+<a href="#">Don morgan</a>
+</div>
+</div>
+<a href="post-standard.html"><img src="photos/14.jpg" alt="Infinity"></a>
+</div> 
+</div> 
+<div class="swiper-pagination"></div>
+</div> 
+ 
+<div class="cs-module-2">
+ 
+<h3 class="cs-block-title">Politics</h3>
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2016</div>
+<div class="cs-date-day-month">6 oct</div>
+</div>
+<div class="cs-footer-icon" title="Image post">
+<i class="fa fa-file-image-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments" title="156 Comments">
+<span>Comments</span>
+<b>0</b>
+</div>
+</div> 
+ 
+<div class="cs-post-container">
+ 
+<div class="cs-post-thumbnail">
+ 
+<div class="cs-post-slider swiper-container">
+ 
+<div class="swiper-wrapper">
+ 
+<div class="swiper-slide">
+<a href="post-standard.html"><img src="photos/8.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="swiper-slide">
+<a href="post-standard.html"><img src="photos/6.jpg" alt="Infinity"></a>
+</div> 
+</div> 
+ 
+<div class="swiper-button-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+<div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+</div>
+</div> 
+ 
+<div class="cs-post-inside-container">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Kitchen</a>
+</div>
+<h3><a href="post-standard.html">Why Arsenal Risks Missing Out on Champions League</a></h3>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+<a href="post-standard.html" class="read-more">View post</a>
+</div> 
+</div>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2016</div>
+<div class="cs-date-day-month">24 dec</div>
+</div>
+<div class="cs-footer-icon" title="Image post">
+<i class="fa fa-file-image-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments" title="156 Comments">
+<span>Comments</span>
+<b>266</b>
+</div>
+</div> 
+ 
+<div class="cs-post-container">
+ 
+<div class="cs-post-thumbnail">
+<div class="cs-post-rating" title="Rating 9.80">9.80</div>
+<a href="post-standard.html"><img src="photos/25.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-inside-container">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Sport</a>
+</div>
+<h3><a href="post-standard.html">Curt Schilling's Dismissal From ESPN Was Long-Deserved</a></h3>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+<a href="post-standard.html" class="read-more">View post</a>
+</div> 
+</div>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2016</div>
+<div class="cs-date-day-month">19 sep</div>
+</div>
+<div class="cs-footer-icon" title="Image post">
+<i class="fa fa-file-image-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments" title="156 Comments">
+<span>Comments</span>
+<b>27</b>
+</div>
+</div> 
+ 
+<div class="cs-post-container">
+ 
+<div class="cs-post-thumbnail">
+<div class="cs-post-rating" title="Rating 2.15">2.15</div>
+<a href="post-standard.html"><img src="photos/24.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-inside-container">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">World</a>
+</div>
+<h3><a href="post-standard.html">Maria Sharapova Could Play at Wimbledon Despite Doping Case</a></h3>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+<a href="post-standard.html" class="read-more">View post</a>
+</div> 
+</div>
+</div> 
+</article> 
+</div> 
+ 
+<div class="cs-module-1">
+ 
+<h3 class="cs-block-title">Sport news</h3>
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Sport</a>
+</div>
+<h3><a href="post-standard.html">Jose Mourinho: Why He Could Turn Down Manchester United For PSG</a></h3>
+</div> 
+ 
+<div class="cs-post-thumbnail">
+ 
+<div class="cs-post-slider swiper-container">
+ 
+<div class="swiper-wrapper">
+ 
+<div class="swiper-slide">
+<a href="post-standard.html">
+<div class="cs-credit-line">Optional text here</div>
+<img src="photos/3.jpg" alt="Infinity">
+</a>
+</div> 
+ 
+<div class="swiper-slide">
+<a href="post-standard.html"><img src="photos/4.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="swiper-slide">
+<a href="post-standard.html"><img src="photos/2.jpg" alt="Infinity"></a>
+</div> 
+</div> 
+ 
+<div class="swiper-button-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+<div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+</div>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
+</div> 
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2015</div>
+<div class="cs-date-day-month">31 may</div>
+</div>
+<div class="cs-footer-icon" title="Video post">
+<i class="fa fa-file-video-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments">
+<span>Comments</span><b>658</b>
+</div>
+</div> 
+</article> 
+</div> 
+ 
+<div class="cs-module-2">
+ 
+<h3 class="cs-block-title">Entertainment</h3>
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2016</div>
+<div class="cs-date-day-month">24 dec</div>
+</div>
+<div class="cs-footer-icon" title="Image post">
+<i class="fa fa-file-image-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments" title="156 Comments">
+<span>Comments</span>
+<b>266</b>
+</div>
+</div> 
+ 
+<div class="cs-post-container">
+ 
+<div class="cs-post-thumbnail">
+<div class="cs-post-rating" title="Rating 10.0">10.0</div>
+<a href="post-standard.html"><img src="photos/26.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-inside-container">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Sport</a>
+</div>
+<h3><a href="post-standard.html">Curt Schilling's Dismissal From ESPN Was Long-Deserved</a></h3>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+<a href="post-standard.html" class="read-more">View post</a>
+</div> 
+</div>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2016</div>
+<div class="cs-date-day-month">24 dec</div>
+</div>
+<div class="cs-footer-icon" title="Image post">
+<i class="fa fa-file-image-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments" title="156 Comments">
+<span>Comments</span>
+<b>266</b>
+</div>
+</div> 
+ 
+<div class="cs-post-container">
+ 
+<div class="cs-post-thumbnail">
+<div class="cs-post-rating" title="Rating 2.70">2.70</div>
+<a href="post-standard.html"><img src="photos/23.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-inside-container">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Sport</a>
+</div>
+<h3><a href="post-standard.html">Curt Schilling's Dismissal From ESPN Was Long-Deserved</a></h3>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+<a href="post-standard.html" class="read-more">View post</a>
+</div> 
+</div>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2016</div>
+<div class="cs-date-day-month">19 sep</div>
+</div>
+<div class="cs-footer-icon" title="Image post">
+<i class="fa fa-file-image-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments" title="156 Comments">
+<span>Comments</span>
+<b>27</b>
+</div>
+</div> 
+ 
+<div class="cs-post-container">
+ 
+<div class="cs-post-thumbnail">
+<div class="cs-post-rating" title="Rating 2.15">2.15</div>
+<a href="post-standard.html"><img src="photos/27.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-inside-container">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">World</a>
+</div>
+<h3><a href="post-standard.html">Maria Sharapova Could Play at Wimbledon Despite Doping Case</a></h3>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+<a href="post-standard.html" class="read-more">View post</a>
+</div> 
+</div>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-footer">
+<div class="cs-footer-date">
+<div class="cs-date-year">2016</div>
+<div class="cs-date-day-month">6 jun</div>
+</div>
+<div class="cs-footer-icon" title="Image post">
+<i class="fa fa-file-image-o"></i>
+</div>
+<div class="cs-footer-share">
+<span>share</span>
+<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+<a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+</div>
+<div class="cs-footer-comments" title="156 Comments">
+<span>Comments</span>
+<b>654</b>
+</div>
+</div> 
+ 
+<div class="cs-post-container">
+ 
+<div class="cs-post-thumbnail">
+<div class="cs-post-rating" title="Rating 8.0">8.0</div>
+<a href="post-standard.html"><img src="photos/21.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-inside-container">
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">World</a>
+</div>
+<h3><a href="post-standard.html">Maria Sharapova Could Play at Wimbledon Despite Doping Case</a></h3>
+</div> 
+ 
+<div class="cs-post-content">
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+<a href="post-standard.html" class="read-more">View post</a>
+</div> 
+</div>
+</div> 
+</article> 
+</div> 
+</div> 
+ 
+<div class="cs-main-sidebar cs-sticky-sidebar">
+ 
+<aside class="widget">
+<h3 class="widget-title"><span>Social network</span></h3>
+<div class="cs-widget-social">
+<ul>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+</ul>
+</div>
+</aside> 
+ 
+<aside class="widget widget_cover_posts">
+<h3 class="widget-title"><span>Categories</span></h3>
+<ul>
+<li>
+<a href="post-standard.html">
+<div>
+<span>Sports</span>
+<h3>Meet The Eco Activist Racer Trying To Turn NASCAR Green</h3>
+</div>
+<img src="photos/6.jpg" alt="Infinity">
+</a>
+</li>
+<li>
+<a href="post-standard.html">
+<div>
+<span>Nature</span>
+<h3>Kobe Bryant Ends Career With 60-Point Outburst</h3>
+</div>
+<img src="photos/7.jpg" alt="Infinity">
+</a>
+</li>
+<li>
+<a href="post-standard.html">
+<div>
+<span>Entertainment</span>
+<h3>Manchester City vs. Real Madrid, Champions League Draw: The Key Clashes</h3>
+</div>
+<img src="photos/8.jpg" alt="Infinity">
+</a>
+</li>
+</ul>
+</aside> 
+ 
+<aside class="widget widget_custom_recent_posts">
+<h3 class="widget-title"><span>Recent posts</span></h3>
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-thumbnail">
+<a href="post-standard.html"><img src="photos/16.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Business</a>
+</div>
+<h3><a href="post-standard.html">Cristiano Ronaldo Still a Doubt for Champions League Decider</a></h3>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-thumbnail">
+<a href="post-standard.html"><img src="photos/20.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Travel</a>
+</div>
+<h3><a href="post-standard.html">Dele Alli Receives Three-Match Ban for Punching Claudio Yacob</a></h3>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-thumbnail">
+<a href="post-standard.html"><img src="photos/17.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Sport</a>
+</div>
+<h3><a href="post-standard.html">Rafael Nadal: 'Publish My Drug Tests To Prove I’m Clean'</a></h3>
+</div> 
+</article> 
+</aside> 
+ 
+<aside class="widget widget_tag_cloud">
+<h3 class="widget-title"><span>Tags</span></h3>
+<div class="tagcloud">
+<a href="#">design</a>
+<a href="#">tv</a>
+<a href="#">photography</a>
+<a href="#">movies</a>
+<a href="#">photography</a>
+<a href="#">theme</a>
+<a href="#">wordpress</a>
+<a href="#">show</a>
+<a href="#">art</a>
+<a href="#">academy</a>
+<a href="#">code</a>
+<a href="#">illustration</a>
+</div>
+</aside> 
+ 
+<aside class="widget">
+<h3 class="widget-title"><span>Banner 300x250</span></h3>
+<div class="cs-widget-banner-300x250">
+<div class="cs-banner"><a href="#"><img src="demo/300x250.png" alt="Infinity"></a></div>
+</div>
+</aside> 
+</div> 
+</div> 
+ 
+<footer id="cs-footer">
+<div class="cs-container">
+<div class="cs-row">
+<div class="cs-col cs-col-4-of-12">
+ 
+<aside class="widget">
+<h3 class="widget-title"><span>Social network</span></h3>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.</p>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+<div class="cs-widget-social">
+<ul>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+</ul>
+</div>
+</aside> 
+</div>
+<div class="cs-col cs-col-4-of-12">
+ 
+<aside class="widget widget_custom_categories">
+<h3 class="widget-title"><span>Categories</span></h3>
+<ul>
+<li><a href="blog-category.html">Fashion</a><span>78</span></li>
+<li><a href="blog-category.html">Entertainment</a><span>340</span></li>
+<li><a href="blog-category.html">Music</a><span>14</span></li>
+<li><a href="blog-category.html">Design</a><span>65</span></li>
+<li><a href="blog-category.html">Videogames</a><span>998</span></li>
+<li><a href="blog-category.html">Nature</a><span>12</span></li>
+</ul>
+</aside> 
+</div>
+<div class="cs-col cs-col-4-of-12">
+ 
+<aside class="widget widget_custom_recent_posts">
+<h3 class="widget-title"><span>Recent posts</span></h3>
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-thumbnail">
+<a href="post-standard.html"><img src="photos/19.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Entertainment</a>
+</div>
+<h3><a href="post-standard.html">France Wants to Continue State of Emergency to Cover Euro 2016</a></h3>
+</div> 
+</article> 
+ 
+<article class="cs-post">
+ 
+<div class="cs-post-thumbnail">
+<a href="post-standard.html"><img src="photos/18.jpg" alt="Infinity"></a>
+</div> 
+ 
+<div class="cs-post-header">
+<div class="cs-category-links">
+<a href="blog-category.html">Music</a>
+</div>
+<h3><a href="post-standard.html">Sergio Aguero: City Striker Joins Premier League Centurions</a></h3>
+</div> 
+</article> 
+</aside> 
+</div>
+</div>
+ 
+<div class="cs-copyright">
+Copyright &copy; 2016. Made by <a href="http://jqueryfuns.com" target="_blank">Codeo Studio</a> :)
+</div> 
+</div>
+</footer> 
+</div> 
+ 
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery-scrollindicator.js"></script>
+<script src="js/jquery-fitvids.js"></script>
+<script src="js/jquery-parallax.js"></script>
+<script src="js/jquery-sticky.js"></script>
+<script src="js/jquery-lightbox.js"></script>
+<script src="js/jquery-swiper.js"></script>
+<script src="js/jquery-init.js"></script><script src="js/jquery-demo.js"></script>
+</body>
+</html>

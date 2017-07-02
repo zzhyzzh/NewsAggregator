@@ -1,0 +1,77 @@
+/*------------------------------------------------------------------
+
+@Author: CodeoStudio
+@URL:    http://codeostudio.hr/
+
+[Table of contents]
+
+1. Color
+2. Background
+3. Border
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    1. Color
+-------------------------------------------------------------------*/
+a:hover,
+.cs-widget-social ul li a,
+.widget_custom_categories ul li span,
+.widget_cover_posts ul li span,
+.cs-desktop-search form:after,
+.cs-footer-share a,
+.cs-category-links a,
+.cs-slider-3 .swiper-caption div a,
+.widget_custom_recent_posts .cs-post .cs-post-header .cs-category-links a,
+.cs-post-header .cs-post-header-meta a:hover,
+.cs-comment-author a.reply,
+.cs-parallax-container .cs-parallax-header div a,
+.cs-accordion-group .cs-accordion-title:after,
+blockquote.alt i,
+.cs-404-page h3 span,
+.widget_custom_recent_comments .cs-comment .cs-author-meta {
+	color: #a8d8f0
+}
+
+/* Dark blue */
+.cs-slider-1 .swiper-caption div a {
+	color: #31ace6
+}
+
+/*------------------------------------------------------------------
+    2. Background
+-------------------------------------------------------------------*/
+#cs-header.cs-header-center #cs-main-navigation > ul > li.current-menu-item > a:after,
+#cs-header.cs-header-center #cs-main-navigation > ul > li:hover > a:after,
+#cs-header.cs-header-default .cs-header-bottom,
+#cs-header.cs-header-default .cs-header-bottom .cs-header-search input[type="text"],
+button.mfp-close,
+button.mfp-arrow,
+.cs-post-thumbnail .cs-post-rating,
+.cs-slider-2 .swiper-pagination-bullet,
+.cs-review-container .cs-criteria-bar div,
+.cs-btn.cs-btn-with-icon i,
+.cs-slider-3 .swiper-pagination-bullet,
+.cs-post-slider .swiper-button-prev,
+.cs-post-slider .swiper-button-next {
+	background-color: #a8d8f0
+}
+
+/*------------------------------------------------------------------
+    3. Border
+-------------------------------------------------------------------*/
+h3.widget-title span,
+.cs-widget-social ul li a,
+.cs-block-title,
+.cs-slider-1 .swiper-caption,
+.cs-tab-group .ui-tabs-nav li.ui-tabs-active a,
+.cs-tab-group .ui-tabs-nav li:hover a,
+#cs-main-navigation ul.sub-menu li:hover,
+.cs-summary-area .cs-summary-score,
+.cs-parallax-container .cs-parallax-header,
+.cs-accordion-group .cs-accordion-title.ui-state-active,
+.cs-accordion-group .cs-accordion-title:hover,
+.cs-slider-3 .swiper-caption,
+blockquote {
+	border-color: #a8d8f0
+}

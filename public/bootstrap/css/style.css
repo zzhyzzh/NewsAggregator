@@ -1,0 +1,3344 @@
+/*------------------------------------------------------------------
+
+@Author: CodeoStudio
+@URL:    http://codeostudio.hr/
+
+[Table of contents]
+
+1. Body
+2. Wrapper
+3. Shortcodes
+3.1 Typography
+3.2 Clearfix
+3.3 Columns
+3.4 Blockquotes
+3.5 Pullquotes
+3.6 Dropcaps
+3.7 Buttons
+3.8 Tabs
+3.9 Accordion
+3.10 Spacers
+3.11 Alerts
+3.12 Service box
+3.13 Forms
+4. Page wrapper
+    4.1 Main content
+    4.2 Block title
+5. Sidebar
+    5.1 Widget - search
+    5.2 Widget - RSS
+    5.3 Widget - recent comments
+    5.4 Widget - recent posts
+    5.5 idget - recent comments
+    5.6 Widget - recent entries
+    5.7 Widget - custom menu
+    5.8 Widget - calendar
+    5.9 Widget - categories/meta/pages/archives/links
+    5.10 Widget - cover categories/posts
+    5.11 Widget - cover posts
+    5.12 Widget - custom categories
+    5.13 Widget - tags
+    5.14 Widget - social
+    5.15 Widget - 125x125 banners
+    5.16 Widget - 300x250 banners
+6. Header
+    6.1 Header top
+    6.2 Login
+    6.3 Logo
+    6.4 Desktop search
+    6.5 Search form
+    6.7 Header bottom
+    6.8 Toggle navigation
+    6.9 Toggle search
+    6.10 Main navigation
+7. Blog
+    7.1 Post - article
+    7.2 Module 1
+    7.3 Module 2
+    7.4 Module 3
+    7.5 Module 4
+    7.6 Module 5
+    7.7 Module 6
+    7.8 Scroll indicator
+    
+8. Parallax element
+9. Single post
+    9.1 Review container
+    9.2 About author
+    9.3 Comments
+    9.4 No comments
+    9.5 Respond
+10. Sliders 
+    10.1 Slider 1
+    10.2 Slider 2
+    10.3 Slider 3
+11. Pages 
+    11.1 Page title
+    11.2 404 Page
+    11.3 Contact form
+12. Footer 
+13. Copyright 
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    1. Body
+-------------------------------------------------------------------*/
+body,
+html {
+    position: relative;
+}
+body {
+    background-color: #fff;
+    color: #666;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 22px
+}
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+.cs-container:before,
+.cs-container:after,
+.cs-clearfix:before,
+.cs-clearfix:after {
+    content: " ";
+    display: table
+}
+.cs-container:after,
+.cs-clearfix:after {
+    clear: both
+}
+
+/*------------------------------------------------------------------
+    2. Wrapper
+-------------------------------------------------------------------*/
+#cs-wrapper {
+    background-color: #fff
+}
+#cs-wrapper.wide {
+    width: 100%
+}
+#cs-wrapper.boxed {
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1)
+}
+.cs-container {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto
+}
+
+/*------------------------------------------------------------------
+    3. Shortcodes
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    3.1 Typography
+-------------------------------------------------------------------*/
+a {
+    text-decoration: none;
+    outline: 0;
+    background-color: transparent;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    color: #000
+}
+a:hover {
+    text-decoration: none;
+    color: #000
+}
+a:focus,
+a:active {
+    outline: 0;
+    border: 0;
+    text-decoration: none
+}
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    text-decoration: none;
+    outline: 0;
+    border: 0
+}
+a img {
+    text-decoration: none;
+    outline: 0;
+    border: 0
+}
+iframe {
+    max-height: 281px
+}
+iframe,
+object,
+video {
+    max-width: 100%
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #000;
+    font-weight: 400;
+    margin: 0 0 20px 0
+}
+h1 {
+    font-size: 30px;
+    line-height: 38px
+}
+h2 {
+    font-size: 26px;
+    line-height: 34px
+}
+h3 {
+    font-size: 22px;
+    line-height: 30px
+}
+h4 {
+    font-size: 18px;
+    line-height: 26px
+}
+h5 {
+    font-size: 16px;
+    line-height: 24px
+}
+h6 {
+    font-size: 14px;
+    line-height: 22px
+}
+p {
+    margin: 0 0 20px 0
+}
+hr {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    border: 0;
+    height: 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box
+}
+hr.cs-divider-blank {
+    border: 0
+}
+hr.cs-divider-dashed {
+    border-top-style: dashed
+}
+hr.cs-divider-dotted {
+    border-top-style: dotted
+}
+.text_left {
+    text-align: left
+}
+.text_right {
+    text-align: right
+}
+.text_center {
+    text-align: center
+}
+.text_justify {
+    text-align: justify
+}
+blockquote {
+    padding: 5px 20px;
+    margin: 20px 0;
+    border-left-style: solid;
+    border-left-width: 3px
+}
+blockquote p {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 15px !important;
+    color: #666
+}
+blockquote footer {
+    display: block;
+    font-size: 14px;
+    color: #000
+}
+.alignleft,
+img.alignleft {
+    float: left;
+    margin: 5px 40px 20px 0
+}
+.alignright,
+img.alignright {
+    float: right;
+    margin: 5px 0 20px 40px
+}
+.aligncenter,
+img.aligncenter {
+    clear: both;
+    display: block;
+    margin: 30px auto
+}
+.wp-caption {
+    text-align: center;
+    max-width: 100%
+}
+.wp-caption img {
+    max-width: 100%
+}
+.wp-caption-text {
+    font-size: 12px;
+    color: #888;
+    padding: 6px 0 2px 0
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+pre {
+    display: block;
+    overflow: hidden;
+    padding: 10px;
+    margin: 0 0 10px;
+    font-size: 12px;
+    line-height: 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f1f1f1;
+    border: none
+}
+mark {
+    padding: 2px 4px;
+    background-color: #f1f1f1
+}
+kbd {
+    padding: 2px 4px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #333
+}
+code {
+    padding: 2px 4px;
+    font-size: 12px;
+    background-color: #f1f1f1
+}
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-left: 20px
+}
+ul {
+    list-style: disc
+}
+ol {
+    list-style: decimal
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin-bottom: 0
+}
+dl {
+    margin-top: 0;
+    margin-bottom: 20px
+}
+dt {
+    font-weight: 700
+}
+dd {
+    margin-left: 10px
+}
+address {
+    margin-bottom: 20px;
+    font-style: normal;
+    line-height: 24px
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    border: 1px solid #f5f5f5
+}
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    line-height: 24px;
+    vertical-align: bottom;
+    border: 1px solid #f5f5f5
+}
+ul.page-numbers {
+    margin-bottom: 20px;
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+}
+ul.page-numbers li {
+    display: block;
+    float: left;
+    margin-right: 3px;
+    margin-left: 3px
+}
+ul.page-numbers li span,
+ul.page-numbers li a {
+    display: block;
+    padding: 4px 10px;
+    line-height: 22px;
+    background-color: #fff;
+    color: #999;
+    border: 1px solid #ddd
+}
+ul.page-numbers li span.current {
+    border: 1px solid #000;
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    3.2 Clearfix
+-------------------------------------------------------------------*/
+.cs-row:before,
+.cs-row:after {
+    content: " ";
+    display: table
+}
+.cs-row:after {
+    clear: both
+}
+
+/*------------------------------------------------------------------
+    3.3 Columns
+-------------------------------------------------------------------*/
+.cs-row {
+    position: relative;
+    margin-left: -10px;
+    margin-right: -10px
+}
+.cs-col {
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+.cs-col-1-of-12 {
+    width: 8.33333333%
+}
+.cs-col-2-of-12 {
+    width: 16.66666667%
+}
+.cs-col-3-of-12 {
+    width: 25%
+}
+.cs-col-4-of-12 {
+    width: 33.33333333%
+}
+.cs-col-5-of-12 {
+    width: 41.66666667%
+}
+.cs-col-6-of-12 {
+    width: 50%
+}
+.cs-col-7-of-12 {
+    width: 58.33333333%
+}
+.cs-col-8-of-12 {
+    width: 66.66666667%
+}
+.cs-col-9-of-12 {
+    width: 75%
+}
+.cs-col-10-of-12 {
+    width: 83.33333333%
+}
+.cs-col-11-of-12 {
+    width: 91.66666667%
+}
+.cs-col-12-of-12 {
+    width: 100%
+}
+
+/*------------------------------------------------------------------
+    3.4 Blockquotes
+-------------------------------------------------------------------*/
+blockquote.alt {
+    text-align: center;
+    border: 1px solid #eee;
+    padding: 30px
+}
+blockquote.alt i {
+    font-size: 28px;
+    margin-bottom: 10px
+}
+
+/*------------------------------------------------------------------
+    3.5 Pullquotes
+-------------------------------------------------------------------*/
+.pullquotes {
+    position: relative;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    z-index: 1;
+    color: #000
+}
+.pullquotes:after {
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 140px;
+    position: absolute;
+    z-index: -1;
+    top: 15px;
+    color: #eee
+}
+.pullquotes.left {
+    float: left;
+    width: 30%;
+    margin: 20px 40px 20px 0;
+    padding-left: 30px
+}
+.pullquotes.left:after {
+    content: "\201C";
+    left: 0
+}
+.pullquotes.center {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    clear: both
+}
+.pullquotes.right {
+    float: right;
+    text-align: right;
+    width: 30%;
+    margin: 20px 0 20px 40px;
+    padding-right: 30px
+}
+.pullquotes.right:after {
+    content: "\201C";
+    right: 0
+}
+
+/*------------------------------------------------------------------
+    3.6 Dropcaps
+-------------------------------------------------------------------*/
+.dropcap:first-letter {
+    float: left;
+    display: block;
+    font-size: 40px;
+    line-height: 42px;
+    margin: 0 10px 0 0;
+    font-weight: 400;
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    3.7 Buttons
+-------------------------------------------------------------------*/
+.cs-btn {
+    display: inline-block;
+    padding: 4px 14px;
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    outline: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    border: 0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s
+}
+.cs-btn:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
+.cs-btn.cs-btn-small {
+    padding: 2px 8px;
+    font-size: 12px
+}
+.cs-btn.cs-btn-large {
+    padding: 8px 20px;
+    font-size: 18px
+}
+.cs-btn.cs-btn-extralarge {
+    padding: 16px 32px;
+    font-size: 24px
+}
+.cs-btn.cs-btn-expand {
+    width: 100%;
+    display: block
+}
+.cs-btn.cs-btn-expand + .cs-btn.cs-btn-expand {
+    margin-top: 5px
+}
+.cs-btn.cs-btn-white {
+    background-color: #f1f1f1;
+    color: #333
+}
+.cs-btn.cs-btn-white:hover {
+    color: #fff
+}
+.cs-btn.cs-btn-black {
+    background-color: #222
+}
+.cs-btn.cs-btn-red {
+    background-color: #683c17
+}
+.cs-btn.cs-btn-green {
+    background-color: #71a866
+}
+.cs-btn.cs-btn-tirquese {
+    background-color: #7fccbc
+}
+.cs-btn.cs-btn-blue {
+    background-color: #508fd1
+}
+.cs-btn.cs-btn-pink {
+    background-color: #9d5fac
+}
+.cs-btn.cs-btn-orange {
+    background-color: #c47839
+} 
+.cs-btn.cs-btn-grey {
+    background-color: #b1b0a7
+}
+.cs-btn.cs-btn-with-icon {
+    padding-left: 44px
+}
+.cs-btn.cs-btn-small.cs-btn-with-icon {
+    padding-left: 34px
+}
+.cs-btn.cs-btn-large.cs-btn-with-icon {
+    padding-left: 58px
+}
+.cs-btn.cs-btn-extralarge.cs-btn-with-icon {
+    padding-left: 86px
+}
+.cs-btn.cs-btn-with-icon i {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    text-align: center
+}
+.cs-btn.cs-btn-with-icon i {
+    width: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+.cs-btn.cs-btn-small.cs-btn-with-icon i {
+    width: 26px;
+    line-height: 26px;
+    font-size: 10px;
+}
+.cs-btn.cs-btn-large.cs-btn-with-icon i {
+    width: 38px;
+    line-height: 38px;
+    font-size: 14px;
+}
+.cs-btn.cs-btn-extralarge.cs-btn-with-icon i {
+    width: 54px;
+    line-height: 54px;
+    font-size: 20px;
+}
+
+/*------------------------------------------------------------------
+    3.8 Tabs
+-------------------------------------------------------------------*/
+.cs-tab-group {
+    margin-bottom: 20px
+}
+.cs-tab-group .ui-tabs-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.cs-tab-group .ui-tabs-nav li {
+    float: left;
+    margin-right: 15px
+}
+.cs-tab-group .ui-tabs-nav li a {
+    outline: none;
+    display: block;
+    padding-bottom: 4px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    color: #999
+}
+.cs-tab-group .ui-tabs-panel {
+    padding-top: 15px
+}
+.cs-tab-group .ui-tabs-panel p:last-child {
+    margin: 0
+}
+.cs-tab-group .ui-tabs-nav li.ui-tabs-active a,
+.cs-tab-group .ui-tabs-nav li:hover a {
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    3.9 Accordion
+-------------------------------------------------------------------*/
+.cs-accordion-group {
+    margin-bottom: 20px
+}
+.cs-accordion-group .cs-accordion-title {
+    color: #999;
+    outline: none;
+    cursor: pointer;
+    padding: 4px 0;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: transparent;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.cs-accordion-group .cs-accordion-title:after {
+    content: "\f067";
+    font-family: "FontAwesome";
+    position: absolute;
+    right: 0;
+    top: 0
+}
+.cs-accordion-group .cs-accordion-title.ui-state-active {
+    color: #000
+}
+.cs-accordion-group .cs-accordion-title:hover {
+    color: #000
+}
+.cs-accordion-group .cs-accordion-title.ui-state-active:after {
+    color: #000;
+    content: "\f068"
+}
+.cs-accordion-group .cs-accordion-panel {
+    padding: 15px 0
+}
+.cs-accordion-group .cs-accordion-panel p:last-child {
+    margin: 0
+}
+
+/*------------------------------------------------------------------
+    3.10 Spacers
+-------------------------------------------------------------------*/
+.cs-spacer {
+    display: block;
+    position: relative;
+    width: 100%;
+    clear: both;
+    border: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 1px;
+    background-color: #f5f5f5;
+    color: #ccc;
+    text-align: center
+}
+.cs-spacer i {
+    width: 40px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -20px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #fff !important
+}
+
+/*------------------------------------------------------------------
+    3.11 Alerts
+-------------------------------------------------------------------*/
+.cs-alert {
+    position: relative;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #fff
+}
+.cs-alert p {
+    overflow: hidden;
+    margin: 2px 0 0 30px
+}
+.cs-alert i {
+    position: absolute;
+    left: 20px;
+    top: 20px
+}
+.cs-alert.cs-alert-green {
+    background-color: #EBF6E0;
+    color: #5f9025
+}
+.cs-alert.cs-alert-blue {
+    background-color: #E9F7FE;
+    color: #5091b2
+}
+.cs-alert.cs-alert-red {
+    background-color: #ffe9e9;
+    color: #de5959
+}
+.cs-alert.cs-alert-yellow {
+    background-color: #FBFADD;
+    color: #8f872e
+}
+
+/*------------------------------------------------------------------
+    3.12 Service box
+-------------------------------------------------------------------*/
+.cs-service-box {
+    margin-bottom: 20px
+}
+.cs-service-box i {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #ddd
+}
+.cs-service-box h4 {
+    margin: 0 0 10px 0 !important
+}
+
+/*------------------------------------------------------------------
+    3.13 Forms
+-------------------------------------------------------------------*/
+form {
+    position: relative;
+}
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit
+}
+textarea {
+    width: 100%;
+    min-height: 180px
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000
+}
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="phone"],
+input[type="number"],
+input[type="email"],
+input[type="datetime"],
+input[type="search"],
+input[type="tel"],
+textarea,
+select {
+    padding: 10px 12px;
+    outline: none;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    max-width: 100%;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: 400
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+input[type="phone"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="datetime"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    4. Page wrapper
+-------------------------------------------------------------------*/
+.cs-page-wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px
+}
+.cs-page-wrapper + .cs-page-wrapper {
+    padding-top: 0;
+    margin-top: -40px
+}
+
+/*------------------------------------------------------------------
+    4.1 Main content
+-------------------------------------------------------------------*/
+.cs-main-content {
+    width: 100%
+}
+.cs-main-content.cs-sidebar-on-the-right {
+    float: left;
+    width: 73.5%;
+    padding-right: 4.5%
+}
+.cs-main-content.cs-sidebar-on-the-left {
+    float: right;
+    width: 73.5%;
+    padding-left: 4.5%
+}
+
+/*------------------------------------------------------------------
+    4.2 Block title
+-------------------------------------------------------------------*/
+.cs-block-title {
+    text-transform: uppercase;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #000;
+    line-height: 1.1;
+    padding-bottom: 6px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid
+}
+
+/*------------------------------------------------------------------
+    5. Sidebar
+-------------------------------------------------------------------*/
+.cs-main-sidebar {
+    float: left;
+    width: 26.5%
+}
+.widget {
+    margin-bottom: 40px;
+    font-size: 12px;
+    line-height: 20px
+}
+.widget input[type="search"],
+.widget select {
+    width: 100%
+}
+.widget a {
+    color: #999
+}
+.widget a:hover {
+    color: #000
+}
+h3.widget-title {
+    text-transform: uppercase;
+    line-height: 1.1;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #000
+}
+h3.widget-title a {
+    color: #000
+}
+h3.widget-title span {
+    padding-bottom: 6px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid
+}
+
+/* Global */
+.widget_archive ul,
+.widget_categories ul,
+.widget_custom_categories ul,
+.widget_meta ul,
+.widget_recent_comments ul,
+.widget_nav_menu ul,
+.widget_links ul,
+.widget_pages ul,
+.widget_recent_entries ul,
+.widget_rss ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.widget_archive ul li,
+.widget_categories ul li,
+.widget_custom_categories ul li,
+.widget_meta ul li,
+.widget_recent_comments ul li,
+.widget_nav_menu ul li,
+.widget_links ul li,
+.widget_pages ul li,
+.widget_recent_entries ul li,
+.widget_rss ul li {
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+    color: #999
+}
+.widget_archive ul li:first-child,
+.widget_categories ul li:first-child,
+.widget_custom_categories ul li:first-child,
+.widget_links ul li:first-child,
+.widget_meta ul li:first-child,
+.widget_nav_menu ul li:first-child,
+.widget_pages ul li:first-child,
+.widget_recent_comments ul li:first-child,
+.widget_recent_entries ul li:first-child,
+.widget_rss ul li:first-child {
+    border-top: 0;
+    padding-top: 0;
+    padding-bottom: 6px
+}
+.widget_archive ul li:last-child,
+.widget_categories ul li:last-child,
+.widget_custom_categories ul li:last-child,
+.widget_links ul li:last-child,
+.widget_meta ul li:last-child,
+.widget_nav_menu ul li:last-child,
+.widget_pages ul li:last-child,
+.widget_recent_comments ul li:last-child,
+.widget_recent_entries ul li:last-child,
+.widget_rss ul li:last-child {
+    padding-bottom: 0
+}
+.widget_categories .children,
+.widget_custom_categories ul ul,
+.widget_nav_menu .sub-menu,
+.widget_pages .children {
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+    margin: 5px 0 0 12px
+}
+
+/*------------------------------------------------------------------
+    5.1 Widget - search
+-------------------------------------------------------------------*/
+.widget_search button {
+    display: none
+}
+
+/*------------------------------------------------------------------
+    5.2 Widget - RSS
+-------------------------------------------------------------------*/
+.widget_rss ul li a {
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    5.3 Widget - recent comments
+-------------------------------------------------------------------*/
+.widget_custom_recent_comments .cs-comment:before,
+.widget_custom_recent_comments .cs-comment:after {
+    content: " ";
+    display: table
+}
+.widget_custom_recent_comments .cs-comment:after {
+    clear: both
+}
+.widget_custom_recent_comments .cs-comment {
+    margin-bottom: 25px
+}
+.widget_custom_recent_comments .cs-comment:last-child {
+    margin-bottom: 40px
+}
+.widget_custom_recent_comments .cs-comment .cs-author-thumbnail {
+    float: left;
+    width: 60px;
+    margin-right: 15px;
+    margin-bottom: 0
+}
+.widget_custom_recent_comments .cs-comment .cs-author-thumbnail img {
+    width: 100%
+}
+.widget_custom_recent_comments .cs-comment .cs-author-header {
+    overflow: hidden;
+}
+.widget_custom_recent_comments .cs-comment .cs-author-header h3 {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0
+}
+.widget_custom_recent_comments .cs-comment .cs-author-header h3 a {
+    color: #000;
+    display: block;
+}
+.widget_custom_recent_comments .cs-comment .cs-author-meta {
+    text-transform: uppercase;
+    font-size: 12px
+}
+
+/*------------------------------------------------------------------
+    5.4 Widget - recent posts
+-------------------------------------------------------------------*/
+.widget_custom_recent_posts .cs-post:before,
+.widget_custom_recent_posts .cs-post:after {
+    content: " ";
+    display: table
+}
+.widget_custom_recent_posts .cs-post:after {
+    clear: both
+}
+.widget_custom_recent_posts .cs-post {
+    margin-bottom: 25px
+}
+.widget_custom_recent_posts .cs-post:last-child {
+    margin-bottom: 40px
+}
+.widget_custom_recent_posts .cs-post .cs-post-thumbnail {
+    float: left;
+    width: 100px;
+    margin-right: 15px;
+    margin-bottom: 0
+}
+.widget_custom_recent_posts .cs-post .cs-post-header {
+    overflow: hidden;
+}
+.widget_custom_recent_posts .cs-post .cs-post-header h3 {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0
+}
+.widget_custom_recent_posts .cs-post .cs-post-header h3 a {
+    color: #000
+}
+.widget_custom_recent_posts .cs-post .cs-post-header .cs-category-links a:hover {
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    5.5 idget - recent comments
+-------------------------------------------------------------------*/
+.widget_recent_comments a {
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    5.6 Widget - recent entries
+-------------------------------------------------------------------*/
+.widget_recent_entries a {
+    color: #000
+}
+.widget_recent_entries .post-date {
+    display: block;
+    font-size: 12px
+}
+
+/*------------------------------------------------------------------
+    5.7 Widget - custom menu
+-------------------------------------------------------------------*/
+.widget_nav_menu ul li {
+    text-transform: uppercase
+}
+.widget_nav_menu ul li a {
+    display: block
+}
+
+/*------------------------------------------------------------------
+    5.8 Widget - calendar
+-------------------------------------------------------------------*/
+.widget_calendar caption {
+    margin-bottom: 5px
+}
+.widget_calendar thead {
+    background-color: #fdfdfd
+}
+.widget_calendar th,
+.widget_calendar td {
+    padding: 4px;
+    text-align: center;
+}
+
+/*------------------------------------------------------------------
+    5.9 Widget - categories/meta/pages/archives/links
+-------------------------------------------------------------------*/
+.widget_categories ul li,
+.widget_meta ul li,
+.widget_pages ul li,
+.widget_archive ul li,
+.widget_links ul li {
+    text-transform: uppercase
+}
+.widget_categories ul li a,
+.widget_meta ul li a,
+.widget_pages ul li a,
+.widget_archive ul li a,
+.widget_links ul li a {
+    display: block;
+}
+.widget_archive ul li a,
+.widget_categories ul li a {
+    display: inline;
+}
+
+/*------------------------------------------------------------------
+    5.10 Widget - cover categories/posts
+-------------------------------------------------------------------*/
+.widget_cover_categories ul,
+.widget_cover_posts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+.widget_cover_categories ul li,
+.widget_cover_posts ul li {
+    overflow: hidden;
+    position: relative;
+    background-color: #000;
+    margin-bottom: 10px;
+    width: 100%
+}
+.widget_cover_categories ul li:before,
+.widget_cover_posts ul li:before {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border: 1px solid #fff;
+    opacity: 0.5;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.widget_cover_categories ul li:hover:before,
+.widget_cover_posts ul li:hover:before {
+    opacity: 1
+}
+.widget_cover_categories ul li a {
+    display: block;
+    min-height: 120px
+}
+.widget_cover_categories ul li div,
+.widget_cover_posts ul li div {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    padding: 0 25px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center
+}
+.widget_cover_categories ul li h3,
+.widget_cover_posts ul li h3 {
+    margin: 6px 0 3px 0;
+    font-size: 20px;
+    color: #fff;
+}
+.widget_cover_categories ul li span {
+    font-size: 12px;
+    color: #999;
+    display: block;
+}
+.widget_cover_categories ul li img,
+.widget_cover_posts ul li img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0.5;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.widget_cover_categories ul li:hover img,
+.widget_cover_posts ul li:hover img {
+    opacity: 0.4;
+    -webkit-transform: scale(1.03,1.03) translate(-50%, -50%);
+    -moz-transform: scale(1.03,1.03) translate(-50%, -50%);
+    -ms-transform: scale(1.03,1.03) translate(-50%, -50%);
+    -o-transform: scale(1.03,1.03) translate(-50%, -50%);
+    transform: scale(1.03,1.03) translate(-50%, -50%);
+}
+
+/*------------------------------------------------------------------
+    5.11 Widget - cover posts
+-------------------------------------------------------------------*/
+.widget_cover_posts ul li a {
+    display: block;
+    min-height: 180px
+}
+.widget_cover_posts ul li h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px
+}
+.widget_cover_posts ul li span {
+    font-size: 12px;
+    text-transform: uppercase
+}
+
+/*------------------------------------------------------------------
+    5.12 Widget - custom categories
+-------------------------------------------------------------------*/
+.widget_custom_categories ul li {
+    text-transform: uppercase;
+    position: relative
+}
+.widget_custom_categories ul li a {
+    display: block;
+}
+.widget_custom_categories ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px
+}
+.widget_custom_categories ul li:first-child span {
+    top: 0
+}
+
+/*------------------------------------------------------------------
+    5.13 Widget - tags
+-------------------------------------------------------------------*/
+.widget_tag_cloud .tagcloud:before,
+.widget_tag_cloud .tagcloud:after {
+    content: " ";
+    display: table
+}
+.widget_tag_cloud .tagcloud:after {
+    clear: both
+}
+.widget_tag_cloud .tagcloud a {
+    display: block;
+    float: left;
+    font-size: 12px !important;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 4px 10px;
+    line-height: 1;
+    color: #999;
+    margin-right: 6px;
+    margin-bottom: 6px
+}
+.widget_tag_cloud .tagcloud a:hover {
+    color: #000;
+    border: 1px solid #000
+}
+
+/*------------------------------------------------------------------
+    5.14 Widget - social
+-------------------------------------------------------------------*/
+.cs-widget-social:before,
+.cs-widget-social:after {
+    content: " ";
+    display: table
+}
+.cs-widget-social:after {
+    clear: both
+}
+.cs-widget-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.cs-widget-social ul li {
+    float: left;
+    font-size: 18px;
+    margin: 0 5px 5px 0
+}
+.cs-widget-social ul li a {
+    display: block;
+    width: 45px;
+    height: 45px;
+    line-height: 43px;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px
+}
+.cs-widget-social ul li a:hover {
+    border-color: #000
+}
+
+/*------------------------------------------------------------------
+    5.15 Widget - 125x125 banners
+-------------------------------------------------------------------*/
+.cs-widget-banner-125x125:before,
+.cs-widget-banner-125x125:after {
+    content: " ";
+    display: table
+}
+.cs-widget-banner-125x125:after {
+    clear: both
+}
+.cs-widget-banner-125x125 .cs-banner {
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+    margin: 12px 0
+}
+.cs-widget-banner-125x125 .cs-banner img {
+    width: 125px
+}
+
+/*------------------------------------------------------------------
+    5.16 Widget - 300x250 banners
+-------------------------------------------------------------------*/
+.cs-widget-banner-300x250:before,
+.cs-widget-banner-300x250:after {
+    content: " ";
+    display: table
+}
+.cs-widget-banner-300x250:after {
+    clear: both
+}
+.cs-widget-banner-300x250 .cs-banner {
+    text-align: center;
+    display: block;
+    margin: 12px 0
+}
+.cs-widget-banner-300x250 .cs-banner:last-child {
+    margin-bottom: 0
+}
+
+/*------------------------------------------------------------------
+    6. Header
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    6.1 Header top
+-------------------------------------------------------------------*/
+#cs-header .cs-header-top {
+    background-color: #000;
+    color: #999
+}
+
+/* Top nav */
+#cs-top-navigation {
+    float: left;
+}
+#cs-top-navigation ul {
+    font-size: 13px;
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+#cs-top-navigation > ul > li {
+    display: inline-block;
+    position: relative
+}
+#cs-top-navigation > ul > li > a {
+    padding: 8px 5px;
+    position: relative;
+    display: block;
+    color: #f3f1f1
+}
+#cs-top-navigation > ul > li.current-menu-item > a,
+#cs-top-navigation > ul > li:hover > a {
+    color: #bbb
+}
+#cs-top-navigation > ul > li > a span:after {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "FontAwesome";
+    content: "\f0d7";
+    padding-left: 5px;
+    font-size: 10px;
+    color: #999;
+    font-style: normal;
+}
+#cs-top-navigation ul.sub-menu li a span:after {
+    position: absolute;
+    right: 15px;
+    top: 2px;
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f0da";
+    font-size: 10px;
+    color: #999;
+    font-style: normal;
+}
+#cs-top-navigation ul.sub-menu {
+    background-color: #222;
+    display: none;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    width: auto;
+    white-space: nowrap;
+    min-width: 130px;
+    padding: 10px
+}
+#cs-top-navigation ul.sub-menu li {
+    position: relative;
+    border-bottom: 1px solid #333;
+}
+#cs-top-navigation ul.sub-menu li:last-child {
+    border-bottom: 0
+}
+#cs-top-navigation ul.sub-menu li a {
+    color: #999;
+    display: block;
+    padding: 4px
+}
+#cs-top-navigation ul.sub-menu li a:hover {
+    color: #fff
+}
+#cs-top-navigation li:hover > ul.sub-menu {
+    display: block
+}
+#cs-top-navigation ul.sub-menu ul.sub-menu {
+    left: 100%;
+    top: -10px
+}
+
+/*------------------------------------------------------------------
+    6.2 Login
+-------------------------------------------------------------------*/
+.cs-top-login {
+    font-size: 13px;
+    color: #f3f1f1;
+    float: right;
+    display: block;
+    padding: 8px 5px;
+}
+.cs-top-login:hover {
+    color: #bbb
+}
+.cs-top-login i {
+    margin-right: 6px
+}
+
+#cs-login-popup {
+    position: relative;
+    background-color: #fff;
+    padding: 90px 20px 30px 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 20px auto
+}
+#cs-login-popup form {
+    margin: 0
+}
+#cs-login-popup form input[type="text"],
+#cs-login-popup form input[type="password"],
+#cs-login-popup form input[type="email"] {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 12px;
+    outline: none;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    max-width: 100%;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: 400
+}
+#cs-login-popup form input[type="submit"],
+#cs-login-popup form .button-primary {
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 4px 14px;
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    outline: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    border: 0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s
+}
+#cs-login-popup form input[type="submit"]:hover,
+#cs-login-popup form .button-primary:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
+#cs-login-popup form p {
+    font-size: 12px;
+}
+#wppb-login-wrap p {
+    margin-bottom: 20px !important
+}
+#cs-login-popup form p a {
+    color: #999
+}
+#cs-login-popup form p a:hover {
+    color: #000
+}
+#cs-login-popup .cs-tab-group .ui-tabs-nav {
+    text-align: center;
+    margin-bottom: 20px
+}
+#cs-login-popup .cs-tab-group .ui-tabs-nav li {
+    float: none;
+    display: inline-block;
+    margin: 0 10px
+}
+
+/*------------------------------------------------------------------
+    6.3 Logo
+-------------------------------------------------------------------*/
+#cs-logo-brand {
+    margin: 30px 0
+}
+#cs-header.cs-header-center #cs-logo-brand {
+    text-align: center;
+}
+#cs-logo-brand h1 {
+    margin: 0;
+    font-size: 48px;
+    line-height: 58px;
+    font-weight: 400
+}
+#cs-logo-brand h2 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400
+}
+
+/*------------------------------------------------------------------
+    6.4 Desktop search
+-------------------------------------------------------------------*/
+.cs-desktop-search {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -20px
+}
+.cs-desktop-searc form {
+    margin: 0;
+    position: relative;
+}
+.cs-desktop-search form:after {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f002";
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: center;
+    top: 0;
+    right: 0;
+    z-index: 1
+}
+.cs-desktop-search form input[type="search"] {
+    padding: 8px 20px 8px 0;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    min-width: 200px
+}
+
+/*------------------------------------------------------------------
+    6.5 Search form
+-------------------------------------------------------------------*/
+.cs-header-search {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    display: none;
+}
+.cs-header-search .close {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 56px;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+    z-index: 10
+}
+.cs-header-search input[type="search"] {
+    height: 60px;
+    width: 100%;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 60px
+}
+
+/*------------------------------------------------------------------
+    6.7 Header bottom
+-------------------------------------------------------------------*/
+#cs-header.cs-header-center .cs-header-bottom {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/*------------------------------------------------------------------
+    6.8 Toggle navigation
+-------------------------------------------------------------------*/
+.cs-toggle-main-navigation {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    line-height: 32px;
+    text-align: center;
+    display: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    6.9 Toggle search
+-------------------------------------------------------------------*/
+.cs-toggle-main-search {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    line-height: 32px;
+    text-align: center;
+    display: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    6.10 Main navigation
+-------------------------------------------------------------------*/
+#cs-main-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+/*------------------------------------------------------------------
+    7. Blog
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    7.1 Post - article
+-------------------------------------------------------------------*/
+/* Header */
+.cs-post-header h3 {
+    margin-top: 0
+}
+.cs-post-header h3 a {
+    display: block;
+}
+
+/* Category */
+.cs-category-links {
+    text-transform: uppercase;
+    font-size: 12px
+}
+.cs-category-links:before,
+.cs-category-links:after {
+    content: " ";
+    display: table
+}
+.cs-category-links:after {
+    clear: both
+}
+.cs-category-links a {
+    float: left;
+}
+.cs-category-links a:after {
+    content: "/";
+    margin: 0 4px 0 0;
+    color: #ddd
+}
+.cs-category-links a:last-child:after {
+    display: none;
+}
+
+/* Thumbnail */
+.cs-post-thumbnail {
+    margin-bottom: 15px;
+    position: relative;
+}
+article.no-image .cs-post-thumbnail {
+    margin-bottom: 5px
+}
+.cs-module-3 article.no-image .cs-post-header h3 {
+    margin-bottom: 5px
+}
+article.no-image .cs-post-thumbnail .cs-post-comments {
+    position: static;
+    padding: 0
+}
+.cs-post-thumbnail img,
+.cs-post-thumbnail iframe,
+.cs-post-thumbnail video,
+.cs-post-thumbnail audio {
+    width: 100%
+}
+.cs-post-thumbnail img {
+    width: 100%;
+    opacity: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.cs-post-thumbnail img:hover {
+    opacity: 0.8
+}
+.cs-post-thumbnail .cs-post-rating {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    color: #fff;
+    font-size: 26px;
+    padding: 15px;
+    cursor: default;
+    z-index: 1
+}
+.cs-post-thumbnail .cs-post-comments {
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+    background-color: #fff;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    z-index: 1
+}
+.cs-post-thumbnail .cs-post-comments a {
+    color: #000
+}
+.cs-post-thumbnail .cs-credit-line {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    background-color: #000;
+    color: #fff;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    z-index: 1
+}
+.cs-post-thumbnail .cs-credit-line a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Slider */
+.cs-post-slider .swiper-button-prev,
+.cs-post-slider .swiper-button-next {
+    height: 80px;
+    margin-top: -40px;
+    width: 40px;
+    line-height: 80px;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+     -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.cs-post-slider .swiper-button-prev:hover,
+.cs-post-slider .swiper-button-next:hover {
+    background-color: #000
+}
+
+/* Content */
+.cs-post-content {
+    color: #999
+}
+.cs-post-content a.read-more {
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: inline-block;
+    color: #999;
+}
+.cs-post-content a.read-more:hover {
+    border: 1px solid #000;
+    color: #000
+}
+
+/* Footer */
+.cs-post-footer:before,
+.cs-post-footer:after {
+    content: " ";
+    display: table
+}
+.cs-post-footer:after {
+    clear: both
+}
+
+/* Date */
+.cs-footer-date {
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 15px
+}
+.cs-footer-date .cs-date-year {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 2px;
+    color: #999
+}
+.cs-footer-date .cs-date-day-month {
+    font-size: 13px;
+    line-height: 1;
+    color: #000
+}
+
+/* Icon */
+.cs-footer-icon {
+    float: left;
+    color: #ddd;
+    padding: 15px
+}
+.cs-footer-icon i {
+    font-size: 28px
+}
+
+/* Share */
+.cs-footer-share {
+    float: left;
+    padding: 15px
+}
+.cs-footer-share span {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #bbb
+}
+.cs-footer-share a {
+    font-size: 16px
+}
+.cs-footer-share a:hover {
+    color: #000
+}
+
+/* Comments */
+.cs-footer-comments {
+    float: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #000;
+    padding: 15px
+}
+.cs-footer-comments span {
+    font-size: 10px;
+    margin-right: 4px;
+    color: #999
+}
+.cs-footer-comments b {
+    font-size: 12px;
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    7.2 Module 1
+-------------------------------------------------------------------*/
+.cs-module-1 .cs-post-footer {
+    border-top: 1px solid #eee
+}
+.cs-module-1 .cs-footer-date,
+.cs-module-1 .cs-footer-icon,
+.cs-module-1 .cs-footer-share {
+    border-right: 1px solid #eee
+}
+.cs-module-1 .cs-post {
+    margin-bottom: 40px
+}
+.cs-module-1 .cs-post.sticky {
+    background-color: #f5f5f5;
+    padding: 15px
+}
+.cs-module-1 .cs-post-header {
+    text-align: center
+}
+.cs-module-1 .cs-post-header h3 {
+    font-size: 28px;
+    line-height: 38px;
+}
+.cs-module-1 .cs-post-header h3 a {
+    padding: 0 50px
+}
+.cs-module-1 .cs-category-links a {
+    display: inline-block;
+    float: none;
+}
+.cs-module-1 .cs-footer-share span {
+    margin-right: 10px
+}
+.cs-module-1 .cs-footer-share a {
+    margin-right: 5px
+}
+
+/*------------------------------------------------------------------
+    7.3 Module 2
+-------------------------------------------------------------------*/
+.cs-module-2:before,
+.cs-module-2:after {
+    content: " ";
+    display: table
+}
+.cs-module-2:after {
+    clear: both
+}
+.cs-module-2 .cs-post {
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.cs-module-2 .cs-post.sticky {
+    background-color: #f5f5f5;
+    padding: 15px
+}
+.cs-module-2 .cs-post-footer {
+    text-align: center;
+    border-right: 1px solid #eee;
+    float: left;
+    margin-right: -1px
+}
+.cs-module-2 .cs-footer-date {
+    border-bottom: 1px solid #eee;
+    display: block;
+    float: none;
+    padding: 10px 5px
+}
+.cs-module-2 .cs-footer-date .cs-date-year {
+    font-size: 16px
+}
+.cs-module-2 .cs-footer-date .cs-date-day-month {
+    font-size: 10px
+}
+.cs-module-2 .cs-footer-icon {
+    text-align: center;
+    display: block;
+    float: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 11px;
+    padding: 15px 5px 10px 5px
+}
+.cs-module-2 .cs-footer-icon i {
+    font-size: 24px
+}
+.cs-module-2 .cs-footer-share {
+    border-bottom: 1px solid #eee;
+    float: none;
+    display: block;
+    padding: 10px 5px
+}
+.cs-module-2 .cs-footer-share span,
+.cs-module-2 .cs-footer-share a {
+    display: block;
+    margin-bottom: 5px
+}
+.cs-module-2 .cs-footer-comments {
+    display: block;
+    text-align: center;
+    float: none;
+    padding: 10px 5px
+}
+.cs-module-2 .cs-footer-comments span {
+    display: block;
+    margin: 0;
+    line-height: 1.2
+}
+.cs-module-2 .cs-post-container {
+    overflow: hidden;
+    border-left: 1px solid #eee;
+    padding-left: 20px
+}
+.cs-module-2 .cs-post-thumbnail {
+    float: left;
+    width: 50%;
+    margin-right: 20px;
+    margin-bottom: 0
+}
+.cs-module-2 .cs-post.no-image .cs-post-thumbnail {
+    display: none
+}
+.cs-module-2 .cs-post-inside-container {
+    overflow: hidden;
+}
+.cs-module-2 .cs-post-header h3 {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 15px
+}
+
+/*------------------------------------------------------------------
+    7.4 Module 3
+-------------------------------------------------------------------*/
+.cs-module-3 .cs-post-footer {
+    border-top: 1px solid #eee
+}
+.cs-module-3 .cs-footer-date,
+.cs-module-3 .cs-footer-icon {
+    border-right: 1px solid #eee
+}
+.cs-module-3 .cs-post {
+    margin-bottom: 40px;
+    position: relative;
+}
+.cs-module-3 .cs-post.sticky {
+    background-color: #f5f5f5;
+    padding: 15px
+}
+.cs-module-3 .cs-post-header h3 {
+    font-size: 22px;
+    line-height: 32px;
+}
+.cs-module-3 .cs-footer-share span {
+    margin-right: 10px
+}
+.cs-module-3 .cs-footer-share a {
+    margin-right: 5px
+}
+.cs-post.format-audio .cs-post-thumbnail iframe {
+    max-height: 310px
+}
+
+/*------------------------------------------------------------------
+    7.5 Module 4
+-------------------------------------------------------------------*/
+.cs-module-4 .cs-post {
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+    background-color: #000
+}
+.cs-module-4 .cs-post:before {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border: 1px solid #fff;
+    opacity: 0.5;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.cs-module-4 .cs-post img {
+    opacity: 0.5
+}
+.cs-module-4 .cs-post-header {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 0 30px;
+    -webkit-transition: bottom .2s ease-in-out;
+    -moz-transition: bottom .2s ease-in-out;
+    -o-transition: bottom .2s ease-in-out;
+    transition: bottom .2s ease-in-out;
+}
+.cs-module-4 .cs-post:hover .cs-post-header {
+    bottom: 70px
+}
+.cs-module-4 .cs-post-header h3 {
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0
+}
+.cs-module-4 .cs-post-header h3 a {
+    color: #fff
+}
+.cs-module-4 .cs-category-links a {
+    display: inline-block;
+    float: none;
+}
+.cs-module-4 .cs-category-links a:hover {
+    color: #fff
+}
+.cs-module-4 .cs-post-footer {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: bottom .3s ease-in-out;
+    -moz-transition: bottom .3s ease-in-out;
+    -o-transition: bottom .3s ease-in-out;
+    transition: bottom .3s ease-in-out;
+}
+.cs-module-4 .cs-post:hover .cs-post-footer {
+    bottom: 30px
+}
+.cs-module-4 .cs-post-footer .cs-footer-share {
+    float: none;
+    padding: 0;
+    height: 30px
+}
+.cs-module-4 .cs-post-footer .cs-footer-share span {
+    margin-right: 10px;
+}
+.cs-module-4 .cs-post-footer .cs-footer-share a {
+    margin-right: 5px;
+    font-size: 16px
+}
+.cs-module-4 .cs-post-footer .cs-footer-share a:hover {
+    color: #fff
+}
+
+/*------------------------------------------------------------------
+    7.6 Module 5
+-------------------------------------------------------------------*/
+.cs-module-5:before,
+.cs-module-5:after {
+    content: " ";
+    display: table
+}
+.cs-module-5:after {
+    clear: both
+}
+.cs-module-5 .cs-post {
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.cs-module-5 .cs-post-footer {
+    text-align: center;
+    border-right: 1px solid #eee;
+    float: left;
+    margin-right: -1px
+}
+.cs-module-5 .cs-footer-date {
+    border-bottom: 1px solid #eee;
+    display: block;
+    float: none;
+    padding: 10px 5px
+}
+.cs-module-5 .cs-footer-date .cs-date-year {
+    font-size: 16px
+}
+.cs-module-5 .cs-footer-date .cs-date-day-month {
+    font-size: 10px
+}
+.cs-module-5 .cs-footer-icon {
+    text-align: center;
+    display: block;
+    float: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 11px;
+    padding: 15px 5px 10px 5px
+}
+.cs-module-5 .cs-footer-icon i {
+    font-size: 24px
+}
+.cs-module-5 .cs-footer-share {
+    border-bottom: 1px solid #eee;
+    float: none;
+    display: block;
+    padding: 10px 5px
+}
+.cs-module-5 .cs-footer-share span,
+.cs-module-5 .cs-footer-share a {
+    display: block;
+    margin-bottom: 5px
+}
+.cs-module-5 .cs-footer-comments {
+    display: block;
+    text-align: center;
+    float: none;
+    padding: 10px 5px
+}
+.cs-module-5 .cs-footer-comments span {
+    display: block;
+    margin: 0;
+    line-height: 1.2
+}
+.cs-module-5 .cs-post-container {
+    overflow: hidden;
+    border-left: 1px solid #eee;
+    padding-left: 20px
+}
+.cs-module-5 .cs-post-header h3 {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 15px
+}
+.cs-module-5 .cs-post-content p {
+    margin: 0
+}
+
+/*------------------------------------------------------------------
+    7.7 Module 6
+-------------------------------------------------------------------*/
+.cs-module-6 .cs-post:before,
+.cs-module-6 .cs-post:after {
+    content: " ";
+    display: table
+}
+.cs-module-6 .cs-post:after {
+    clear: both
+}
+.cs-module-6 .cs-post {
+    margin-bottom: 20px
+}
+.cs-module-6 .cs-post:last-child {
+    margin-bottom: 40px
+}
+.cs-module-6 .cs-post .cs-post-thumbnail {
+    float: left;
+    width: 100px;
+    margin-right: 15px;
+    margin-bottom: 0
+}
+.cs-module-6 .cs-post .cs-post-header {
+    overflow: hidden;
+}
+.cs-module-6 .cs-post .cs-post-header h3 {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0
+}
+
+/*------------------------------------------------------------------
+    7.8 Scroll indicator
+-------------------------------------------------------------------*/
+.scrollindicator {
+    width: 100%;
+    height: 10px;
+    display: block;
+    border: 0;
+    z-index: 99;
+    background: transparent;
+    color: #000
+}
+progress.scrollindicator,
+div.scrollindicator {
+    position: fixed
+}
+progress.scrollindicator {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+progress.scrollindicator::-webkit-progress-bar {
+    background-color: transparent
+}
+progress.scrollindicator::-webkit-progress-value {
+    background-color: #000
+}
+progress.scrollindicator::-moz-progress-bar {
+    background-color: #000
+}
+.scrollindicator-nohtml5 {
+    width: 100%;
+    height: 10px;
+    display: block;
+    border: 0;
+    z-index: 99;
+    background: transparent;
+    color: #000
+}
+.scrollindicator-nohtml5 span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+    background: #000
+}
+.animated .scrollindicator-nohtml5 span {
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease
+}
+
+/*------------------------------------------------------------------
+    8. Parallax element
+-------------------------------------------------------------------*/
+.cs-parallax-container,
+.cs-parallax-container .cs-parallax-element {
+    height: 600px;
+}
+.cs-parallax-container {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.cs-parallax-container .cs-parallax-element {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%
+}
+.cs-parallax-container .cs-parallax-header {
+    width: 60%;
+    max-width: 900px;
+    padding: 30px 60px 25px 60px;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.9);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #999;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 1
+}
+.cs-parallax-container .cs-parallax-header h1 {
+    font-size: 34px;
+    line-height: 44px;
+    margin: 0 0 15px 0
+}
+.cs-parallax-container .cs-parallax-header div {
+    text-transform: uppercase;
+    font-size: 12px;
+    overflow: hidden;
+    color: #999;
+}
+.cs-parallax-container .cs-parallax-header div a,
+.cs-parallax-container .cs-parallax-header div span {
+    display: inline-block;
+}
+.cs-parallax-container .cs-parallax-header div a:after,
+.cs-parallax-container .cs-parallax-header div span:after {
+    content: "/";
+    padding: 0 8px;
+    color: #ddd
+}
+.cs-parallax-container .cs-parallax-header div a:last-child:after {
+    display: none;
+}
+.cs-cover-container .cs-post-thumbnail {
+    margin: 0
+}
+
+/*------------------------------------------------------------------
+    9. Single post
+-------------------------------------------------------------------*/
+.cs-single-post {
+    margin-bottom: 40px
+}
+.cs-single-post .cs-post-footer {
+    border-top: 1px solid #eee;
+    margin-bottom: 20px
+}
+.cs-single-post .cs-footer-date,
+.cs-single-post .cs-footer-icon {
+    border-right: 1px solid #eee
+}
+.cs-single-post .cs-footer-share span {
+    margin-right: 10px
+}
+.cs-single-post .cs-footer-share a {
+    margin-right: 5px
+}
+.cs-single-post .cs-post-header h1 {
+    margin-bottom: 10px
+}
+.cs-post-header .cs-post-header-meta {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #999;
+    overflow: hidden;
+}
+.cs-post-header .cs-post-header-meta a {
+    color: #999;
+    float: left;
+}
+.cs-post-header .cs-post-header-meta a:after {
+    content: "/";
+    padding: 0 8px;
+    color: #ddd
+}
+.cs-post-header .cs-post-header-meta a:last-child:after {
+    display: none;
+}
+.cs-single-post .cs-post-content {
+    color: #666;
+    line-height: 24px
+}
+
+/*------------------------------------------------------------------
+    9.1 Review container
+-------------------------------------------------------------------*/
+.cs-review-container {
+    margin-bottom: 20px
+}
+.cs-review-container .cs-criteria-area {
+    padding: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 1px;
+    background-color: #eee
+}
+.cs-review-container .cs-review-bar {
+    margin-bottom: 20px;
+    font-size: 12px
+}
+.cs-review-container .cs-criteria {
+    float: left;
+    text-transform: uppercase;
+    margin-bottom: 5px
+}
+.cs-review-container .cs-summary-lists {
+    width: 75%;
+    float: left;
+    font-size: 12px;
+}
+.cs-review-container .cs-summary-lists ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+.cs-review-container .cs-summary-lists span {
+    display: block;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 5px
+}
+.cs-review-container .cs-summary-lists .cs-positive-list,
+.cs-review-container .cs-summary-lists .cs-negative-list {
+    width: 48%;
+    float: left;
+}
+.cs-review-container .cs-summary-lists .cs-negative-list {
+    margin-left: 4%
+}
+.cs-review-container .cs-summary-lists .cs-positive-list ul li,
+.cs-review-container .cs-summary-lists .cs-negative-list ul li {
+    position: relative;
+    padding-left: 15px
+}
+.cs-review-container .cs-summary-lists .cs-positive-list ul li:before,
+.cs-review-container .cs-summary-lists .cs-negative-list ul li:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 10px
+}
+.cs-review-container .cs-summary-lists .cs-positive-list ul li:before {
+    content: "+"
+}
+.cs-review-container .cs-summary-lists .cs-negative-list ul li:before {
+    content: "-"
+}
+.cs-review-container .cs-criteria-score {
+    position: relative;
+    float: right;
+    color: #000;
+    font-weight: 700
+}
+.cs-review-container .cs-criteria-bar {
+    clear: both;
+    background-color: #fff;
+    overflow: hidden;
+    display: block;
+    height: 10px
+}
+.cs-review-container .cs-criteria-bar div {
+    display: block;
+    height: 100%
+}
+
+.cs-summary-area {
+    padding: 30px;
+    background-color: #eee
+}
+.cs-summary-area:before,
+.cs-summary-area:after {
+    content: " ";
+    display: table
+}
+.cs-summary-area:after {
+    clear: both
+}
+.cs-summary-area .cs-summary-score {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 2px;
+    width: 20%;
+    float: right;
+    text-align: center;
+    padding: 25px 0
+}
+.cs-summary-area .cs-summary-score span {
+    display: block;
+    text-transform: uppercase;
+}
+.cs-summary-area .cs-summary-score span.cs-score {
+    font-size: 38px;
+    line-height: 38px;
+    color: #000
+}
+.cs-summary-area .cs-summary-score span.cs-title {
+    color: #999;
+    font-size: 12px
+}
+
+/* Tags */
+.cs-post-tags:before,
+.cs-post-tags:after {
+    content: " ";
+    display: table
+}
+.cs-post-tags:after {
+    clear: both
+}
+.cs-post-tags a {
+    display: block;
+    float: left;
+    font-size: 12px !important;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 4px 10px;
+    line-height: 1;
+    color: #999;
+    margin-right: 6px;
+    margin-bottom: 6px
+}
+.cs-post-tags a:hover {
+    color: #000;
+    border: 1px solid #000
+}
+
+/*------------------------------------------------------------------
+    9.2 About author
+-------------------------------------------------------------------*/
+.cs-author-box {
+    margin-bottom: 40px
+}
+.cs-author-box:before,
+.cs-author-box:after {
+    content: " ";
+    display: table
+}
+.cs-author-box:after {
+    clear: both
+}
+.cs-author-image {
+    float: left;
+}
+.cs-author-image img {
+    width: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%
+}
+.cs-author-description {
+    overflow: hidden;
+    padding-left: 20px
+}
+.cs-author-description h4 {
+    font-size: 20px;
+    margin: 0 0 5px 0
+}
+.cs-author-description h5 {
+    font-size: 12px;
+    margin: 0;
+    color: #999;
+    text-transform: uppercase;
+}
+.cs-author-description p {
+    margin-top: 10px
+}
+.cs-author-description .cs-widget-social ul li {
+    font-size: 14px
+}
+.cs-author-description .cs-widget-social ul li a {
+    width: 35px;
+    height: 35px;
+    line-height: 32px
+}
+.cs-author-description .cs-widget-social ul li a:hover {
+    border-color: #000;
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    9.3 Comments
+-------------------------------------------------------------------*/
+.cs-comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0
+}
+.cs-comment-list .cs-comment {
+    margin-bottom: 10px
+}
+.cs-comment-list ul.children {
+    margin: 0 0 0 90px;
+    padding: 0;
+    list-style: none;
+}
+.cs-comment-list ul.children .cs-comment:last-child {
+    margin-bottom: 0
+}
+.cs-comment-author img.avatar {
+    width: 70px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%
+}
+.cs-comment-author b {
+    font-weight: 400;
+    font-size: 16px;
+    margin-right: 5px
+}
+.cs-comment-author b a {
+    color: #000
+}
+.cs-comment-metadata {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+}
+.cs-comment-metadata:after {
+    content: "-"
+}
+.cs-comment-author a.reply {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.cs-comment-content {
+    margin-top: 5px;
+    overflow: hidden;
+}
+.cs-reply {
+    display: block;
+    float: left;
+    font-size: 10px;
+    background-color: #eee;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    line-height: 1;
+    color: #222
+}
+.cs-reply:hover {
+    color: #fff
+}
+
+/*------------------------------------------------------------------
+    9.4 No comments
+-------------------------------------------------------------------*/
+.no_comments {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.no_comments i {
+    font-size: 32px;
+    color: #ddd
+}
+.no_comments h4 {
+    margin-bottom: 5px
+}
+.no_comments p {}
+
+/*------------------------------------------------------------------
+    9.5 Respond
+-------------------------------------------------------------------*/
+#commentform input,
+#commentform textarea {
+    width: 100%
+}
+#commentform input[type="submit"] {
+    outline: 0;
+    width: auto;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+#commentform input[type="submit"] {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 6px 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: inline-block;
+    color: #999
+}
+#commentform input[type="submit"]:hover {
+    border: 1px solid #000;
+    background-color: #fff !important;
+    color: #000
+}
+p.comment-info {
+    background-color: #eee;
+    padding: 20px
+}
+p.comment-info strong {
+    color: #000
+}
+
+/*------------------------------------------------------------------
+    10. Sliders 
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    10.1 Slider 1
+-------------------------------------------------------------------*/
+.cs-slider-1 {
+    margin-top: 20px;
+    overflow: hidden;
+}
+.cs-col.cs-col-12-of-12 .cs-slider-1 {
+    margin-bottom: 40px;
+    margin-top: 0
+}
+.cs-col.cs-col-12-of-12 .cs-slider-1 .swiper-button-prev {
+    left: 0
+}
+.cs-col.cs-col-12-of-12 .cs-slider-1 .swiper-button-next {
+    right: 0
+}
+.cs-slider-1 .swiper-container {
+    overflow: visible;
+    max-width: 1140px
+}
+.cs-slider-1 .swiper-slide {
+    opacity: 0.3;
+    -webkit-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+.cs-slider-1 .swiper-slide.swiper-slide-active {
+    opacity: 1
+}
+.cs-slider-1 .swiper-slide:before {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    border: 1px solid #fff;
+    opacity: 0.5
+}
+.cs-slider-1 .swiper-slide img {
+    width: 100%
+}
+.cs-slider-1 .swiper-button-prev,
+.cs-slider-1 .swiper-button-next {
+    height: 140px;
+    margin-top: -70px;
+    width: 60px;
+    line-height: 140px;
+    font-size: 52px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.cs-slider-1 .swiper-caption {
+    width: 60%;
+    padding: 30px 60px 25px 60px;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.9);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #999;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 1
+}
+.cs-slider-1 .swiper-caption h2 {
+    font-size: 34px;
+    line-height: 44px;
+    margin: 0 0 15px 0
+}
+.cs-slider-1 .swiper-caption h2 a {
+    display: block;
+}
+.cs-slider-1 .swiper-caption div {
+    text-transform: uppercase;
+    font-size: 12px;
+    overflow: hidden;
+    color: #999;
+}
+.cs-slider-1 .swiper-caption div a,
+.cs-slider-1 .swiper-caption div span {
+    display: inline-block;
+}
+.cs-slider-1 .swiper-caption div a:hover {
+    color: #000
+}
+.cs-slider-1 .swiper-caption div a:after,
+.cs-slider-1 .swiper-caption div span:after {
+    content: "/";
+    padding: 0 8px;
+    color: #ddd
+}
+.cs-slider-1 .swiper-caption div a:last-child:after {
+    display: none;
+}
+
+/*------------------------------------------------------------------
+    10.2 Slider 2
+-------------------------------------------------------------------*/
+.cs-slider-2 {
+    margin-top: 20px
+}
+.cs-col.cs-col-12-of-12 .cs-slider-2 {
+    margin-bottom: 40px;
+    margin-top: 0
+}
+.cs-slider-2 .swiper-container {
+    padding-bottom: 30px
+}
+.cs-slider-2 .swiper-slide {
+    text-align: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+    background-color: #000
+}
+.cs-slider-2 .swiper-slide:before {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border: 1px solid #fff;
+    opacity: 0.5;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.cs-slider-2 .swiper-slide:hover:before {
+    opacity: 1
+}
+.cs-slider-2 .swiper-slide img {
+    opacity: 0.7;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.cs-slider-2 .swiper-slide:hover img {
+    opacity: 0.4
+}
+.cs-slider-2 .swiper-slide .cs-post-header {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 0 30px;
+    -webkit-transition: bottom .2s ease-in-out;
+    -moz-transition: bottom .2s ease-in-out;
+    -o-transition: bottom .2s ease-in-out;
+    transition: bottom .2s ease-in-out;
+}
+.cs-slider-2 .swiper-slide:hover .cs-post-header {
+    bottom: 70px
+}
+.cs-slider-2 .swiper-slide .cs-post-header h3 {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0
+}
+.cs-slider-2 .swiper-slide .cs-post-header h3 a {
+    color: #fff
+}
+.cs-slider-2 .swiper-slide .cs-category-links a {
+    display: inline-block;
+    float: none;
+}
+.cs-slider-2 .swiper-slide .cs-category-links a:hover {
+    color: #fff
+}
+.cs-slider-2 .swiper-slide .cs-post-footer {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: bottom .3s ease-in-out;
+    -moz-transition: bottom .3s ease-in-out;
+    -o-transition: bottom .3s ease-in-out;
+    transition: bottom .3s ease-in-out;
+}
+.cs-slider-2 .swiper-slide:hover .cs-post-footer {
+    bottom: 30px
+}
+.cs-slider-2 .swiper-slide .cs-post-footer .cs-footer-share {
+    float: none;
+    padding: 0;
+    height: 30px
+}
+.cs-slider-2 .swiper-slide .cs-post-footer .cs-footer-share span {
+    margin-right: 10px;
+}
+.cs-slider-2 .swiper-slide .cs-post-footer .cs-footer-share a {
+    margin-right: 5px;
+    font-size: 16px
+}
+.cs-slider-2 .swiper-slide .cs-post-footer .cs-footer-share a:hover {
+    color: #fff
+}
+.cs-slider-2 .swiper-pagination {
+    bottom: 0
+}
+.cs-slider-2 .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #000
+}
+.cs-slider-2 .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px
+}
+
+/*------------------------------------------------------------------
+    10.3 Slider 3
+-------------------------------------------------------------------*/
+.cs-slider-3 {
+    margin-bottom: 40px;
+    padding-bottom: 30px
+}
+.cs-slider-3 .swiper-slide img {
+    width: 100%;
+}
+.cs-slider-3 .swiper-pagination {
+    bottom: 0
+}
+.cs-slider-3 .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #000
+}
+.cs-slider-3 .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px
+}
+.cs-slider-3 .swiper-caption {
+    padding: 30px 30px 25px 30px;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.9);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #999;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    max-width: 90%;
+    z-index: 1
+}
+.cs-slider-3 .swiper-caption h2 {
+    font-size: 22px;
+    line-height: 32px;
+    margin: 0 0 5px 0
+}
+.cs-slider-3 .swiper-caption h2 a {
+    display: block;
+}
+.cs-slider-3 .swiper-caption div {
+    text-transform: uppercase;
+    font-size: 12px;
+    overflow: hidden;
+    color: #999;
+}
+.cs-slider-3 .swiper-caption div a,
+.cs-slider-3 .swiper-caption div span {
+    display: inline-block;
+}
+.cs-slider-3 .swiper-caption div a:after,
+.cs-slider-3 .swiper-caption div span:after {
+    content: "/";
+    padding: 0 8px;
+    color: #ddd
+}
+.cs-slider-3 .swiper-caption div a:last-child:after {
+    display: none;
+}
+
+/*------------------------------------------------------------------
+    11. Pages 
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    11.1 Page title
+-------------------------------------------------------------------*/
+.cs-page-title {
+    padding: 40px 0;
+    background-color: #f5f5f5
+}
+.cs-page-title h1 {
+    margin: 0
+}
+
+/*------------------------------------------------------------------
+    11.2 404 Page
+-------------------------------------------------------------------*/
+.cs-404-page {
+    padding: 100px 0;
+    text-align: center;
+}
+.cs-404-page h3 {
+    font-size: 120px;
+    font-weight: 400;
+    line-height: 120px
+}
+.cs-404-page form {
+    margin: 50px 0
+}
+.cs-404-page form input {
+    display: inline-block;
+    width: 250px
+}
+
+/*------------------------------------------------------------------
+    11.3 Contact form
+-------------------------------------------------------------------*/
+.google_map {
+    margin-bottom: 20px;
+}
+.google_map iframe {
+    width: 100%
+}
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"] {
+    width: 100%
+}
+.wpcf7-not-valid-tip {
+    display: inline-block;
+    background-color: #f2dede;
+    color: #a94442 !important;
+    position: relative;
+    padding: 5px 10px;
+    font-size: 12px
+}
+.wpcf7-validation-errors {
+    background-color: #f2dede !important;
+    color: #a94442 !important;
+    position: relative;
+    padding: 5px 10px !important;
+    margin-bottom: 20px;
+    border: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important
+}
+.wpcf7-mail-sent-ok {
+    background-color: #dff0d8 !important;
+    color: #3c763d !important;
+    position: relative;
+    padding: 5px 10px !important;
+    margin-bottom: 20px;
+    border: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important
+}
+.wpcf7-submit {
+    display: inline-block;
+    padding: 4px 14px;
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    outline: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    border: 0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s
+}
+.wpcf7-submit:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
+
+/*------------------------------------------------------------------
+    12. Footer 
+-------------------------------------------------------------------*/
+#cs-footer {
+    background-color: #000;
+    padding: 40px 0;
+    color: #999
+}
+#cs-footer h3.widget-title,
+#cs-footer .widget a:hover {
+    color: #fff
+}
+#cs-footer .widget_archive ul li,
+#cs-footer .widget_categories ul li,
+#cs-footer .widget_custom_categories ul li,
+#cs-footer .widget_meta ul li,
+#cs-footer .widget_recent_comments ul li,
+#cs-footer .widget_nav_menu ul li,
+#cs-footer .widget_links ul li,
+#cs-footer .widget_pages ul li,
+#cs-footer .widget_recent_entries ul li {
+    border-top: 1px solid #333
+}
+#cs-footer .widget_archive ul li:first-child,
+#cs-footer .widget_categories ul li:first-child,
+#cs-footer .widget_custom_categories ul li:first-child,
+#cs-footer .widget_links ul li:first-child,
+#cs-footer .widget_meta ul li:first-child,
+#cs-footer .widget_nav_menu ul li:first-child,
+#cs-footer .widget_pages ul li:first-child,
+#cs-footer .widget_recent_comments ul li:first-child,
+#cs-footer .widget_recent_entries ul li:first-child {
+    border-top: 0;
+    padding-top: 0;
+    padding-bottom: 6px
+}
+#cs-footer .widget_archive ul li:last-child,
+#cs-footer .widget_categories ul li:last-child,
+#cs-footer .widget_custom_categories ul li:last-child,
+#cs-footer .widget_links ul li:last-child,
+#cs-footer .widget_meta ul li:last-child,
+#cs-footer .widget_nav_menu ul li:last-child,
+#cs-footer .widget_pages ul li:last-child,
+#cs-footer .widget_recent_comments ul li:last-child,
+#cs-footer .widget_recent_entries ul li:last-child {
+    padding-bottom: 0
+}
+#cs-footer .widget_categories .children,
+#cs-footer .widget_custom_categories ul ul,
+#cs-footer .widget_nav_menu .sub-menu,
+#cs-footer .widget_pages .children {
+    border-top: 1px solid #333;
+    padding-top: 5px;
+    margin: 5px 0 0 12px
+}
+#cs-footer .widget_tag_cloud .tagcloud a {
+    background-color: #000;
+    border: 1px solid #666
+}
+#cs-footer .widget_tag_cloud .tagcloud a:hover {
+    color: #fff;
+    border: 1px solid #fff
+}
+#cs-footer .widget_recent_comments a {
+    color: #fff
+}
+#cs-footer .widget_recent_entries a {
+    color: #fff
+}
+#cs-footer .widget input[type="search"] {
+    background-color: #222;
+    border: 1px solid #666;
+    color: #fff
+}
+#cs-footer .cs-widget-social ul li a:hover {
+    border-color: #fff
+}
+#cs-footer .widget_custom_recent_posts .cs-post .cs-post-header h3 a {
+    color: #fff
+}
+#cs-footer .widget_custom_recent_comments .cs-comment .cs-author-header h3 a {
+    color: #fff
+}
+
+/*------------------------------------------------------------------
+    13. Copyright 
+-------------------------------------------------------------------*/
+.cs-copyright {
+    text-align: center;
+    border-top: 1px solid #222;
+    padding-top: 15px;
+    width: 100%;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 11px
+}
+.cs-copyright a {
+    color: #999
+}
+.cs-copyright a:hover {
+    color: #fff
+}

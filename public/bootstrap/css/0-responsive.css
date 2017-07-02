@@ -1,0 +1,531 @@
+/*------------------------------------------------------------------
+
+@Author: CodeoStudio
+@URL:    http://codeostudio.hr/
+
+[Table of contents]
+
+1. Wrapper
+2. Main content
+3. Header
+    3.1 Header top
+    3.2 Header middle
+    3.3 Desktop search  
+    3.4 Header bottom
+    3.5 Toggle navigation
+    3.6 Toggle search
+    3.7 Main navigation    
+4. Shortcodes
+5. Sidebar
+6. Blog
+    6.1 Single post 
+    6.2 Module 1
+    6.3 Module 2
+    6.4 Module 3
+    6.5 Module 4
+    6.6 Module 5
+    6.7 Review container
+    6.8 About author
+    6.9 Comments
+    6.10 Parallax element
+7. Sliders 
+    7.1 Slider 1
+    7.2 Slider 2
+    7.3 Slider 3
+8. Wordpress admin bar
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    1. Wrapper
+-------------------------------------------------------------------*/
+.cs-container {
+    padding-left: 20px;
+    padding-right: 20px
+}
+.cs-col {
+    width: 100%
+}
+
+/*------------------------------------------------------------------
+    2. Main content
+-------------------------------------------------------------------*/
+.cs-main-content,
+.cs-main-content.cs-sidebar-on-the-right,
+.cs-main-content.cs-sidebar-on-the-left {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0
+}
+
+/*------------------------------------------------------------------
+    3. Header
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    3.1 Header top
+-------------------------------------------------------------------*/
+#cs-header .cs-header-top {
+    display: none;
+}
+
+/*------------------------------------------------------------------
+    3.2 Header middle
+-------------------------------------------------------------------*/
+#cs-header .cs-header-middle {
+    height: 60px
+}
+#cs-header #cs-logo-brand img {
+    height: 40px
+}
+#cs-logo-brand {
+    margin: 10px 0;
+    text-align: center;
+}
+#cs-logo-brand h1 {
+    font-size: 24px;
+    line-height: 34px
+}
+
+/*------------------------------------------------------------------
+    3.3 Desktop search
+-------------------------------------------------------------------*/
+.cs-desktop-search {
+    display: none !important
+}
+
+/*------------------------------------------------------------------
+    3.4 Header bottom
+-------------------------------------------------------------------*/
+.cs-header-bottom {
+    background-color: #f5f5f5 !important;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/*------------------------------------------------------------------
+    3.5 Toggle navigation
+-------------------------------------------------------------------*/
+.cs-toggle-main-navigation {
+    display: block;
+}
+
+/*------------------------------------------------------------------
+    3.6 Toggle search
+-------------------------------------------------------------------*/
+.cs-toggle-main-search {
+    display: block;
+}
+
+/*------------------------------------------------------------------
+    3.7 Main navigation
+-------------------------------------------------------------------*/
+#cs-main-navigation {
+    padding: 15px 0;
+    display: none;
+    clear: both;
+    width: 100%
+}
+#cs-main-navigation ul {
+    font-size: 14px
+}
+#cs-main-navigation ul li {
+    position: relative;
+    border-top: 1px solid #ddd;
+}
+#cs-main-navigation > ul > li:first-child {
+    border: 0;
+}
+#cs-main-navigation ul li a {
+    color: #999;
+    display: block;
+    padding: 8px 0
+}
+#cs-main-navigation ul li a:hover,
+#cs-main-navigation ul li.current-menu-item > a {
+    color: #000
+}
+#cs-main-navigation ul li a span:after {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    font-family: "FontAwesome";
+    content: "\f0d7";
+    font-size: 10px;
+    color: #bbb;
+    font-style: normal;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+#cs-main-navigation ul.sub-menu {
+    padding-left: 15px
+}
+
+/*------------------------------------------------------------------
+    4. Shortcodes
+-------------------------------------------------------------------*/
+.pullquotes {
+    font-size: 18px;
+    line-height: 28px
+}
+.pullquotes:after {
+    display: none;
+}
+.pullquotes.left,
+.pullquotes.right {
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: left;
+}
+
+/*------------------------------------------------------------------
+    5. Sidebar
+-------------------------------------------------------------------*/
+.cs-main-sidebar {
+    width: 100%;
+    padding-top: 40px
+}
+
+/*------------------------------------------------------------------
+    6. Blog
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    6.1 Single post
+-------------------------------------------------------------------*/
+.cs-post-header .cs-post-header-meta {
+    text-transform: capitalize;
+}
+.cs-single-post .cs-post-header h1 {
+    font-size: 20px;
+    line-height: 30px;
+}
+.cs-post-content p:last-child {
+    margin-bottom: 15px
+}
+
+/*------------------------------------------------------------------
+    6.2 Module 1
+-------------------------------------------------------------------*/
+.cs-module-1 .cs-post-header {
+    text-align: left;
+}
+.cs-module-1 .cs-category-links a {
+    float: left;
+    display: inline;
+}
+.cs-module-1 .cs-post-header h3 {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 15px
+}
+.cs-module-1 .cs-post-header h3 a {
+    padding: 0
+}
+.cs-module-1 .cs-footer-icon,
+.cs-module-1 .cs-footer-share {
+    display: none;
+}
+.cs-module-1 .cs-post-footer {
+    border-bottom: 1px solid #eee
+}
+/*------------------------------------------------------------------
+    6.3 Module 2
+-------------------------------------------------------------------*/
+.cs-module-2 .cs-post-footer {
+    text-align: center;
+    border-right: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    float: none;
+    margin-right: 0;
+    margin-bottom: 20px
+}
+.cs-module-2 .cs-footer-date {
+    border-bottom: 0;
+    border-right: 1px solid #eee;
+    float: left;
+    padding: 10px 15px
+}
+.cs-module-2 .cs-footer-date .cs-date-year {
+    font-size: 22px
+}
+.cs-module-2 .cs-footer-date .cs-date-day-month {
+    font-size: 13px
+}
+.cs-module-2 .cs-footer-icon {
+    float: left;
+    border-bottom: 0;
+    border-right: 1px solid #eee;
+    padding: 15px;
+    padding-bottom: 13px;
+}
+.cs-module-2 .cs-footer-icon i {
+    font-size: 28px
+}
+.cs-module-2 .cs-footer-share {
+    display: none;
+}
+.cs-module-2 .cs-footer-comments {
+    float: left;
+    padding: 15px;
+}
+.cs-module-2 .cs-footer-comments span {
+    display: inline;
+    margin: 0 4px 0 0;
+    line-height: initial;
+}
+.cs-module-2 .cs-post-container {
+    overflow: visible;
+    border-left: 0;
+    padding-left: 0
+}
+.cs-module-2 .cs-post-header h3 {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 15px
+}
+.cs-module-2 .cs-post-thumbnail {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px
+}
+.cs-module-2 .cs-post-inside-container {
+    overflow: visible;
+}
+
+/*------------------------------------------------------------------
+    6.4 Module 3
+-------------------------------------------------------------------*/
+.cs-module-3 .cs-post-footer {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee
+}
+.cs-module-3 .cs-post-header h3 {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 15px
+}
+
+/*------------------------------------------------------------------
+    6.5 Module 4
+-------------------------------------------------------------------*/
+.cs-module-4 .cs-post:before {
+    opacity: 1
+}
+.cs-module-4 .cs-post img {
+    opacity: 0.5
+}
+.cs-module-4 .cs-post-header {
+    bottom: 70px
+}
+.cs-module-4 .cs-post-footer {
+    bottom: 30px
+}
+
+/*------------------------------------------------------------------
+    6.6 Module 5
+-------------------------------------------------------------------*/
+.cs-module-5 .cs-post-footer {
+    text-align: center;
+    border-right: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    float: none;
+    margin-right: 0;
+    margin-bottom: 20px
+}
+.cs-module-5 .cs-footer-date {
+    border-bottom: 0;
+    border-right: 1px solid #eee;
+    float: left;
+    padding: 10px 15px;
+}
+.cs-module-5 .cs-footer-date .cs-date-year {
+    font-size: 22px
+}
+.cs-module-5 .cs-footer-date .cs-date-day-month {
+    font-size: 13px
+}
+.cs-module-5 .cs-footer-icon {
+    float: left;
+    border-bottom: 0;
+    border-right: 1px solid #eee;
+    padding-bottom: 13px;
+    padding: 15px;
+    padding-bottom: 13px
+}
+.cs-module-5 .cs-footer-icon i {
+    font-size: 28px
+}
+.cs-module-5 .cs-footer-share {
+    display: none;
+}
+.cs-module-5 .cs-footer-comments {
+    float: left;
+    padding: 15px;
+}
+.cs-module-5 .cs-footer-comments span {
+    display: inline;
+    margin: 0 4px 0 0;
+    line-height: initial;
+}
+.cs-module-5 .cs-post-container {
+    overflow: visible;
+    border-left: 0;
+    padding-left: 0
+}
+.cs-module-5 .cs-post-header h3 {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 15px
+}
+
+/*------------------------------------------------------------------
+    6.7 Review container
+-------------------------------------------------------------------*/
+.cs-review-container .cs-summary-lists {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px
+}
+.cs-review-container .cs-summary-lists .cs-positive-list,
+.cs-review-container .cs-summary-lists .cs-negative-list,
+.cs-summary-area .cs-summary-score {
+    width: 100%;
+    display: block
+}
+.cs-review-container .cs-summary-lists .cs-positive-list {
+    margin-bottom: 10px
+}
+.cs-review-container .cs-summary-lists .cs-negative-list {
+    margin-left: 0
+}
+.cs-summary-area .cs-summary-score span {
+    display: block;
+    text-transform: uppercase;
+}
+.cs-summary-area .cs-summary-score span.cs-score {
+    font-size: 38px;
+    line-height: 38px;
+    color: #000
+}
+.cs-summary-area .cs-summary-score span.cs-title {
+    color: #999;
+    font-size: 12px
+}
+
+/*------------------------------------------------------------------
+    6.8 About author
+-------------------------------------------------------------------*/
+.cs-author-image {
+    display: none;
+}
+.cs-author-description {
+    overflow: visible;
+    padding-left: 0
+}
+
+/*------------------------------------------------------------------
+    6.9 Comments
+-------------------------------------------------------------------*/
+.cs-comment-list ul.children {
+    margin: 0
+}
+.cs-comment-author img.avatar {
+    display: none;
+}
+.cs-comment-content {
+    overflow: visible;
+}
+
+/*------------------------------------------------------------------
+    6.10 Parallax element
+-------------------------------------------------------------------*/
+.cs-parallax-container .cs-parallax-header {
+    width: 90%;
+    max-width: none;
+    padding: 20px 30px 15px 30px
+}
+.cs-parallax-container .cs-parallax-header h1 {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 5px
+}
+.cs-parallax-container .cs-parallax-header div {
+    display: none;
+}
+
+/*------------------------------------------------------------------
+    7. Sliders 
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+    7.1 Slider 1
+-------------------------------------------------------------------*/
+.cs-slider-1 .swiper-button-prev,
+.cs-slider-1 .swiper-button-next {
+    height: 60px;
+    margin-top: -30px;
+    width: 40px;
+    line-height: 60px;
+    font-size: 28px
+}
+.cs-slider-1 .swiper-caption {
+    width: 100%;
+    padding: 10px 40px 5px 40px;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    transform: none;
+}
+.cs-slider-1 .swiper-caption h2 {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 5px
+}
+.cs-slider-1 .swiper-caption div {
+    display: none;
+}
+
+/*------------------------------------------------------------------
+    7.2 Slider 2
+-------------------------------------------------------------------*/
+.cs-slider-2 .swiper-slide .cs-post-header {
+    bottom: 70px
+}
+.cs-slider-2 .swiper-slide .cs-post-header h3 {
+    font-size: 18px;
+    line-height: 28px
+}
+.cs-slider-2 .swiper-slide .cs-post-footer {
+    bottom: 30px
+}
+.cs-slider-2 .swiper-slide:before {
+    opacity: 1
+}
+.cs-slider-2 .swiper-slide img {
+    opacity: 0.4
+}
+
+/*------------------------------------------------------------------
+    7.3 Slider 3
+-------------------------------------------------------------------*/
+.cs-slider-3 .swiper-caption {
+    padding: 20px 20px 15px 20px;
+    width: 90%
+}
+.cs-slider-3 .swiper-caption h2 {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 5px 0
+}
+
+/*------------------------------------------------------------------
+    8. Wordpress admin bar
+-------------------------------------------------------------------*/
+body.admin-bar {
+    position: fixed;
+}

@@ -29,24 +29,24 @@
 		<div id="cs-wrapper" class="wide">
 		 
 			<header id="cs-header" class="cs-header-center">
-			 
+<!-------登陆注册------------------------------------------------------------> 	 					 
 				<div class="cs-header-top">
 				<div class="cs-container">
 				 
 				<nav id="cs-top-navigation">
 					<ul>
-						<li><a href="/">主页</a></li>				
+						<li><a href="/">主页</a></li>
 						<li><a href="page-contact.html">联系我们</a></li>
+						<%if(username != ""){%>
+						<li><a href="/personal"><%=username%>的喜好设置</a></li>
+						<li><a href="page-contact.html">注销</a></li>
+						<%}%>			
 					</ul>
 				</nav> 
 				<%if(username == ""){%>
 					<a href="#cs-login-popup" class="cs-top-login">
 						<i class="fa fa-lock" aria-hidden="true"></i>
 						登录/注册
-					</a> 
-				<%}else{%>
-					<a href="#cs-login-popup" class="cs-top-login">
-						<%=username%>
 					</a> 
 				<%}%>
 				<div id="cs-login-popup" class="mfp-hide">
@@ -66,25 +66,25 @@
 									<input type="password" name="password">
 									<label class="warn" id="login_error" style="color: red"><%=errMsg%></label>							
 								</p>
-									<input type="submit" class="cs-btn cs-btn-black" value="Login">
+									<input type="submit" class="cs-btn cs-btn-black" value="登录">
 							</form>
 						</div>
 						<div id="theme-register">
-							<form>
-							<p>
-								<label>用户名</label>
-								<input type="text">
-							</p>
-							<p>
-								<label>邮箱</label>
-								<input type="email">
-							</p>
-							<p>
-								<label>密码</label>
-								<input type="password">
-							</p>
-								<input type="submit" class="cs-btn cs-btn-black" value="Register">
-							<label class="warn" id="login_error" style="color: red"><%=errMsg%></label>	
+							<form action="/" id="login_form" method="post">
+								<p>
+									<label for="login_bond_id">用户名</label>
+									<input type="text" name="username"> 
+								</p>
+								<p>
+									<label for="login_password">密码</label>
+									<input type="password" name="password">						
+								</p>
+								<p>
+									<label for="login_password">邮箱</label>
+									<input type="email" name="email">
+									<label class="warn" id="login_error" style="color: red"></label>							
+								</p>
+									<input type="submit" class="cs-btn cs-btn-black" value="注册">
 							</form>
 						</div>
 					</div>
@@ -104,10 +104,56 @@
 				<a href="/"><img src="/bootstrap/demo/Infinity.jpg" alt="Infinity"></a>
 				</div> 				
 				</div>
-				</div> 
-				 
+				</div> 				 
 				<div class="cs-header-bottom">
 				<div class="cs-container">
+<!-------导航栏------------------------------------------------------------> 	 				
+				<nav id="cs-main-navigation">
+					<ul>	
+					<li class="widget-title">
+						<a href="/"><span>社会</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>国际</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>娱乐</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>科技</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>体育</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>汽车</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>财经</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>搞笑</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>军事</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>时尚</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>探索</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>历史</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>旅行</span></a>
+					</li>	
+					<li class="widget-title">
+						<a href="/"><span>游戏</span></a>
+					</li>						
+					</ul>
+				</nav> 
 				</div>
 				</div> 
 			</header> 
@@ -121,40 +167,45 @@
 					 
 					<div class="swiper-slide">
 					<div class="swiper-caption">
-					<h2><a href="post-standard.html"><%=newsAgg.hot[0].title%></a></h2>
+					<h2><a href="/post?newsid=<%=newsAgg.hot[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.hot[0].datetime.substring(0,4)%>&date=<%=newsAgg.hot[0].datetime.substring(6,11)%>&catagory=hot&pic=<%=newsAgg.hot[0].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.hot[0].source%>">
+									<%=newsAgg.hot[0].title%>
+						</a>
+					</h2>				
 					<div>
 					<span><%=newsAgg.hot[0].datetime%></span>
-					<a href="#"><%=newsAgg.hot[0].source%></a>
+					<a href="/"><%=newsAgg.hot[0].source%></a>
 					</div>
 					</div>
-					<a href="post-standard.html"><img src="<%=newsAgg.hot[0].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.hot[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.hot[0].datetime.substring(0,4)%>&date=<%=newsAgg.hot[0].datetime.substring(6,11)%>&catagory=hot&pic=<%=newsAgg.hot[0].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.hot[0].source%>"><img src="<%=newsAgg.hot[0].middle_image%>" alt="Infinity"></a>
 					</div> 
-					 
+					
 					<div class="swiper-slide">
 					<div class="swiper-caption">
-					<h2><a href="post-standard.html"><%=newsAgg.hot[1].title%></a></h2>
+					<h2><a href="/post?newsid=<%=newsAgg.hot[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.hot[1].datetime.substring(0,4)%>&date=<%=newsAgg.hot[1].datetime.substring(6,11)%>&catagory=hot&pic=<%=newsAgg.hot[1].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.hot[1].source%>"><%=newsAgg.hot[1].title%></a></h2>
 					<div>
 					<span><%=newsAgg.hot[1].datetime%></span>
-					<a href="#"><%=newsAgg.hot[1].source%></a>
+					<a href="/"><%=newsAgg.hot[1].source%></a>
 					</div>
 					</div>
-					<a href="post-standard.html"><img src="<%=newsAgg.hot[1].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.hot[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.hot[1].datetime.substring(0,4)%>&date=<%=newsAgg.hot[1].datetime.substring(6,11)%>&catagory=hot&pic=<%=newsAgg.hot[1].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.hot[1].source%>"><img src="<%=newsAgg.hot[1].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="swiper-slide">
 					<div class="swiper-caption">
-					<h2><a href="post-standard.html"><%=newsAgg.hot[2].title%></a></h2>
+					<h2><a href="/post?newsid=<%=newsAgg.hot[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.hot[2].datetime.substring(0,4)%>&date=<%=newsAgg.hot[2].datetime.substring(6,11)%>&catagory=hot&pic=<%=newsAgg.hot[2].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.hot[2].source%>"><%=newsAgg.hot[2].title%></a></h2>
 					<div>
 					<span><%=newsAgg.hot[2].datetime%></span>
-					<a href="#"><%=newsAgg.hot[2].source%></a>
+					<a href="/"><%=newsAgg.hot[2].source%></a>
 					</div>
 					</div>
-					<a href="post-standard.html"><img src="<%=newsAgg.hot[2].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.hot[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.hot[2].datetime.substring(0,4)%>&date=<%=newsAgg.hot[2].datetime.substring(6,11)%>&catagory=hot&pic=<%=newsAgg.hot[2].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.hot[2].source%>"><img src="<%=newsAgg.hot[2].middle_image%>" alt="Infinity"></a>
 					</div> 
 					</div> 
 					<div class="swiper-pagination"></div>
 					</div> 
-			<!-------社会------------------------------------------------------------> 
+			<%for(var i =0; i < showList.length; i++){%>
+				<%switch(showList[i]){case "society" :%> 
+<!-------社会------------------------------------------------------------> 
 					<div class="cs-module-2">
 					 
 					<h3 class="cs-block-title">社会</h3>
@@ -174,7 +225,7 @@
 					</div>
 					<div class="cs-footer-comments" title="156 Comments">
 					<span>Comments</span>
-					<b><%=newsAgg.society[1].comment_count%></b>
+					<b><%=newsAgg.society[0].comment_count%></b>
 					</div>
 					</div> 
 					 
@@ -182,7 +233,7 @@
 					 
 					<div class="cs-post-thumbnail">
 					
-					<a href="post-standard.html"><img src="<%=newsAgg.society[0].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.society[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[0].datetime.substring(0,4)%>&date=<%=newsAgg.society[0].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[0].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.society[0].source%>"><img src="<%=newsAgg.society[0].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="cs-post-inside-container">
@@ -191,12 +242,12 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">社会</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.society[0].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.society[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[0].datetime.substring(0,4)%>&date=<%=newsAgg.society[0].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[0].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.society[0].source%>"><%=newsAgg.society[0].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-content">
 					<p><%=newsAgg.society[0].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
+					<a href="/post?newsid=<%=newsAgg.society[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[0].datetime.substring(0,4)%>&date=<%=newsAgg.society[0].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[0].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.society[0].source%>" class="read-more">查看文章</a>
 					</div> 
 					</div>
 					</div> 
@@ -225,7 +276,7 @@
 					 
 					<div class="cs-post-thumbnail">
 					
-					<a href="post-standard.html"><img src="<%=newsAgg.society[1].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.society[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[1].datetime.substring(0,4)%>&date=<%=newsAgg.society[1].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[1].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.society[1].source%>"><img src="<%=newsAgg.society[1].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="cs-post-inside-container">
@@ -234,12 +285,12 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">社会</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.society[1].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.society[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[1].datetime.substring(0,4)%>&date=<%=newsAgg.society[1].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[1].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.society[1].source%>"><%=newsAgg.society[1].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-content">
 					<p><%=newsAgg.society[1].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
+					<a href="/post?newsid=<%=newsAgg.society[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[1].datetime.substring(0,4)%>&date=<%=newsAgg.society[1].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[1].middle_image%>&comment=<%=newsAgg.society[1].comment_count%>&author=<%=newsAgg.society[1].source%>" class="read-more">查看文章</a>
 					</div> 
 					</div>
 					</div> 
@@ -268,7 +319,7 @@
 					 
 					<div class="cs-post-thumbnail">
 					
-					<a href="post-standard.html"><img src="<%=newsAgg.society[2].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.society[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[2].datetime.substring(0,4)%>&date=<%=newsAgg.society[2].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[2].middle_image%>&comment=<%=newsAgg.society[2].comment_count%>&author=<%=newsAgg.society[2].source%>"><img src="<%=newsAgg.society[2].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="cs-post-inside-container">
@@ -277,19 +328,335 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">社会</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.society[2].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.society[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[2].datetime.substring(0,4)%>&date=<%=newsAgg.society[2].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[2].middle_image%>&comment=<%=newsAgg.society[2].comment_count%>&author=<%=newsAgg.society[2].source%>"><%=newsAgg.society[2].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-content">
 					<p><%=newsAgg.society[2].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
+					<a href="/post?newsid=<%=newsAgg.society[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[2].datetime.substring(0,4)%>&date=<%=newsAgg.society[2].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[2].middle_image%>&comment=<%=newsAgg.society[2].comment_count%>&author=<%=newsAgg.society[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					</div> 							
+				<%break;case "world" :%> 
+<!-------国际---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">国际</h3>
+					
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.world[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.world[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.world[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.world[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[0].datetime.substring(0,4)%>&date=<%=newsAgg.world[0].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[0].middle_image%>&comment=<%=newsAgg.world[0].comment_count%>&author=<%=newsAgg.world[0].source%>"><img src="<%=newsAgg.world[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">国际</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.world[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[0].datetime.substring(0,4)%>&date=<%=newsAgg.world[0].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[0].middle_image%>&comment=<%=newsAgg.world[0].comment_count%>&author=<%=newsAgg.world[0].source%>"><%=newsAgg.world[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.world[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.world[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[0].datetime.substring(0,4)%>&date=<%=newsAgg.world[0].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[0].middle_image%>&comment=<%=newsAgg.world[0].comment_count%>&author=<%=newsAgg.world[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.world[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.world[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.world[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.world[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[1].datetime.substring(0,4)%>&date=<%=newsAgg.world[1].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[1].middle_image%>&comment=<%=newsAgg.world[1].comment_count%>&author=<%=newsAgg.world[1].source%>"><img src="<%=newsAgg.world[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">国际</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.world[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[1].datetime.substring(0,4)%>&date=<%=newsAgg.world[1].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[1].middle_image%>&comment=<%=newsAgg.world[1].comment_count%>&author=<%=newsAgg.world[1].source%>"><%=newsAgg.world[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.world[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.world[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[1].datetime.substring(0,4)%>&date=<%=newsAgg.world[1].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[1].middle_image%>&comment=<%=newsAgg.world[1].comment_count%>&author=<%=newsAgg.world[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.world[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.world[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.world[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.world[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[2].datetime.substring(0,4)%>&date=<%=newsAgg.world[2].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[2].middle_image%>&comment=<%=newsAgg.world[2].comment_count%>&author=<%=newsAgg.world[2].source%>"><img src="<%=newsAgg.world[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">国际</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.world[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[2].datetime.substring(0,4)%>&date=<%=newsAgg.world[2].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[2].middle_image%>&comment=<%=newsAgg.world[2].comment_count%>&author=<%=newsAgg.world[2].source%>"><%=newsAgg.world[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.world[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.world[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[2].datetime.substring(0,4)%>&date=<%=newsAgg.world[2].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[2].middle_image%>&comment=<%=newsAgg.world[2].comment_count%>&author=<%=newsAgg.world[2].source%>" class="read-more">查看文章</a>
 					</div> 
 					</div>
 					</div> 
 					</article> 
 					
 					</div> 
-			<!-------科技---------------------------------------------------------------> 
+				<%break;case "entertainment" :%>
+<!-------娱乐---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">娱乐</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.entertainment[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[0].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[0].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[0].middle_image%>&comment=<%=newsAgg.entertainment[0].comment_count%>&author=<%=newsAgg.entertainment[0].source%>"><img src="<%=newsAgg.entertainment[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.entertainment[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[0].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[0].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[0].middle_image%>&comment=<%=newsAgg.entertainment[0].comment_count%>&author=<%=newsAgg.entertainment[0].source%>"><%=newsAgg.entertainment[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.entertainment[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[0].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[0].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[0].middle_image%>&comment=<%=newsAgg.entertainment[0].comment_count%>&author=<%=newsAgg.entertainment[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.entertainment[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[1].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[1].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[1].middle_image%>&comment=<%=newsAgg.entertainment[1].comment_count%>&author=<%=newsAgg.entertainment[1].source%>"><img src="<%=newsAgg.entertainment[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.entertainment[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[1].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[1].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[1].middle_image%>&comment=<%=newsAgg.entertainment[1].comment_count%>&author=<%=newsAgg.entertainment[1].source%>"><%=newsAgg.entertainment[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.entertainment[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[1].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[1].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[1].middle_image%>&comment=<%=newsAgg.entertainment[1].comment_count%>&author=<%=newsAgg.entertainment[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.entertainment[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[2].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[2].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[2].middle_image%>&comment=<%=newsAgg.entertainment[2].comment_count%>&author=<%=newsAgg.entertainment[2].source%>"><img src="<%=newsAgg.entertainment[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.entertainment[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[2].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[2].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[2].middle_image%>&comment=<%=newsAgg.entertainment[2].comment_count%>&author=<%=newsAgg.entertainment[2].source%>"><%=newsAgg.entertainment[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.entertainment[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[2].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[2].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[2].middle_image%>&comment=<%=newsAgg.entertainment[2].comment_count%>&author=<%=newsAgg.entertainment[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.entertainment[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.entertainment[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.entertainment[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.entertainment[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[3].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[3].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[3].middle_image%>&comment=<%=newsAgg.entertainment[3].comment_count%>&author=<%=newsAgg.entertainment[3].source%>"><img src="<%=newsAgg.entertainment[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">娱乐</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.entertainment[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[3].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[3].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[3].middle_image%>&comment=<%=newsAgg.entertainment[3].comment_count%>&author=<%=newsAgg.entertainment[3].source%>"><%=newsAgg.entertainment[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.entertainment[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.entertainment[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[3].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[3].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[3].middle_image%>&comment=<%=newsAgg.entertainment[3].comment_count%>&author=<%=newsAgg.entertainment[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					</div> 
+				<%break;case "technology" :%>
+<!-------科技---------------------------------------------------------------> 
 					<div class="cs-module-1">
 					 
 					<h3 class="cs-block-title">科技</h3>
@@ -300,7 +667,7 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">科技</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.technology[0].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.technology[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.technology[0].datetime.substring(0,4)%>&date=<%=newsAgg.technology[0].datetime.substring(6,11)%>&catagory=technology&pic=<%=newsAgg.technology[0].middle_image%>&comment=<%=newsAgg.technology[0].comment_count%>&author=<%=newsAgg.technology[0].source%>"><%=newsAgg.technology[0].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-thumbnail">
@@ -309,7 +676,7 @@
 					 
 					<div class="swiper-wrapper">
 					<div class="swiper-slide">
-					<a href="post-standard.html"><img src="<%=newsAgg.technology[0].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.technology[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.technology[0].datetime.substring(0,4)%>&date=<%=newsAgg.technology[0].datetime.substring(6,11)%>&catagory=technology&pic=<%=newsAgg.technology[0].middle_image%>&comment=<%=newsAgg.technology[0].comment_count%>&author=<%=newsAgg.technology[0].source%>"><img src="<%=newsAgg.technology[0].middle_image%>" alt="Infinity"></a>
 					</div> 
 					</div> 
 					 
@@ -340,142 +707,8 @@
 					</div> 
 					</article> 
 					</div> 
-			<!-------国际---------------------------------------------------------------> 
-					<div class="cs-module-2">
-					 
-					<h3 class="cs-block-title">国际</h3>
-					
-					<article class="cs-post">
-					
-					<div class="cs-post-footer">
-					<div class="cs-footer-date">
-					<div class="cs-date-year"><%=newsAgg.world[0].datetime.substring(0,4)%></div>
-					<div class="cs-date-day-month"><%=newsAgg.world[0].datetime.substring(6,11)%></div>
-					</div>
-					<div class="cs-footer-share">
-					<span>share</span>
-					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
-					</div>
-					<div class="cs-footer-comments" title="156 Comments">
-					<span>Comments</span>
-					<b><%=newsAgg.world[1].comment_count%></b>
-					</div>
-					</div> 
-					 
-					<div class="cs-post-container">
-					 
-					<div class="cs-post-thumbnail">
-					
-					<a href="post-standard.html"><img src="<%=newsAgg.world[0].middle_image%>" alt="Infinity"></a>
-					</div> 
-					 
-					<div class="cs-post-inside-container">
-					 
-					<div class="cs-post-header">
-					<div class="cs-category-links">
-					<a href="blog-category.html">社会</a>
-					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.world[0].title%></a></h3>
-					</div> 
-					 
-					<div class="cs-post-content">
-					<p><%=newsAgg.world[0].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
-					</div> 
-					</div>
-					</div> 
-					</article> 
-					 
-					<article class="cs-post">
-					
-					<div class="cs-post-footer">
-					<div class="cs-footer-date">
-					<div class="cs-date-year"><%=newsAgg.world[1].datetime.substring(0,4)%></div>
-					<div class="cs-date-day-month"><%=newsAgg.world[1].datetime.substring(6,11)%></div>
-					</div>
-					<div class="cs-footer-share">
-					<span>share</span>
-					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
-					</div>
-					<div class="cs-footer-comments" title="156 Comments">
-					<span>Comments</span>
-					<b><%=newsAgg.world[1].comment_count%></b>
-					</div>
-					</div> 
-					 
-					<div class="cs-post-container">
-					 
-					<div class="cs-post-thumbnail">
-					
-					<a href="post-standard.html"><img src="<%=newsAgg.world[1].middle_image%>" alt="Infinity"></a>
-					</div> 
-					 
-					<div class="cs-post-inside-container">
-					 
-					<div class="cs-post-header">
-					<div class="cs-category-links">
-					<a href="blog-category.html">社会</a>
-					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.world[1].title%></a></h3>
-					</div> 
-					 
-					<div class="cs-post-content">
-					<p><%=newsAgg.world[1].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
-					</div> 
-					</div>
-					</div> 
-					</article> 
-					
-					<article class="cs-post">
-					
-					<div class="cs-post-footer">
-					<div class="cs-footer-date">
-					<div class="cs-date-year"><%=newsAgg.world[2].datetime.substring(0,4)%></div>
-					<div class="cs-date-day-month"><%=newsAgg.world[2].datetime.substring(6,11)%></div>
-					</div>
-					<div class="cs-footer-share">
-					<span>share</span>
-					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
-					</div>
-					<div class="cs-footer-comments" title="156 Comments">
-					<span>Comments</span>
-					<b><%=newsAgg.world[2].comment_count%></b>
-					</div>
-					</div> 
-					 
-					<div class="cs-post-container">
-					 
-					<div class="cs-post-thumbnail">
-					
-					<a href="post-standard.html"><img src="<%=newsAgg.world[2].middle_image%>" alt="Infinity"></a>
-					</div> 
-					 
-					<div class="cs-post-inside-container">
-					 
-					<div class="cs-post-header">
-					<div class="cs-category-links">
-					<a href="blog-category.html">社会</a>
-					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.world[2].title%></a></h3>
-					</div> 
-					 
-					<div class="cs-post-content">
-					<p><%=newsAgg.world[2].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
-					</div> 
-					</div>
-					</div> 
-					</article> 
-					
-					</div> 
-			<!-------体育---------------------------------------------------------------> 
+				<%break;case "sport" :%> 
+<!-------体育---------------------------------------------------------------> 
 					<div class="cs-module-1">
 					 
 					<h3 class="cs-block-title">体育</h3>
@@ -486,7 +719,7 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">体育</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.sport[0].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.sport[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.sport[0].datetime.substring(0,4)%>&date=<%=newsAgg.sport[0].datetime.substring(6,11)%>&catagory=sport&pic=<%=newsAgg.sport[0].middle_image%>&comment=<%=newsAgg.sport[0].comment_count%>&author=<%=newsAgg.sport[0].source%>"><%=newsAgg.sport[0].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-thumbnail">
@@ -495,7 +728,7 @@
 					 
 					<div class="swiper-wrapper">
 					<div class="swiper-slide">
-					<a href="post-standard.html"><img src="<%=newsAgg.sport[0].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.sport[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.sport[0].datetime.substring(0,4)%>&date=<%=newsAgg.sport[0].datetime.substring(6,11)%>&catagory=sport&pic=<%=newsAgg.sport[0].middle_image%>&comment=<%=newsAgg.sport[0].comment_count%>&author=<%=newsAgg.sport[0].source%>"><img src="<%=newsAgg.sport[0].middle_image%>" alt="Infinity"></a>
 					</div> 
 					</div> 
 					 
@@ -526,185 +759,9 @@
 					</div> 
 					</article> 
 					</div> 
-			<!-------娱乐---------------------------------------------------------------> 
-					<div class="cs-module-2">
-					 
-					<h3 class="cs-block-title">娱乐</h3>
-					 
-					<article class="cs-post">
-					 
-					<div class="cs-post-footer">
-					<div class="cs-footer-date">
-					<div class="cs-date-year"><%=newsAgg.entertainment[0].datetime.substring(0,4)%></div>
-					<div class="cs-date-day-month"><%=newsAgg.entertainment[0].datetime.substring(6,11)%></div>
-					</div>
-					<div class="cs-footer-share">
-					<span>share</span>
-					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
-					</div>
-					<div class="cs-footer-comments" title="156 Comments">
-					<span>Comments</span>
-					<b><%=newsAgg.entertainment[0].comment_count%></b>
-					</div>
-					</div> 
-					 
-					<div class="cs-post-container">
-					 
-					<div class="cs-post-thumbnail">
-					
-					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[0].middle_image%>" alt="Infinity"></a>
-					</div> 
-					 
-					<div class="cs-post-inside-container">
-					 
-					<div class="cs-post-header">
-					<div class="cs-category-links">
-					<a href="blog-category.html">娱乐</a>
-					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.entertainment[0].title%></a></h3>
-					</div> 
-					 
-					<div class="cs-post-content">
-					<p><%=newsAgg.entertainment[0].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
-					</div> 
-					</div>
-					</div> 
-					</article> 
-					 
-					<article class="cs-post">
-					 
-					<div class="cs-post-footer">
-					<div class="cs-footer-date">
-					<div class="cs-date-year"><%=newsAgg.entertainment[1].datetime.substring(0,4)%></div>
-					<div class="cs-date-day-month"><%=newsAgg.entertainment[1].datetime.substring(6,11)%></div>
-					</div>
-					<div class="cs-footer-share">
-					<span>share</span>
-					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
-					</div>
-					<div class="cs-footer-comments" title="156 Comments">
-					<span>Comments</span>
-					<b><%=newsAgg.entertainment[1].comment_count%></b>
-					</div>
-					</div> 
-					 
-					<div class="cs-post-container">
-					 
-					<div class="cs-post-thumbnail">
-					
-					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[1].middle_image%>" alt="Infinity"></a>
-					</div> 
-					 
-					<div class="cs-post-inside-container">
-					 
-					<div class="cs-post-header">
-					<div class="cs-category-links">
-					<a href="blog-category.html">娱乐</a>
-					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.entertainment[1].title%></a></h3>
-					</div> 
-					 
-					<div class="cs-post-content">
-					<p><%=newsAgg.entertainment[1].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
-					</div> 
-					</div>
-					</div> 
-					</article> 
-					
-					<article class="cs-post">
-					 
-					<div class="cs-post-footer">
-					<div class="cs-footer-date">
-					<div class="cs-date-year"><%=newsAgg.entertainment[2].datetime.substring(0,4)%></div>
-					<div class="cs-date-day-month"><%=newsAgg.entertainment[2].datetime.substring(6,11)%></div>
-					</div>
-					<div class="cs-footer-share">
-					<span>share</span>
-					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
-					</div>
-					<div class="cs-footer-comments" title="156 Comments">
-					<span>Comments</span>
-					<b><%=newsAgg.entertainment[2].comment_count%></b>
-					</div>
-					</div> 
-					 
-					<div class="cs-post-container">
-					 
-					<div class="cs-post-thumbnail">
-					
-					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[2].middle_image%>" alt="Infinity"></a>
-					</div> 
-					 
-					<div class="cs-post-inside-container">
-					 
-					<div class="cs-post-header">
-					<div class="cs-category-links">
-					<a href="blog-category.html">娱乐</a>
-					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.entertainment[2].title%></a></h3>
-					</div> 
-					 
-					<div class="cs-post-content">
-					<p><%=newsAgg.entertainment[2].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
-					</div> 
-					</div>
-					</div> 
-					</article> 
-					
-					<article class="cs-post">
-					 
-					<div class="cs-post-footer">
-					<div class="cs-footer-date">
-					<div class="cs-date-year"><%=newsAgg.entertainment[3].datetime.substring(0,4)%></div>
-					<div class="cs-date-day-month"><%=newsAgg.entertainment[3].datetime.substring(6,11)%></div>
-					</div>
-					<div class="cs-footer-share">
-					<span>share</span>
-					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
-					</div>
-					<div class="cs-footer-comments" title="156 Comments">
-					<span>Comments</span>
-					<b><%=newsAgg.entertainment[3].comment_count%></b>
-					</div>
-					</div> 
-					 
-					<div class="cs-post-container">
-					 
-					<div class="cs-post-thumbnail">
-					
-					<a href="post-standard.html"><img src="<%=newsAgg.entertainment[3].middle_image%>" alt="Infinity"></a>
-					</div> 
-					 
-					<div class="cs-post-inside-container">
-					 
-					<div class="cs-post-header">
-					<div class="cs-category-links">
-					<a href="blog-category.html">娱乐</a>
-					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.entertainment[3].title%></a></h3>
-					</div> 
-					 
-					<div class="cs-post-content">
-					<p><%=newsAgg.entertainment[3].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
-					</div> 
-					</div>
-					</div> 
-					</article> 
-					
-					</div> 
-			<!-------汽车---------------------------------------------------------------> 
+				
+				<%break;case "car" :%>
+<!-------汽车---------------------------------------------------------------> 
 					<div class="cs-module-1">
 					 
 					<h3 class="cs-block-title">汽车</h3>
@@ -715,7 +772,7 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">汽车</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.car[0].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.car[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.car[0].datetime.substring(0,4)%>&date=<%=newsAgg.car[0].datetime.substring(6,11)%>&catagory=car&pic=<%=newsAgg.car[0].middle_image%>&comment=<%=newsAgg.car[0].comment_count%>&author=<%=newsAgg.car[0].source%>"><%=newsAgg.car[0].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-thumbnail">
@@ -724,7 +781,7 @@
 					 
 					<div class="swiper-wrapper">
 					<div class="swiper-slide">
-					<a href="post-standard.html"><img src="<%=newsAgg.car[0].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.car[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.car[0].datetime.substring(0,4)%>&date=<%=newsAgg.car[0].datetime.substring(6,11)%>&catagory=car&pic=<%=newsAgg.car[0].middle_image%>&comment=<%=newsAgg.car[0].comment_count%>&author=<%=newsAgg.car[0].source%>"><img src="<%=newsAgg.car[0].middle_image%>" alt="Infinity"></a>
 					</div> 
 					</div> 
 					 
@@ -755,7 +812,9 @@
 					</div> 
 					</article> 
 					</div> 
-			<!-------财经---------------------------------------------------------------> 
+				<%break;case "finance" :%>
+
+<!-------财经---------------------------------------------------------------> 
 					<div class="cs-module-2">
 					 
 					<h3 class="cs-block-title">财经</h3>
@@ -783,7 +842,7 @@
 					 
 					<div class="cs-post-thumbnail">
 					
-					<a href="post-standard.html"><img src="<%=newsAgg.finance[0].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.finance[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[0].datetime.substring(0,4)%>&date=<%=newsAgg.finance[0].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[0].middle_image%>&comment=<%=newsAgg.finance[0].comment_count%>&author=<%=newsAgg.finance[0].source%>"><img src="<%=newsAgg.finance[0].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="cs-post-inside-container">
@@ -792,12 +851,12 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">财经</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.finance[0].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.finance[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[0].datetime.substring(0,4)%>&date=<%=newsAgg.finance[0].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[0].middle_image%>&comment=<%=newsAgg.finance[0].comment_count%>&author=<%=newsAgg.finance[0].source%>"><%=newsAgg.finance[0].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-content">
 					<p><%=newsAgg.finance[0].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
+					<a href="/post?newsid=<%=newsAgg.finance[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[0].datetime.substring(0,4)%>&date=<%=newsAgg.finance[0].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[0].middle_image%>&comment=<%=newsAgg.finance[0].comment_count%>&author=<%=newsAgg.finance[0].source%>" class="read-more">查看文章</a>
 					</div> 
 					</div>
 					</div> 
@@ -826,7 +885,7 @@
 					 
 					<div class="cs-post-thumbnail">
 					
-					<a href="post-standard.html"><img src="<%=newsAgg.finance[1].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.finance[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[1].datetime.substring(0,4)%>&date=<%=newsAgg.finance[1].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[1].middle_image%>&comment=<%=newsAgg.finance[1].comment_count%>&author=<%=newsAgg.finance[1].source%>"><img src="<%=newsAgg.finance[1].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="cs-post-inside-container">
@@ -835,12 +894,12 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">财经</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.finance[1].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.finance[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[1].datetime.substring(0,4)%>&date=<%=newsAgg.finance[1].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[1].middle_image%>&comment=<%=newsAgg.finance[1].comment_count%>&author=<%=newsAgg.finance[1].source%>"><%=newsAgg.finance[1].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-content">
 					<p><%=newsAgg.finance[1].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
+					<a href="/post?newsid=<%=newsAgg.finance[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[1].datetime.substring(0,4)%>&date=<%=newsAgg.finance[1].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[1].middle_image%>&comment=<%=newsAgg.finance[1].comment_count%>&author=<%=newsAgg.finance[1].source%>" class="read-more">查看文章</a>
 					</div> 
 					</div>
 					</div> 
@@ -869,7 +928,7 @@
 					 
 					<div class="cs-post-thumbnail">
 					
-					<a href="post-standard.html"><img src="<%=newsAgg.finance[2].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.finance[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[2].datetime.substring(0,4)%>&date=<%=newsAgg.finance[2].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[2].middle_image%>&comment=<%=newsAgg.finance[2].comment_count%>&author=<%=newsAgg.finance[2].source%>"><img src="<%=newsAgg.finance[2].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="cs-post-inside-container">
@@ -878,12 +937,12 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">财经</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.finance[2].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.finance[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[2].datetime.substring(0,4)%>&date=<%=newsAgg.finance[2].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[2].middle_image%>&comment=<%=newsAgg.finance[2].comment_count%>&author=<%=newsAgg.finance[2].source%>"><%=newsAgg.finance[2].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-content">
 					<p><%=newsAgg.finance[2].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
+					<a href="/post?newsid=<%=newsAgg.finance[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[2].datetime.substring(0,4)%>&date=<%=newsAgg.finance[2].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[2].middle_image%>&comment=<%=newsAgg.finance[2].comment_count%>&author=<%=newsAgg.finance[2].source%>" class="read-more">查看文章</a>
 					</div> 
 					</div>
 					</div> 
@@ -912,7 +971,7 @@
 					 
 					<div class="cs-post-thumbnail">
 					
-					<a href="post-standard.html"><img src="<%=newsAgg.finance[3].middle_image%>" alt="Infinity"></a>
+					<a href="/post?newsid=<%=newsAgg.finance[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[3].datetime.substring(0,4)%>&date=<%=newsAgg.finance[3].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[3].middle_image%>&comment=<%=newsAgg.finance[3].comment_count%>&author=<%=newsAgg.finance[3].source%>"><img src="<%=newsAgg.finance[3].middle_image%>" alt="Infinity"></a>
 					</div> 
 					 
 					<div class="cs-post-inside-container">
@@ -921,25 +980,1629 @@
 					<div class="cs-category-links">
 					<a href="blog-category.html">财经</a>
 					</div>
-					<h3><a href="post-standard.html"><%=newsAgg.finance[3].title%></a></h3>
+					<h3><a href="/post?newsid=<%=newsAgg.finance[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[3].datetime.substring(0,4)%>&date=<%=newsAgg.finance[3].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[3].middle_image%>&comment=<%=newsAgg.finance[3].comment_count%>&author=<%=newsAgg.finance[3].source%>"><%=newsAgg.finance[3].title%></a></h3>
 					</div> 
 					 
 					<div class="cs-post-content">
 					<p><%=newsAgg.finance[3].abstract%></p>
-					<a href="post-standard.html" class="read-more">查看文章</a>
+					<a href="/post?newsid=<%=newsAgg.finance[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[3].datetime.substring(0,4)%>&date=<%=newsAgg.finance[3].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[3].middle_image%>&comment=<%=newsAgg.finance[3].comment_count%>&author=<%=newsAgg.finance[3].source%>" class="read-more">查看文章</a>
 					</div> 
 					</div>
 					</div> 
 					</article> 				
 					</div> 				
-				</div> 
-	<!-------侧边栏新闻类别---------------------------------------------------------------> 
+				<%break;case "funny" :%>
+<!-------搞笑---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">搞笑</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.funny[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.funny[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.funny[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.funny[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[0].datetime.substring(0,4)%>&date=<%=newsAgg.funny[0].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[0].middle_image%>&comment=<%=newsAgg.funny[0].comment_count%>&author=<%=newsAgg.funny[0].source%>"><img src="<%=newsAgg.funny[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">搞笑</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.funny[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[0].datetime.substring(0,4)%>&date=<%=newsAgg.funny[0].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[0].middle_image%>&comment=<%=newsAgg.funny[0].comment_count%>&author=<%=newsAgg.funny[0].source%>"><%=newsAgg.funny[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.funny[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.funny[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[0].datetime.substring(0,4)%>&date=<%=newsAgg.funny[0].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[0].middle_image%>&comment=<%=newsAgg.funny[0].comment_count%>&author=<%=newsAgg.funny[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.funny[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.funny[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.funny[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.funny[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[1].datetime.substring(0,4)%>&date=<%=newsAgg.funny[1].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[1].middle_image%>&comment=<%=newsAgg.funny[1].comment_count%>&author=<%=newsAgg.funny[1].source%>"><img src="<%=newsAgg.funny[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">搞笑</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.funny[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[1].datetime.substring(0,4)%>&date=<%=newsAgg.funny[1].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[1].middle_image%>&comment=<%=newsAgg.funny[1].comment_count%>&author=<%=newsAgg.funny[1].source%>"><%=newsAgg.funny[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.funny[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.funny[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[1].datetime.substring(0,4)%>&date=<%=newsAgg.funny[1].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[1].middle_image%>&comment=<%=newsAgg.funny[1].comment_count%>&author=<%=newsAgg.funny[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.funny[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.funny[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.funny[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.funny[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[2].datetime.substring(0,4)%>&date=<%=newsAgg.funny[2].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[2].middle_image%>&comment=<%=newsAgg.funny[2].comment_count%>&author=<%=newsAgg.funny[2].source%>"><img src="<%=newsAgg.funny[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">搞笑</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.funny[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[2].datetime.substring(0,4)%>&date=<%=newsAgg.funny[2].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[2].middle_image%>&comment=<%=newsAgg.funny[2].comment_count%>&author=<%=newsAgg.funny[2].source%>"><%=newsAgg.funny[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.funny[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.funny[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[2].datetime.substring(0,4)%>&date=<%=newsAgg.funny[2].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[2].middle_image%>&comment=<%=newsAgg.funny[2].comment_count%>&author=<%=newsAgg.funny[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.funny[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.funny[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.funny[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.funny[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[3].datetime.substring(0,4)%>&date=<%=newsAgg.funny[3].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[3].middle_image%>&comment=<%=newsAgg.funny[3].comment_count%>&author=<%=newsAgg.funny[3].source%>"><img src="<%=newsAgg.funny[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">搞笑</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.funny[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[3].datetime.substring(0,4)%>&date=<%=newsAgg.funny[3].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[3].middle_image%>&comment=<%=newsAgg.funny[3].comment_count%>&author=<%=newsAgg.funny[3].source%>"><%=newsAgg.funny[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.funny[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.funny[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[3].datetime.substring(0,4)%>&date=<%=newsAgg.funny[3].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[3].middle_image%>&comment=<%=newsAgg.funny[3].comment_count%>&author=<%=newsAgg.funny[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 				
+				<%break;case "military" :%>
+<!-------军事---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">军事</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.military[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.military[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.military[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.military[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[0].datetime.substring(0,4)%>&date=<%=newsAgg.military[0].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[0].middle_image%>&comment=<%=newsAgg.military[0].comment_count%>&author=<%=newsAgg.military[0].source%>"><img src="<%=newsAgg.military[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">军事</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.military[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[0].datetime.substring(0,4)%>&date=<%=newsAgg.military[0].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[0].middle_image%>&comment=<%=newsAgg.military[0].comment_count%>&author=<%=newsAgg.military[0].source%>"><%=newsAgg.military[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.military[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.military[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[0].datetime.substring(0,4)%>&date=<%=newsAgg.military[0].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[0].middle_image%>&comment=<%=newsAgg.military[0].comment_count%>&author=<%=newsAgg.military[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.military[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.military[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.military[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.military[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[1].datetime.substring(0,4)%>&date=<%=newsAgg.military[1].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[1].middle_image%>&comment=<%=newsAgg.military[1].comment_count%>&author=<%=newsAgg.military[1].source%>"><img src="<%=newsAgg.military[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">军事</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.military[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[1].datetime.substring(0,4)%>&date=<%=newsAgg.military[1].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[1].middle_image%>&comment=<%=newsAgg.military[1].comment_count%>&author=<%=newsAgg.military[1].source%>"><%=newsAgg.military[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.military[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.military[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[1].datetime.substring(0,4)%>&date=<%=newsAgg.military[1].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[1].middle_image%>&comment=<%=newsAgg.military[1].comment_count%>&author=<%=newsAgg.military[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.military[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.military[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.military[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.military[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[2].datetime.substring(0,4)%>&date=<%=newsAgg.military[2].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[2].middle_image%>&comment=<%=newsAgg.military[2].comment_count%>&author=<%=newsAgg.military[2].source%>"><img src="<%=newsAgg.military[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">军事</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.military[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[2].datetime.substring(0,4)%>&date=<%=newsAgg.military[2].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[2].middle_image%>&comment=<%=newsAgg.military[2].comment_count%>&author=<%=newsAgg.military[2].source%>"><%=newsAgg.military[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.military[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.military[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[2].datetime.substring(0,4)%>&date=<%=newsAgg.military[2].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[2].middle_image%>&comment=<%=newsAgg.military[2].comment_count%>&author=<%=newsAgg.military[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.military[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.military[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.military[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.military[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[3].datetime.substring(0,4)%>&date=<%=newsAgg.military[3].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[3].middle_image%>&comment=<%=newsAgg.military[3].comment_count%>&author=<%=newsAgg.military[3].source%>"><img src="<%=newsAgg.military[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">军事</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.military[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[3].datetime.substring(0,4)%>&date=<%=newsAgg.military[3].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[3].middle_image%>&comment=<%=newsAgg.military[3].comment_count%>&author=<%=newsAgg.military[3].source%>"><%=newsAgg.military[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.military[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.military[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[3].datetime.substring(0,4)%>&date=<%=newsAgg.military[3].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[3].middle_image%>&comment=<%=newsAgg.military[3].comment_count%>&author=<%=newsAgg.military[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 				
+				<%break;case "fashion" :%>
+<!-------时尚---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">时尚</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.fashion[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.fashion[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.fashion[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.fashion[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[0].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[0].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[0].middle_image%>&comment=<%=newsAgg.fashion[0].comment_count%>&author=<%=newsAgg.fashion[0].source%>"><img src="<%=newsAgg.fashion[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">时尚</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.fashion[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[0].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[0].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[0].middle_image%>&comment=<%=newsAgg.fashion[0].comment_count%>&author=<%=newsAgg.fashion[0].source%>"><%=newsAgg.fashion[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.fashion[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.fashion[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[0].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[0].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[0].middle_image%>&comment=<%=newsAgg.fashion[0].comment_count%>&author=<%=newsAgg.fashion[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.fashion[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.fashion[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.fashion[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.fashion[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[1].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[1].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[1].middle_image%>&comment=<%=newsAgg.fashion[1].comment_count%>&author=<%=newsAgg.fashion[1].source%>"><img src="<%=newsAgg.fashion[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">时尚</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.fashion[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[1].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[1].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[1].middle_image%>&comment=<%=newsAgg.fashion[1].comment_count%>&author=<%=newsAgg.fashion[1].source%>"><%=newsAgg.fashion[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.fashion[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.fashion[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[1].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[1].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[1].middle_image%>&comment=<%=newsAgg.fashion[1].comment_count%>&author=<%=newsAgg.fashion[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.fashion[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.fashion[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.fashion[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.fashion[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[2].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[2].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[2].middle_image%>&comment=<%=newsAgg.fashion[2].comment_count%>&author=<%=newsAgg.fashion[2].source%>"><img src="<%=newsAgg.fashion[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">时尚</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.fashion[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[2].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[2].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[2].middle_image%>&comment=<%=newsAgg.fashion[2].comment_count%>&author=<%=newsAgg.fashion[2].source%>"><%=newsAgg.fashion[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.fashion[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.fashion[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[2].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[2].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[2].middle_image%>&comment=<%=newsAgg.fashion[2].comment_count%>&author=<%=newsAgg.fashion[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.fashion[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.fashion[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.fashion[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.fashion[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[3].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[3].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[3].middle_image%>&comment=<%=newsAgg.fashion[3].comment_count%>&author=<%=newsAgg.fashion[3].source%>"><img src="<%=newsAgg.fashion[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">时尚</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.fashion[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[3].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[3].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[3].middle_image%>&comment=<%=newsAgg.fashion[3].comment_count%>&author=<%=newsAgg.fashion[3].source%>"><%=newsAgg.fashion[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.fashion[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.fashion[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[3].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[3].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[3].middle_image%>&comment=<%=newsAgg.fashion[3].comment_count%>&author=<%=newsAgg.fashion[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 		
+				<%break;case "discovery" :%>
+<!-------探索---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">探索</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.discovery[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.discovery[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.discovery[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.discovery[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[0].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[0].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[0].middle_image%>&comment=<%=newsAgg.discovery[0].comment_count%>&author=<%=newsAgg.discovery[0].source%>"><img src="<%=newsAgg.discovery[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">探索</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.discovery[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[0].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[0].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[0].middle_image%>&comment=<%=newsAgg.discovery[0].comment_count%>&author=<%=newsAgg.discovery[0].source%>"><%=newsAgg.discovery[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.discovery[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.discovery[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[0].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[0].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[0].middle_image%>&comment=<%=newsAgg.discovery[0].comment_count%>&author=<%=newsAgg.discovery[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.discovery[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.discovery[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.discovery[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.discovery[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[1].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[1].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[1].middle_image%>&comment=<%=newsAgg.discovery[1].comment_count%>&author=<%=newsAgg.discovery[1].source%>"><img src="<%=newsAgg.discovery[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">探索</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.discovery[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[1].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[1].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[1].middle_image%>&comment=<%=newsAgg.discovery[1].comment_count%>&author=<%=newsAgg.discovery[1].source%>"><%=newsAgg.discovery[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.discovery[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.discovery[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[1].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[1].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[1].middle_image%>&comment=<%=newsAgg.discovery[1].comment_count%>&author=<%=newsAgg.discovery[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.discovery[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.discovery[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.discovery[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.discovery[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[2].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[2].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[2].middle_image%>&comment=<%=newsAgg.discovery[2].comment_count%>&author=<%=newsAgg.discovery[2].source%>"><img src="<%=newsAgg.discovery[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">探索</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.discovery[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[2].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[2].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[2].middle_image%>&comment=<%=newsAgg.discovery[2].comment_count%>&author=<%=newsAgg.discovery[2].source%>"><%=newsAgg.discovery[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.discovery[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.discovery[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[2].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[2].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[2].middle_image%>&comment=<%=newsAgg.discovery[2].comment_count%>&author=<%=newsAgg.discovery[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.discovery[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.discovery[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.discovery[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.discovery[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[3].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[3].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[3].middle_image%>&comment=<%=newsAgg.discovery[3].comment_count%>&author=<%=newsAgg.discovery[3].source%>"><img src="<%=newsAgg.discovery[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">探索</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.discovery[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[3].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[3].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[3].middle_image%>&comment=<%=newsAgg.discovery[3].comment_count%>&author=<%=newsAgg.discovery[3].source%>"><%=newsAgg.discovery[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.discovery[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.discovery[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[3].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[3].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[3].middle_image%>&comment=<%=newsAgg.discovery[3].comment_count%>&author=<%=newsAgg.discovery[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 	
+				<%break;case "regimen" :%>
+<!-------养生---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">养生</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.regimen[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.regimen[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.regimen[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.regimen[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[0].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[0].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[0].middle_image%>&comment=<%=newsAgg.regimen[0].comment_count%>&author=<%=newsAgg.regimen[0].source%>"><img src="<%=newsAgg.regimen[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">养生</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.regimen[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[0].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[0].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[0].middle_image%>&comment=<%=newsAgg.regimen[0].comment_count%>&author=<%=newsAgg.regimen[0].source%>"><%=newsAgg.regimen[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.regimen[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.regimen[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[0].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[0].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[0].middle_image%>&comment=<%=newsAgg.regimen[0].comment_count%>&author=<%=newsAgg.regimen[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.regimen[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.regimen[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.regimen[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.regimen[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[1].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[1].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[1].middle_image%>&comment=<%=newsAgg.regimen[1].comment_count%>&author=<%=newsAgg.regimen[1].source%>"><img src="<%=newsAgg.regimen[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">养生</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.regimen[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[1].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[1].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[1].middle_image%>&comment=<%=newsAgg.regimen[1].comment_count%>&author=<%=newsAgg.regimen[1].source%>"><%=newsAgg.regimen[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.regimen[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.regimen[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[1].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[1].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[1].middle_image%>&comment=<%=newsAgg.regimen[1].comment_count%>&author=<%=newsAgg.regimen[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.regimen[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.regimen[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.regimen[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.regimen[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[2].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[2].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[2].middle_image%>&comment=<%=newsAgg.regimen[2].comment_count%>&author=<%=newsAgg.regimen[2].source%>"><img src="<%=newsAgg.regimen[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">养生</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.regimen[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[2].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[2].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[2].middle_image%>&comment=<%=newsAgg.regimen[2].comment_count%>&author=<%=newsAgg.regimen[2].source%>"><%=newsAgg.regimen[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.regimen[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.regimen[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[2].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[2].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[2].middle_image%>&comment=<%=newsAgg.regimen[2].comment_count%>&author=<%=newsAgg.regimen[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.regimen[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.regimen[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.regimen[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.regimen[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[3].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[3].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[3].middle_image%>&comment=<%=newsAgg.regimen[3].comment_count%>&author=<%=newsAgg.regimen[3].source%>"><img src="<%=newsAgg.regimen[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">养生</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.regimen[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[3].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[3].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[3].middle_image%>&comment=<%=newsAgg.regimen[3].comment_count%>&author=<%=newsAgg.regimen[3].source%>"><%=newsAgg.regimen[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.regimen[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.regimen[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[3].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[3].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[3].middle_image%>&comment=<%=newsAgg.regimen[3].comment_count%>&author=<%=newsAgg.regimen[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 
+				<%break;case "history" :%> 
+<!-------历史---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">历史</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.history[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.history[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.history[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.history[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[0].datetime.substring(0,4)%>&date=<%=newsAgg.history[0].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[0].middle_image%>&comment=<%=newsAgg.history[0].comment_count%>&author=<%=newsAgg.history[0].source%>"><img src="<%=newsAgg.history[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">历史</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.history[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[0].datetime.substring(0,4)%>&date=<%=newsAgg.history[0].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[0].middle_image%>&comment=<%=newsAgg.history[0].comment_count%>&author=<%=newsAgg.history[0].source%>"><%=newsAgg.history[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.history[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.history[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[0].datetime.substring(0,4)%>&date=<%=newsAgg.history[0].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[0].middle_image%>&comment=<%=newsAgg.history[0].comment_count%>&author=<%=newsAgg.history[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.history[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.history[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.history[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.history[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[1].datetime.substring(0,4)%>&date=<%=newsAgg.history[1].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[1].middle_image%>&comment=<%=newsAgg.history[1].comment_count%>&author=<%=newsAgg.history[1].source%>"><img src="<%=newsAgg.history[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">历史</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.history[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[1].datetime.substring(0,4)%>&date=<%=newsAgg.history[1].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[1].middle_image%>&comment=<%=newsAgg.history[1].comment_count%>&author=<%=newsAgg.history[1].source%>"><%=newsAgg.history[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.history[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.history[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[1].datetime.substring(0,4)%>&date=<%=newsAgg.history[1].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[1].middle_image%>&comment=<%=newsAgg.history[1].comment_count%>&author=<%=newsAgg.history[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.history[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.history[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.history[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.history[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[2].datetime.substring(0,4)%>&date=<%=newsAgg.history[2].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[2].middle_image%>&comment=<%=newsAgg.history[2].comment_count%>&author=<%=newsAgg.history[2].source%>"><img src="<%=newsAgg.history[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">历史</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.history[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[2].datetime.substring(0,4)%>&date=<%=newsAgg.history[2].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[2].middle_image%>&comment=<%=newsAgg.history[2].comment_count%>&author=<%=newsAgg.history[2].source%>"><%=newsAgg.history[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.history[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.history[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[2].datetime.substring(0,4)%>&date=<%=newsAgg.history[2].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[2].middle_image%>&comment=<%=newsAgg.history[2].comment_count%>&author=<%=newsAgg.history[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.history[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.history[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.history[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.history[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[3].datetime.substring(0,4)%>&date=<%=newsAgg.history[3].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[3].middle_image%>&comment=<%=newsAgg.history[3].comment_count%>&author=<%=newsAgg.history[3].source%>"><img src="<%=newsAgg.history[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">历史</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.history[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[3].datetime.substring(0,4)%>&date=<%=newsAgg.history[3].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[3].middle_image%>&comment=<%=newsAgg.history[3].comment_count%>&author=<%=newsAgg.history[3].source%>"><%=newsAgg.history[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.history[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.history[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[3].datetime.substring(0,4)%>&date=<%=newsAgg.history[3].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[3].middle_image%>&comment=<%=newsAgg.history[3].comment_count%>&author=<%=newsAgg.history[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div>
+				<%break;case "travel" :%>
+<!-------旅行---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">旅行</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.travel[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.travel[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.travel[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.travel[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[0].datetime.substring(0,4)%>&date=<%=newsAgg.travel[0].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[0].middle_image%>&comment=<%=newsAgg.travel[0].comment_count%>&author=<%=newsAgg.travel[0].source%>"><img src="<%=newsAgg.travel[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">旅行</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.travel[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[0].datetime.substring(0,4)%>&date=<%=newsAgg.travel[0].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[0].middle_image%>&comment=<%=newsAgg.travel[0].comment_count%>&author=<%=newsAgg.travel[0].source%>"><%=newsAgg.travel[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.travel[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.travel[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[0].datetime.substring(0,4)%>&date=<%=newsAgg.travel[0].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[0].middle_image%>&comment=<%=newsAgg.travel[0].comment_count%>&author=<%=newsAgg.travel[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.travel[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.travel[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.travel[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.travel[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[1].datetime.substring(0,4)%>&date=<%=newsAgg.travel[1].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[1].middle_image%>&comment=<%=newsAgg.travel[1].comment_count%>&author=<%=newsAgg.travel[1].source%>"><img src="<%=newsAgg.travel[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">旅行</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.travel[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[1].datetime.substring(0,4)%>&date=<%=newsAgg.travel[1].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[1].middle_image%>&comment=<%=newsAgg.travel[1].comment_count%>&author=<%=newsAgg.travel[1].source%>"><%=newsAgg.travel[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.travel[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.travel[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[1].datetime.substring(0,4)%>&date=<%=newsAgg.travel[1].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[1].middle_image%>&comment=<%=newsAgg.travel[1].comment_count%>&author=<%=newsAgg.travel[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.travel[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.travel[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.travel[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.travel[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[2].datetime.substring(0,4)%>&date=<%=newsAgg.travel[2].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[2].middle_image%>&comment=<%=newsAgg.travel[2].comment_count%>&author=<%=newsAgg.travel[2].source%>"><img src="<%=newsAgg.travel[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">旅行</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.travel[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[2].datetime.substring(0,4)%>&date=<%=newsAgg.travel[2].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[2].middle_image%>&comment=<%=newsAgg.travel[2].comment_count%>&author=<%=newsAgg.travel[2].source%>"><%=newsAgg.travel[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.travel[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.travel[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[2].datetime.substring(0,4)%>&date=<%=newsAgg.travel[2].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[2].middle_image%>&comment=<%=newsAgg.travel[2].comment_count%>&author=<%=newsAgg.travel[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.travel[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.travel[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.travel[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.travel[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[3].datetime.substring(0,4)%>&date=<%=newsAgg.travel[3].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[3].middle_image%>&comment=<%=newsAgg.travel[3].comment_count%>&author=<%=newsAgg.travel[3].source%>"><img src="<%=newsAgg.travel[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">旅行</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.travel[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[3].datetime.substring(0,4)%>&date=<%=newsAgg.travel[3].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[3].middle_image%>&comment=<%=newsAgg.travel[3].comment_count%>&author=<%=newsAgg.travel[3].source%>"><%=newsAgg.travel[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.travel[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.travel[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[3].datetime.substring(0,4)%>&date=<%=newsAgg.travel[3].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[3].middle_image%>&comment=<%=newsAgg.travel[3].comment_count%>&author=<%=newsAgg.travel[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 		
+				<%break;case "game" :%>
+<!-------游戏---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">游戏</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.game[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.game[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.game[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.game[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[0].datetime.substring(0,4)%>&date=<%=newsAgg.game[0].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[0].middle_image%>&comment=<%=newsAgg.game[0].comment_count%>&author=<%=newsAgg.game[0].source%>"><img src="<%=newsAgg.game[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">游戏</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.game[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[0].datetime.substring(0,4)%>&date=<%=newsAgg.game[0].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[0].middle_image%>&comment=<%=newsAgg.game[0].comment_count%>&author=<%=newsAgg.game[0].source%>"><%=newsAgg.game[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.game[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.game[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[0].datetime.substring(0,4)%>&date=<%=newsAgg.game[0].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[0].middle_image%>&comment=<%=newsAgg.game[0].comment_count%>&author=<%=newsAgg.game[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.game[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.game[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.game[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.game[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[1].datetime.substring(0,4)%>&date=<%=newsAgg.game[1].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[1].middle_image%>&comment=<%=newsAgg.game[1].comment_count%>&author=<%=newsAgg.game[1].source%>"><img src="<%=newsAgg.game[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">游戏</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.game[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[1].datetime.substring(0,4)%>&date=<%=newsAgg.game[1].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[1].middle_image%>&comment=<%=newsAgg.game[1].comment_count%>&author=<%=newsAgg.game[1].source%>"><%=newsAgg.game[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.game[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.game[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[1].datetime.substring(0,4)%>&date=<%=newsAgg.game[1].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[1].middle_image%>&comment=<%=newsAgg.game[1].comment_count%>&author=<%=newsAgg.game[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.game[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.game[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.game[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.game[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[2].datetime.substring(0,4)%>&date=<%=newsAgg.game[2].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[2].middle_image%>&comment=<%=newsAgg.game[2].comment_count%>&author=<%=newsAgg.game[2].source%>"><img src="<%=newsAgg.game[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">游戏</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.game[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[2].datetime.substring(0,4)%>&date=<%=newsAgg.game[2].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[2].middle_image%>&comment=<%=newsAgg.game[2].comment_count%>&author=<%=newsAgg.game[2].source%>"><%=newsAgg.game[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.game[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.game[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[2].datetime.substring(0,4)%>&date=<%=newsAgg.game[2].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[2].middle_image%>&comment=<%=newsAgg.game[2].comment_count%>&author=<%=newsAgg.game[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.game[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.game[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.game[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.game[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[3].datetime.substring(0,4)%>&date=<%=newsAgg.game[3].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[3].middle_image%>&comment=<%=newsAgg.game[3].comment_count%>&author=<%=newsAgg.game[3].source%>"><img src="<%=newsAgg.game[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">游戏</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.game[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[3].datetime.substring(0,4)%>&date=<%=newsAgg.game[3].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[3].middle_image%>&comment=<%=newsAgg.game[3].comment_count%>&author=<%=newsAgg.game[3].source%>"><%=newsAgg.game[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.game[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.game[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[3].datetime.substring(0,4)%>&date=<%=newsAgg.game[3].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[3].middle_image%>&comment=<%=newsAgg.game[3].comment_count%>&author=<%=newsAgg.game[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 		
+				<%break;case "food" :%>
+<!-------美食---------------------------------------------------------------> 
+					<div class="cs-module-2">
+					 
+					<h3 class="cs-block-title">美食</h3>
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.food[0].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.food[0].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.food[0].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.food[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[0].datetime.substring(0,4)%>&date=<%=newsAgg.food[0].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[0].middle_image%>&comment=<%=newsAgg.food[0].comment_count%>&author=<%=newsAgg.food[0].source%>"><img src="<%=newsAgg.food[0].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">美食</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.food[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[0].datetime.substring(0,4)%>&date=<%=newsAgg.food[0].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[0].middle_image%>&comment=<%=newsAgg.food[0].comment_count%>&author=<%=newsAgg.food[0].source%>"><%=newsAgg.food[0].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.food[0].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.food[0].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[0].datetime.substring(0,4)%>&date=<%=newsAgg.food[0].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[0].middle_image%>&comment=<%=newsAgg.food[0].comment_count%>&author=<%=newsAgg.food[0].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					 
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.food[1].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.food[1].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.food[1].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.food[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[1].datetime.substring(0,4)%>&date=<%=newsAgg.food[1].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[1].middle_image%>&comment=<%=newsAgg.food[1].comment_count%>&author=<%=newsAgg.food[1].source%>"><img src="<%=newsAgg.food[1].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">美食</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.food[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[1].datetime.substring(0,4)%>&date=<%=newsAgg.food[1].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[1].middle_image%>&comment=<%=newsAgg.food[1].comment_count%>&author=<%=newsAgg.food[1].source%>"><%=newsAgg.food[1].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.food[1].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.food[1].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[1].datetime.substring(0,4)%>&date=<%=newsAgg.food[1].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[1].middle_image%>&comment=<%=newsAgg.food[1].comment_count%>&author=<%=newsAgg.food[1].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.food[2].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.food[2].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.food[2].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.food[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[2].datetime.substring(0,4)%>&date=<%=newsAgg.food[2].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[2].middle_image%>&comment=<%=newsAgg.food[2].comment_count%>&author=<%=newsAgg.food[2].source%>"><img src="<%=newsAgg.food[2].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">美食</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.food[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[2].datetime.substring(0,4)%>&date=<%=newsAgg.food[2].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[2].middle_image%>&comment=<%=newsAgg.food[2].comment_count%>&author=<%=newsAgg.food[2].source%>"><%=newsAgg.food[2].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.food[2].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.food[2].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[2].datetime.substring(0,4)%>&date=<%=newsAgg.food[2].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[2].middle_image%>&comment=<%=newsAgg.food[2].comment_count%>&author=<%=newsAgg.food[2].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 
+					
+					<article class="cs-post">
+					 
+					<div class="cs-post-footer">
+					<div class="cs-footer-date">
+					<div class="cs-date-year"><%=newsAgg.food[3].datetime.substring(0,4)%></div>
+					<div class="cs-date-day-month"><%=newsAgg.food[3].datetime.substring(6,11)%></div>
+					</div>
+					<div class="cs-footer-share">
+					<span>share</span>
+					<a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.weibo.com/" target="_blank"><i class="fa fa-weibo"></i></a>
+					</div>
+					<div class="cs-footer-comments" title="156 Comments">
+					<span>Comments</span>
+					<b><%=newsAgg.food[3].comment_count%></b>
+					</div>
+					</div> 
+					 
+					<div class="cs-post-container">
+					 
+					<div class="cs-post-thumbnail">
+					
+					<a href="/post?newsid=<%=newsAgg.food[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[3].datetime.substring(0,4)%>&date=<%=newsAgg.food[3].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[3].middle_image%>&comment=<%=newsAgg.food[3].comment_count%>&author=<%=newsAgg.food[3].source%>"><img src="<%=newsAgg.food[3].middle_image%>" alt="Infinity"></a>
+					</div> 
+					 
+					<div class="cs-post-inside-container">
+					 
+					<div class="cs-post-header">
+					<div class="cs-category-links">
+					<a href="blog-category.html">美食</a>
+					</div>
+					<h3><a href="/post?newsid=<%=newsAgg.food[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[3].datetime.substring(0,4)%>&date=<%=newsAgg.food[3].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[3].middle_image%>&comment=<%=newsAgg.food[3].comment_count%>&author=<%=newsAgg.food[3].source%>"><%=newsAgg.food[3].title%></a></h3>
+					</div> 
+					 
+					<div class="cs-post-content">
+					<p><%=newsAgg.food[3].abstract%></p>
+					<a href="/post?newsid=<%=newsAgg.food[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[3].datetime.substring(0,4)%>&date=<%=newsAgg.food[3].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[3].middle_image%>&comment=<%=newsAgg.food[3].comment_count%>&author=<%=newsAgg.food[3].source%>" class="read-more">查看文章</a>
+					</div> 
+					</div>
+					</div> 
+					</article> 				
+					</div> 				
+				<%break;}}%>
+			
+			</div> 
+<!-------侧边栏新闻类别---------------------------------------------------------------> 
 				<div class="cs-main-sidebar cs-sticky-sidebar">				 
 					<aside class="widget widget_cover_posts">
 					<h3 class="widget-title"><span>类别</span></h3>
 					<ul>
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.society[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.society[3].datetime.substring(0,4)%>&date=<%=newsAgg.society[3].datetime.substring(6,11)%>&catagory=society&pic=<%=newsAgg.society[3].middle_image%>&comment=<%=newsAgg.society[3].comment_count%>&author=<%=newsAgg.society[3].source%>">
 							<div>
 							<span>社会</span>
 							<h3><%=newsAgg.society[3].title%></h3>
@@ -948,7 +2611,7 @@
 							</a>
 						</li>	
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.world[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.world[3].datetime.substring(0,4)%>&date=<%=newsAgg.world[3].datetime.substring(6,11)%>&catagory=world&pic=<%=newsAgg.world[3].middle_image%>&comment=<%=newsAgg.world[3].comment_count%>&author=<%=newsAgg.world[3].source%>">
 							<div>
 							<span>国际</span>
 							<h3><%=newsAgg.world[3].title%></h3>
@@ -957,7 +2620,7 @@
 							</a>
 						</li>	
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.entertainment[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.entertainment[3].datetime.substring(0,4)%>&date=<%=newsAgg.entertainment[3].datetime.substring(6,11)%>&catagory=entertainment&pic=<%=newsAgg.entertainment[3].middle_image%>&comment=<%=newsAgg.entertainment[3].comment_count%>&author=<%=newsAgg.entertainment[3].source%>">
 							<div>
 							<span>娱乐</span>
 							<h3><%=newsAgg.entertainment[3].title%></h3>
@@ -966,7 +2629,7 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.technology[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.technology[3].datetime.substring(0,4)%>&date=<%=newsAgg.technology[3].datetime.substring(6,11)%>&catagory=technology&pic=<%=newsAgg.technology[3].middle_image%>&comment=<%=newsAgg.technology[3].comment_count%>&author=<%=newsAgg.technology[3].source%>">
 							<div>
 							<span>科技</span>
 							<h3><%=newsAgg.technology[3].title%></h3>
@@ -975,7 +2638,7 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.sport[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.sport[3].datetime.substring(0,4)%>&date=<%=newsAgg.sport[3].datetime.substring(6,11)%>&catagory=hot&pic=<%=newsAgg.sport[3].middle_image%>&comment=<%=newsAgg.sport[3].comment_count%>&author=<%=newsAgg.sport[3].source%>">
 							<div>
 							<span>体育</span>
 							<h3><%=newsAgg.sport[3].title%></h3>
@@ -984,7 +2647,7 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.car[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.car[3].datetime.substring(0,4)%>&date=<%=newsAgg.car[3].datetime.substring(6,11)%>&catagory=car&pic=<%=newsAgg.car[3].middle_image%>&comment=<%=newsAgg.car[3].comment_count%>&author=<%=newsAgg.car[3].source%>">
 							<div>
 							<span>汽车</span>
 							<h3><%=newsAgg.car[3].title%></h3>
@@ -992,8 +2655,7 @@
 							<img src="<%=newsAgg.car[3].middle_image%>" alt="Infinity">
 							</a>
 						</li>			
-						<li>
-							<a href="post-standard.html">
+						<li>							<a href="/post?newsid=<%=newsAgg.finance[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.finance[3].datetime.substring(0,4)%>&date=<%=newsAgg.finance[3].datetime.substring(6,11)%>&catagory=finance&pic=<%=newsAgg.finance[3].middle_image%>&comment=<%=newsAgg.finance[3].comment_count%>&author=<%=newsAgg.finance[3].source%>">
 							<div>
 							<span>财经</span>
 							<h3><%=newsAgg.finance[3].title%></h3>
@@ -1002,7 +2664,7 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.funny[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.funny[3].datetime.substring(0,4)%>&date=<%=newsAgg.funny[3].datetime.substring(6,11)%>&catagory=funny&pic=<%=newsAgg.funny[3].middle_image%>&comment=<%=newsAgg.funny[3].comment_count%>&author=<%=newsAgg.funny[3].source%>">
 							<div>
 							<span>搞笑</span>
 							<h3><%=newsAgg.funny[3].title%></h3>
@@ -1011,16 +2673,16 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.military[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.military[3].datetime.substring(0,4)%>&date=<%=newsAgg.military[3].datetime.substring(6,11)%>&catagory=military&pic=<%=newsAgg.military[3].middle_image%>&comment=<%=newsAgg.military[3].comment_count%>&author=<%=newsAgg.military[3].source%>">
 							<div>
 							<span>军事</span>
 							<h3><%=newsAgg.military[3].title%></h3>
 							</div>
 							<img src="<%=newsAgg.military[3].middle_image%>" alt="Infinity">
 							</a>
-						</li>			
+						</li>	
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.fashion[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[3].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[3].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[3].middle_image%>&comment=<%=newsAgg.fashion[3].comment_count%>&author=<%=newsAgg.fashion[3].source%>">
 							<div>
 							<span>时尚</span>
 							<h3><%=newsAgg.fashion[3].title%></h3>
@@ -1029,16 +2691,16 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.discovery[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.discovery[3].datetime.substring(0,4)%>&date=<%=newsAgg.discovery[3].datetime.substring(6,11)%>&catagory=discovery&pic=<%=newsAgg.discovery[3].middle_image%>&comment=<%=newsAgg.discovery[3].comment_count%>&author=<%=newsAgg.discovery[3].source%>">
 							<div>
 							<span>探索</span>
 							<h3><%=newsAgg.discovery[3].title%></h3>
 							</div>
 							<img src="<%=newsAgg.discovery[3].middle_image%>" alt="Infinity">
 							</a>
-						</li>			
+						</li>	
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.regimen[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[3].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[3].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[3].middle_image%>&comment=<%=newsAgg.regimen[3].comment_count%>&author=<%=newsAgg.regimen[3].source%>">
 							<div>
 							<span>养生</span>
 							<h3><%=newsAgg.regimen[3].title%></h3>
@@ -1046,8 +2708,8 @@
 							<img src="<%=newsAgg.regimen[3].middle_image%>" alt="Infinity">
 							</a>
 						</li>			
-						<li>
-							<a href="post-standard.html">
+						<li>	
+							<a href="/post?newsid=<%=newsAgg.history[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.history[3].datetime.substring(0,4)%>&date=<%=newsAgg.history[3].datetime.substring(6,11)%>&catagory=history&pic=<%=newsAgg.history[3].middle_image%>&comment=<%=newsAgg.history[3].comment_count%>&author=<%=newsAgg.history[3].source%>">
 							<div>
 							<span>历史</span>
 							<h3><%=newsAgg.history[3].title%></h3>
@@ -1056,7 +2718,7 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.travel[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[3].datetime.substring(0,4)%>&date=<%=newsAgg.travel[3].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[3].middle_image%>&comment=<%=newsAgg.travel[3].comment_count%>&author=<%=newsAgg.travel[3].source%>">
 							<div>
 							<span>旅行</span>
 							<h3><%=newsAgg.travel[3].title%></h3>
@@ -1065,16 +2727,16 @@
 							</a>
 						</li>			
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.game[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[3].datetime.substring(0,4)%>&date=<%=newsAgg.game[3].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[3].middle_image%>&comment=<%=newsAgg.game[3].comment_count%>&author=<%=newsAgg.game[3].source%>">
 							<div>
 							<span>游戏</span>
 							<h3><%=newsAgg.game[3].title%></h3>
 							</div>
 							<img src="<%=newsAgg.game[3].middle_image%>" alt="Infinity">
 							</a>
-						</li>			
+						</li>						
 						<li>
-							<a href="post-standard.html">
+							<a href="/post?newsid=<%=newsAgg.food[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[3].datetime.substring(0,4)%>&date=<%=newsAgg.food[3].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[3].middle_image%>&comment=<%=newsAgg.food[3].comment_count%>&author=<%=newsAgg.food[3].source%>">
 							<div>
 							<span>美食</span>
 							<h3><%=newsAgg.food[3].title%></h3>
@@ -1090,75 +2752,149 @@
 			<footer id="cs-footer">
 			<div class="cs-container">
 			<div class="cs-row">
-			<div class="cs-col cs-col-4-of-12">
-			 
+<!-------社交网络---------------------------------------------------------------> 		 	
+			<div class="cs-col cs-col-4-of-12">	 
 			<aside class="widget">
-			<h3 class="widget-title"><span>Social network</span></h3>
-			<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.</p>
-			<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+			<h3 class="widget-title"><span>社交网络</span></h3>
+			<p>想要发现些新鲜的？</p>
 			<div class="cs-widget-social">
-			<ul>
-			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-			<li><a href="#"><i class="fa fa-weibo"></i></a></li>
-			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-			</ul>
+				<ul>
+					<li><a href="/"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="/"><i class="fa fa-instagram"></i></a></li>
+					<li><a href="/"><i class="fa fa-weibo"></i></a></li>
+					<li><a href="/"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="/"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="/"><i class="fa fa-tumblr"></i></a></li>
+					<li><a href="/"><i class="fa fa-weixin"></i></a></li>
+					<li><a href="/"><i class="fa fa-vk"></i></a></li>
+					<li><a href="/"><i class="fa fa-youtube"></i></a></li>
+					<li><a href="/"><i class="fa fa-vimeo"></i></a></li>
+					<li><a href="/"><i class="fa fa-spotify"></i></a></li>
+					<li><a href="/"><i class="fa fa-skype"></i></a></li>
+					<li><a href="/"><i class="fa fa-whatsapp"></i></a></li>
+					<li><a href="/"><i class="fa fa-wikipedia-w"></i></a></li>
+					<li><a href="/"><i class="fa fa-windows"></i></a></li>
+					<li><a href="/"><i class="fa fa-wordpress"></i></a></li>
+					<li><a href="/"><i class="fa fa-xing"></i></a></li>
+					<li><a href="/"><i class="fa fa-yahoo"></i></a></li>
+					<li><a href="/"><i class="fa fa-yelp"></i></a></li>
+					<li><a href="/"><i class="fa fa-youtube"></i></a></li>
+					<li><a href="/"><i class="fa fa-tripadvisor"></i></a></li>
+					<li><a href="/"><i class="fa fa-safari"></i></a></li>
+					<li><a href="/"><i class="fa fa-renren"></i></a></li>
+					<li><a href="/"><i class="fa fa-qq"></i></a></li>
+				</ul>
 			</div>
 			</aside> 
 			</div>
+<!-------类别---------------------------------------------------------------> 		 				
 			<div class="cs-col cs-col-4-of-12">
-			 
 			<aside class="widget widget_custom_categories">
-			<h3 class="widget-title"><span>Categories</span></h3>
+			<h3 class="widget-title"><span>类别</span></h3>
 			<ul>
-			<li><a href="blog-category.html">Fashion</a><span>78</span></li>
-			<li><a href="blog-category.html">Entertainment</a><span>340</span></li>
-			<li><a href="blog-category.html">Music</a><span>14</span></li>
-			<li><a href="blog-category.html">Design</a><span>65</span></li>
-			<li><a href="blog-category.html">Videogames</a><span>998</span></li>
-			<li><a href="blog-category.html">Nature</a><span>12</span></li>
+			<li><a href="blog-category.html">社会</a><span></span></li>
+			<li><a href="blog-category.html">国际</a><span></span></li>
+			<li><a href="blog-category.html">科技</a><span></span></li>
+			<li><a href="blog-category.html">体育</a><span></span></li>
+			<li><a href="blog-category.html">汽车</a><span></span></li>
+			<li><a href="blog-category.html">财经</a><span></span></li>
+			<li><a href="blog-category.html">搞笑</a><span></span></li>
+			<li><a href="blog-category.html">军事</a><span></span></li>
+			<li><a href="blog-category.html">时尚</a><span></span></li>
+			<li><a href="blog-category.html">探索</a><span></span></li>
+			<li><a href="blog-category.html">养生</a><span></span></li>
+			<li><a href="blog-category.html">历史</a><span></span></li>
+			<li><a href="blog-category.html">旅行</a><span></span></li>
+			<li><a href="blog-category.html">游戏</a><span></span></li>
+			<li><a href="blog-category.html">美食</a><span></span></li>
 			</ul>
 			</aside> 
 			</div>
+<!-------放松一下---------------------------------------------------------------> 		 	
 			<div class="cs-col cs-col-4-of-12">
 			 
-			<aside class="widget widget_custom_recent_posts">
-			<h3 class="widget-title"><span>Recent posts</span></h3>
-			 
-			<article class="cs-post">
-			 
-			<div class="cs-post-thumbnail">
-			<a href="post-standard.html"><img src="photos/19.jpg" alt="Infinity"></a>
-			</div> 
-			 
-			<div class="cs-post-header">
-			<div class="cs-category-links">
-			<a href="blog-category.html">Entertainment</a>
+				<aside class="widget widget_custom_recent_posts">
+					<h3 class="widget-title"><span>放松一下</span></h3>					 
+					<article class="cs-post">			 
+						<div class="cs-post-thumbnail">
+							<a href="/post?newsid=<%=newsAgg.game[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[3].datetime.substring(0,4)%>&date=<%=newsAgg.game[3].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[3].middle_image%>&comment=<%=newsAgg.game[3].comment_count%>&author=<%=newsAgg.game[3].source%>">
+								<img src="<%=newsAgg.game[3].middle_image%>" alt="Infinity">
+							</a>
+						</div> 			 
+						<div class="cs-post-header">
+							<div class="cs-category-links">
+								<a href="blog-category.html">游戏</a>
+							</div>
+							<h3>
+								<a href="/post?newsid=<%=newsAgg.game[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.game[3].datetime.substring(0,4)%>&date=<%=newsAgg.game[3].datetime.substring(6,11)%>&catagory=game&pic=<%=newsAgg.game[3].middle_image%>&comment=<%=newsAgg.game[3].comment_count%>&author=<%=newsAgg.game[3].source%>"><%=newsAgg.game[3].title%></a>
+							</h3>
+						</div> 
+					</article> 			 
+					<article class="cs-post">			 
+						<div class="cs-post-thumbnail">
+							<a href="/post?newsid=<%=newsAgg.food[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[3].datetime.substring(0,4)%>&date=<%=newsAgg.food[3].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[3].middle_image%>&comment=<%=newsAgg.food[3].comment_count%>&author=<%=newsAgg.food[3].source%>">
+								<img src="<%=newsAgg.food[3].middle_image%>" alt="Infinity">
+							</a>
+						</div> 			 
+						<div class="cs-post-header">
+							<div class="cs-category-links">
+								<a href="blog-category.html">美食</a>
+							</div>
+							<h3>
+								<a href="/post?newsid=<%=newsAgg.food[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.food[3].datetime.substring(0,4)%>&date=<%=newsAgg.food[3].datetime.substring(6,11)%>&catagory=food&pic=<%=newsAgg.food[3].middle_image%>&comment=<%=newsAgg.food[3].comment_count%>&author=<%=newsAgg.food[3].source%>"><%=newsAgg.food[3].title%></a>
+							</h3>
+						</div> 
+					</article> 		 
+					<article class="cs-post">			 
+						<div class="cs-post-thumbnail">
+							<a href="/post?newsid=<%=newsAgg.fashion[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[3].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[3].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[3].middle_image%>&comment=<%=newsAgg.fashion[3].comment_count%>&author=<%=newsAgg.fashion[3].source%>">
+								<img src="<%=newsAgg.fashion[3].middle_image%>" alt="Infinity">
+							</a>
+						</div> 			 
+						<div class="cs-post-header">
+							<div class="cs-category-links">
+								<a href="blog-category.html">时尚</a>
+							</div>
+							<h3>
+								<a href="/post?newsid=<%=newsAgg.fashion[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.fashion[3].datetime.substring(0,4)%>&date=<%=newsAgg.fashion[3].datetime.substring(6,11)%>&catagory=fashion&pic=<%=newsAgg.fashion[3].middle_image%>&comment=<%=newsAgg.fashion[3].comment_count%>&author=<%=newsAgg.fashion[3].source%>"><%=newsAgg.fashion[3].title%></a>
+							</h3>
+						</div> 
+					</article> 	 
+					<article class="cs-post">			 
+						<div class="cs-post-thumbnail">
+							<a href="/post?newsid=<%=newsAgg.travel[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[3].datetime.substring(0,4)%>&date=<%=newsAgg.travel[3].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[3].middle_image%>&comment=<%=newsAgg.travel[3].comment_count%>&author=<%=newsAgg.travel[3].source%>">
+								<img src="<%=newsAgg.travel[3].middle_image%>" alt="Infinity">
+							</a>
+						</div> 			 
+						<div class="cs-post-header">
+							<div class="cs-category-links">
+								<a href="blog-category.html">旅行</a>
+							</div>
+							<h3>
+								<a href="/post?newsid=<%=newsAgg.travel[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.travel[3].datetime.substring(0,4)%>&date=<%=newsAgg.travel[3].datetime.substring(6,11)%>&catagory=travel&pic=<%=newsAgg.travel[3].middle_image%>&comment=<%=newsAgg.travel[3].comment_count%>&author=<%=newsAgg.travel[3].source%>"><%=newsAgg.travel[3].title%></a>
+							</h3>
+						</div> 
+					</article>  
+					<article class="cs-post">			 
+						<div class="cs-post-thumbnail">
+							<a href="/post?newsid=<%=newsAgg.regimen[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[3].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[3].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[3].middle_image%>&comment=<%=newsAgg.regimen[3].comment_count%>&author=<%=newsAgg.regimen[3].source%>">
+								<img src="<%=newsAgg.regimen[3].middle_image%>" alt="Infinity">
+							</a>
+						</div> 			 
+						<div class="cs-post-header">
+							<div class="cs-category-links">
+								<a href="blog-category.html">养生</a>
+							</div>
+							<h3>
+								<a href="/post?newsid=<%=newsAgg.regimen[3].item_seo_url.substring(6,25)%>&year=<%=newsAgg.regimen[3].datetime.substring(0,4)%>&date=<%=newsAgg.regimen[3].datetime.substring(6,11)%>&catagory=regimen&pic=<%=newsAgg.regimen[3].middle_image%>&comment=<%=newsAgg.regimen[3].comment_count%>&author=<%=newsAgg.regimen[3].source%>"><%=newsAgg.regimen[3].title%></a>
+							</h3>
+						</div> 
+					</article> 
+				</aside> 
 			</div>
-			<h3><a href="post-standard.html">France Wants to Continue State of Emergency to Cover Euro 2016</a></h3>
-			</div> 
-			</article> 
-			 
-			<article class="cs-post">
-			 
-			<div class="cs-post-thumbnail">
-			<a href="post-standard.html"><img src="photos/18.jpg" alt="Infinity"></a>
-			</div> 
-			 
-			<div class="cs-post-header">
-			<div class="cs-category-links">
-			<a href="blog-category.html">Music</a>
-			</div>
-			<h3><a href="post-standard.html">Sergio Aguero: City Striker Joins Premier League Centurions</a></h3>
-			</div> 
-			</article> 
-			</aside> 
-			</div>
-			</div>
-			 
+			</div>			 
 			<div class="cs-copyright">
-			Copyright &copy; 2016. Made by <a href="http://jqueryfuns.com" target="_blank">Codeo Studio</a> :)
+				Copyright &copy; 2017. Made by <a href="https://github.com/zzhyzzh" target="_blank">赵子晗</a> :)
 			</div> 
 			</div>
 			</footer> 

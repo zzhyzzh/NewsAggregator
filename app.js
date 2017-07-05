@@ -10,9 +10,12 @@ var ejs = require('ejs');
 
 
 var index = require('./routes/index');
-var login = require('./routes/login');
+var personal = require('./routes/personal');
+var personalSuccess = require('./routes/personalSuccess');
 var users = require('./routes/users');
 var news = require('./routes/news');
+var post = require('./routes/post');
+var logout = require('./routes/logout');
 
 var app = express();
 
@@ -39,8 +42,11 @@ app.use(session({
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/login',login);
 app.use('/news',news);
+app.use('/personal',personal);
+app.use('/personalSuccess',personalSuccess);
+app.use('/post',post);
+app.use('/logout',logout);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
